@@ -34,7 +34,17 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:18px;paddi
 .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600;margin:0}
 .nav-links a:hover{color:var(--burgundy-2)}
 .hero{background:linear-gradient(125deg,var(--burgundy),var(--burgundy-2));color:var(--white);padding:68px 0}
-.hero-grid{display:grid;grid-template-columns:1.25fr .8fr;gap:34px;align-items:center}
+.hero-banner {
+  background: var(--burgundy);
+  padding: 20px 0;
+}
+.banner-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+}
+  .hero-grid{display:grid;grid-template-columns:1.25fr .8fr;gap:34px;align-items:center}
 .eyebrow{color:#F0A4BA;font-weight:800;text-transform:uppercase;letter-spacing:1.8px;font-size:12px}
 h1{font-size:clamp(36px,5.2vw,58px);line-height:1.08;letter-spacing:-.7px;margin:14px 0 18px}
 .hero p{font-size:17px;color:#F5E9ED;max-width:660px}
@@ -125,28 +135,16 @@ footer a{color:var(--burgundy-2)}
   </nav>
 </header>
 <main id="top">
-  <section class="hero">
-    <div class="wrap hero-grid">
-      <div>
-        <div class="eyebrow">Enterprise Backup &amp; Recovery</div>
-        <h1>Know your backups work before you need them.</h1>
-        <p>Practical, evidence-led backup consulting to help IT teams identify protection gaps, troubleshoot technical issues, improve restore readiness and document clear next steps.</p>
-        <a class="btn primary" href="mailto:restoreready.support@gmail.com?subject=Backup%20and%20Recovery%20Consulting%20Enquiry">Discuss your requirements ↗</a>
-        <a class="btn secondary" href="#services">Explore services</a>
-        <p class="hero-note">Independent consulting • Clearly scoped engagements • Practical recommendations</p>
-      </div>
-      <aside class="panel">
-        <h2>How we help</h2>
-        <ul>
-          <li>Review backup health and recovery readiness</li>
-          <li>Investigate recurring backup and infrastructure issues</li>
-          <li>Prioritise risks and practical remediation</li>
-          <li>Document restore tests, runbooks and improvement actions</li>
-        </ul>
-      </aside>
-    </div>
-  </section>
 
+<section class="hero-banner">
+  <div class="wrap">
+    <img
+      src="restoreready-banner.png"
+      alt="RestoreReady Backup and Recovery Consulting — Prepare, Protect, Recover"
+      class="banner-image"
+    >
+  </div>
+</section>
   <section id="services">
     <div class="wrap">
       <div class="section-top">
