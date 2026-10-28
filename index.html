@@ -4,7 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="RestoreReady provides independent backup and recovery consulting, immutable backup reviews, backup infrastructure migrations, troubleshooting, restore testing, disaster recovery readiness and remediation guidance.">
+<meta name="description" content="RestoreReady provides independent backup and recovery consulting, immutable backup reviews, infrastructure migrations, workload protection, troubleshooting, restore testing and disaster recovery readiness.">
 <meta name="theme-color" content="#4A1022">
 <meta name="robots" content="index, follow">
 <title>RestoreReady | Backup &amp; Recovery Consulting</title>
@@ -21,8 +21,14 @@
   --line: #E5DFE2;
   --white: #FFFFFF;
 }
+
 * { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 20px;
+}
+
 body {
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
@@ -31,16 +37,24 @@ body {
   background: var(--bg);
   overflow-wrap: break-word;
 }
+
 img { max-width: 100%; }
 a { color: var(--burgundy-2); }
-a:focus-visible, button:focus-visible {
+
+a:focus-visible,
+button:focus-visible {
   outline: 3px solid var(--rose);
   outline-offset: 3px;
 }
-.wrap { width: min(1100px, 92%); margin-inline: auto; }
+
+.wrap {
+  width: min(1100px, 92%);
+  margin-inline: auto;
+}
 
 /* Header and navigation */
 header { background: var(--bg); }
+
 nav {
   display: flex;
   justify-content: space-between;
@@ -49,6 +63,7 @@ nav {
   padding: 18px 0;
   flex-wrap: wrap;
 }
+
 .brand {
   font-size: 23px;
   font-weight: 800;
@@ -57,7 +72,9 @@ nav {
   line-height: 1.2;
   white-space: nowrap;
 }
+
 .brand span { color: var(--rose); }
+
 .brand small {
   display: block;
   font-size: 12px;
@@ -66,18 +83,21 @@ nav {
   margin-top: 5px;
   color: var(--burgundy-2);
 }
+
 .nav-links {
   display: flex;
   gap: 18px;
   flex-wrap: wrap;
   align-items: center;
 }
+
 .nav-links a {
   color: var(--muted);
   text-decoration: none;
   font-size: 14px;
   font-weight: 600;
 }
+
 .nav-links a:hover { color: var(--burgundy-2); }
 
 /* Homepage banner */
@@ -85,6 +105,7 @@ nav {
   background: var(--burgundy);
   padding: 20px 0;
 }
+
 .banner-image {
   display: block;
   width: 100%;
@@ -103,33 +124,41 @@ nav {
   margin: 8px 8px 0 0;
   transition: transform .15s ease, background .15s ease;
 }
+
 .btn:hover { transform: translateY(-1px); }
+
 .primary {
   background: var(--rose);
   color: #35101D;
   border: 1px solid var(--rose);
 }
+
 .primary:hover { background: #F0A4BA; }
 
 /* General sections */
 section { padding: 54px 0; }
 .white { background: var(--white); }
+
 h2 {
   color: var(--burgundy);
   font-size: clamp(27px, 3.8vw, 36px);
   line-height: 1.2;
   margin: 0 0 14px;
 }
+
 h3 { line-height: 1.35; }
+
 .intro {
   color: var(--muted);
   max-width: 760px;
   margin-top: 0;
 }
+
 .intro-cta {
   margin-top: 18px;
   margin-bottom: 8px;
 }
+
 .section-top {
   display: flex;
   justify-content: space-between;
@@ -145,6 +174,7 @@ h3 { line-height: 1.35; }
   gap: 18px;
   margin-top: 28px;
 }
+
 .card {
   background: var(--white);
   border: 1px solid var(--line);
@@ -152,16 +182,19 @@ h3 { line-height: 1.35; }
   padding: 22px;
   box-shadow: 0 3px 12px #4A102208;
 }
+
 .card h3 {
   color: var(--burgundy);
   font-size: 18px;
   margin: 8px 0;
 }
+
 .card p {
   color: var(--muted);
   margin: 0;
   font-size: 15px;
 }
+
 .symbol {
   font-size: 25px;
   color: var(--burgundy-2);
@@ -181,51 +214,72 @@ h3 { line-height: 1.35; }
   gap: 18px;
   flex-wrap: wrap;
 }
-.report-strip h3 { margin: 0 0 4px; color: var(--burgundy); }
-.report-strip p { margin: 0; color: #55464B; font-size: 14px; }
 
-/* Process */
+.report-strip h3 {
+  margin: 0 0 4px;
+  color: var(--burgundy);
+}
+
+.report-strip p {
+  margin: 0;
+  color: #55464B;
+  font-size: 14px;
+}
+
+/* Four-step process */
 .steps {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 15px;
   margin-top: 26px;
 }
+
 .step {
   border-top: 3px solid var(--rose);
   padding: 18px;
   background: #FAF7F8;
   border-radius: 0 0 10px 10px;
 }
+
 .step h3 {
   font-size: 17px;
   color: var(--burgundy);
   margin: 4px 0 8px;
 }
-.step p { color: var(--muted); font-size: 14px; margin: 0; }
 
-/* About */
+.step p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
+
+/* About and technical focus */
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 36px;
   align-items: start;
 }
+
 .about-panel {
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 14px;
   padding: 24px;
 }
+
 .about-panel p { color: var(--muted); }
+
 ul.clean { padding-left: 20px; }
 ul.clean li { margin: 8px 0; }
+
 .pill-list {
   display: flex;
   gap: 8px;
   flex-wrap: wrap;
   margin-top: 16px;
 }
+
 .pill {
   background: var(--rose-light);
   border: 1px solid #EBC5D1;
@@ -243,18 +297,25 @@ ul.clean li { margin: 8px 0; }
   gap: 15px;
   margin-top: 24px;
 }
+
 .faq {
   background: var(--white);
   border: 1px solid var(--line);
   border-radius: 12px;
   padding: 20px;
 }
+
 .faq h3 {
   color: var(--burgundy);
   font-size: 17px;
   margin: 0 0 8px;
 }
-.faq p { color: var(--muted); font-size: 14px; margin: 0; }
+
+.faq p {
+  color: var(--muted);
+  font-size: 14px;
+  margin: 0;
+}
 
 /* Contact */
 .contact {
@@ -263,43 +324,65 @@ ul.clean li { margin: 8px 0; }
   padding: 32px;
   border-radius: 16px;
 }
+
 .contact h2 { color: var(--white); }
 .contact p { color: #F5E9ED; }
+
 .contact a:not(.btn) {
   color: #F0A4BA;
   overflow-wrap: anywhere;
 }
+
 .contact .btn.primary { color: #35101D; }
 .contact-meta { font-size: 14px; }
 
 /* Footer */
-footer { padding: 24px 0; color: var(--muted); font-size: 13px; }
+footer {
+  padding: 24px 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
 .footer-inner {
   display: flex;
   justify-content: space-between;
   gap: 12px;
   flex-wrap: wrap;
 }
+
 footer a { color: var(--burgundy-2); }
 
-/* Tablet */
+/* Tablet layout */
 @media (max-width: 800px) {
-  .split { grid-template-columns: 1fr; gap: 24px; }
-  .cards { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .split {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+
+  .cards {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   section { padding: 42px 0; }
 }
 
-/* Mobile */
+/* Phone layout */
 @media (max-width: 560px) {
   .wrap { width: 90%; }
+
   nav {
     align-items: flex-start;
     padding: 15px 0 12px;
     gap: 12px;
   }
+
   .brand { font-size: 22px; }
   .brand small { font-size: 12px; }
+
   .nav-links {
     width: 100%;
     gap: 10px 14px;
@@ -307,36 +390,60 @@ footer a { color: var(--burgundy-2); }
     border-top: 1px solid var(--line);
     padding-top: 10px;
   }
+
   .nav-links a { font-size: 13px; }
   .hero-banner { padding: 14px 0; }
   .banner-image { border-radius: 8px; }
   section { padding: 30px 0; }
   h2 { font-size: 28px; }
   .intro { font-size: 15px; }
-  .cards, .steps, .faq-list { grid-template-columns: 1fr; }
-  .cards { gap: 14px; margin-top: 20px; }
+
+  .cards,
+  .steps,
+  .faq-list {
+    grid-template-columns: 1fr;
+  }
+
+  .cards {
+    gap: 14px;
+    margin-top: 20px;
+  }
+
   .card { padding: 20px; }
   .card h3 { font-size: 18px; }
   .card p { font-size: 15px; }
-  .steps { gap: 14px; margin-top: 20px; }
+
+  .steps {
+    gap: 14px;
+    margin-top: 20px;
+  }
+
   .step { padding: 16px; }
   .report-strip { padding: 18px; gap: 12px; }
+
   .report-strip .btn {
     width: 100%;
     text-align: center;
     margin-right: 0;
   }
+
   .about-panel { padding: 20px; }
   .faq-list { gap: 12px; }
   .faq { padding: 18px; }
   .contact { padding: 24px 20px; }
+
   .contact .btn {
     width: 100%;
     text-align: center;
     margin-right: 0;
   }
+
   footer { padding: 20px 0; }
-  .footer-inner { flex-direction: column; gap: 8px; }
+
+  .footer-inner {
+    flex-direction: column;
+    gap: 8px;
+  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -345,7 +452,6 @@ footer a { color: var(--burgundy-2); }
 }
 </style>
 </head>
-
 <body>
 <header>
   <nav class="wrap" aria-label="Main navigation">
@@ -368,13 +474,12 @@ footer a { color: var(--burgundy-2); }
     <div class="wrap">
       <img
         src="restoreready-banner.png"
-        alt="RestoreReady Backup and Recovery Consulting — Prepare, Protect, Recover. Backup assessments, troubleshooting, restore testing and remediation guidance."
+        alt="RestoreReady Backup and Recovery Consulting — Prepare, Protect, Recover."
         class="banner-image"
         fetchpriority="high"
       >
     </div>
   </section>
-
   <section id="services">
     <div class="wrap">
       <div class="section-top">
@@ -388,7 +493,7 @@ footer a { color: var(--burgundy-2); }
           <div class="intro-cta">
             <a
               class="btn primary"
-              href="mailto:restoreready.support@gmail.com?subject=Backup%20and%20Recovery%20Consulting%20Enquiry&amp;body=Hello%20RestoreReady%2C%0A%0ATechnology%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you."
+              href="mailto:restoreready.support@gmail.com?subject=Backup%20and%20Recovery%20Consulting%20Enquiry&amp;body=Hello%20RestoreReady%2C%0A%0AWorkload%20or%20environment%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you."
             >Discuss Your Backup Challenges ↗</a>
           </div>
         </div>
@@ -422,7 +527,7 @@ footer a { color: var(--burgundy-2); }
         <article class="card">
           <div class="symbol" aria-hidden="true">☁</div>
           <h3>Cloud &amp; Enterprise Backup</h3>
-          <p>Guidance for on-premises, cloud and hybrid environments, virtual machines, Windows and Linux infrastructure, and enterprise workloads.</p>
+          <p>Guidance for on-premises, cloud and hybrid environments, virtual machines, physical servers, endpoints and enterprise workloads.</p>
         </article>
 
         <article class="card">
@@ -492,36 +597,49 @@ footer a { color: var(--burgundy-2); }
         <h2>Experience focused on recovery outcomes</h2>
         <p>RestoreReady is an independent backup and recovery consulting brand focused on helping IT teams understand risks, resolve technical challenges and make recovery plans more actionable.</p>
         <p>Our approach is practical: review the available evidence, explain why an issue matters, and document what to do next. Engagements can be a one-time assessment, a defined troubleshooting assignment or ongoing advisory support.</p>
-        <p>With more than 15 years of experience in backup and recovery environments, the focus includes day-to-day operational health as well as recovery validation, infrastructure transitions and improvement planning.</p>
+        <p>With more than 15 years of experience in backup and recovery environments, the focus includes day-to-day operational health, recovery validation, infrastructure transitions and improvement planning.</p>
       </div>
 
       <div class="about-panel">
         <h2>Areas of technical focus</h2>
         <ul class="clean">
-          <li>Backup policy, job health and retention reviews</li>
-          <li>Immutable backup configuration and ransomware resilience reviews</li>
-          <li>Backup infrastructure and platform migrations</li>
-          <li>Media agent, storage and cloud migration planning</li>
+          <li>Virtual machine backup and recovery</li>
+          <li>Physical server and operating system protection</li>
+          <li>Database backup, transaction log protection and recovery</li>
+          <li>NAS devices, network shares and file server backups</li>
+          <li>File system protection and granular file-level restores</li>
+          <li>Endpoint backup coverage for laptops, desktops and mobile devices</li>
+          <li>Application-aware backup and recovery considerations</li>
+          <li>Cloud and hybrid workload protection</li>
+          <li>Kubernetes and container workload protection</li>
+          <li>Immutable backups and ransomware resilience</li>
+          <li>Backup infrastructure, storage and platform migrations</li>
           <li>Backup architecture, capacity and performance reviews</li>
-          <li>Restore validation and BCP/DR readiness</li>
-          <li>Virtualisation and enterprise backup environments</li>
-          <li>Windows and Linux infrastructure</li>
-          <li>Runbooks, remediation plans and operational guidance</li>
+          <li>Restore testing, business continuity and disaster recovery readiness</li>
+          <li>Retention, backup policy and workload coverage assessments</li>
+          <li>Remediation documentation, runbooks and operational guidance</li>
         </ul>
 
-        <div class="pill-list" aria-label="Areas of expertise">
-          <span class="pill">Backup &amp; Recovery</span>
+        <div class="pill-list" aria-label="Backup workload coverage">
+          <span class="pill">Virtual Machines</span>
+          <span class="pill">Physical Servers</span>
+          <span class="pill">Databases</span>
+          <span class="pill">NAS &amp; File Shares</span>
+          <span class="pill">File Systems</span>
+          <span class="pill">Endpoint Devices</span>
+          <span class="pill">Laptops &amp; Desktops</span>
+          <span class="pill">Mobile Devices</span>
+          <span class="pill">Cloud Workloads</span>
+          <span class="pill">Kubernetes &amp; Containers</span>
+          <span class="pill">Applications</span>
+          <span class="pill">Enterprise Storage</span>
           <span class="pill">Immutable Backups</span>
           <span class="pill">Migrations</span>
-          <span class="pill">VMware</span>
-          <span class="pill">Hyper-V</span>
-          <span class="pill">Cloud &amp; Hybrid</span>
-          <span class="pill">Windows &amp; Linux</span>
+          <span class="pill">Disaster Recovery</span>
         </div>
       </div>
     </div>
   </section>
-
   <section class="white" id="faq">
     <div class="wrap">
       <h2>Frequently asked questions</h2>
@@ -531,18 +649,22 @@ footer a { color: var(--burgundy-2); }
           <h3>Do you work remotely?</h3>
           <p>Remote consulting can be considered where the scope, access method, security requirements and working arrangements are agreed in advance.</p>
         </article>
+
         <article class="faq">
           <h3>Can you help with an existing backup issue?</h3>
-          <p>Yes. Share a high-level description of the symptoms, impact and relevant technology. The next step is to confirm scope and whether the issue fits the available expertise.</p>
+          <p>Share a high-level description of the symptoms, impact and workload. The next step is to confirm the scope and whether the issue fits the available expertise.</p>
         </article>
+
         <article class="faq">
           <h3>Can you help with migrations and immutable backups?</h3>
           <p>These can be considered as defined-scope advisory engagements, subject to the environment, requirements, access and agreed deliverables.</p>
         </article>
+
         <article class="faq">
           <h3>What will I receive?</h3>
           <p>Deliverables depend on the agreed scope and may include findings, prioritised recommendations, troubleshooting notes, a remediation plan or recovery-validation checklist.</p>
         </article>
+
         <article class="faq">
           <h3>How do we get started?</h3>
           <p>Email a short summary of your requirements. Please do not include passwords, credentials, production secrets or confidential data in your first message.</p>
@@ -555,12 +677,12 @@ footer a { color: var(--burgundy-2); }
     <div class="wrap contact">
       <div class="eyebrow">Start a conversation</div>
       <h2>Have a backup or recovery challenge?</h2>
-      <p>Tell us which technology you use, what problem or goal you have, and the outcome you need. We can discuss whether a scoped assessment or advisory engagement is suitable.</p>
+      <p>Tell us which workload or environment you use, what problem or goal you have, and the outcome you need. We can discuss whether a scoped assessment or advisory engagement is suitable.</p>
       <p>
         <strong>Email:</strong>
         <a href="mailto:restoreready.support@gmail.com">restoreready.support@gmail.com</a>
       </p>
-      <a class="btn primary" href="mailto:restoreready.support@gmail.com?subject=Backup%20and%20Recovery%20Consulting%20Enquiry&amp;body=Hello%20RestoreReady%2C%0A%0ATechnology%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you.">Discuss Your Backup Challenges ↗</a>
+      <a class="btn primary" href="mailto:restoreready.support@gmail.com?subject=Backup%20and%20Recovery%20Consulting%20Enquiry&amp;body=Hello%20RestoreReady%2C%0A%0AWorkload%20or%20environment%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you.">Discuss Your Backup Challenges ↗</a>
       <p class="contact-meta">Please share only high-level information initially. Do not email credentials, passwords, tokens or sensitive production data.</p>
     </div>
   </section>
@@ -569,8 +691,13 @@ footer a { color: var(--burgundy-2); }
 <footer>
   <div class="wrap footer-inner">
     <span>© 2026 RestoreReady Backup &amp; Recovery Consulting</span>
-    <span><a href="sample-assessment.html">Sample assessment</a> · <a href="#top">Back to top ↑</a></span>
+    <span>
+      <a href="sample-assessment.html">Sample assessment</a>
+      ·
+      <a href="#top">Back to top ↑</a>
+    </span>
   </div>
 </footer>
+
 </body>
 </html>
