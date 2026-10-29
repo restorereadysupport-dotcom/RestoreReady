@@ -39,7 +39,6 @@ body {
 }
 
 img { max-width: 100%; }
-
 a { color: var(--burgundy-2); }
 
 a:focus-visible,
@@ -53,7 +52,6 @@ button:focus-visible {
   margin-inline: auto;
 }
 
-/* Header and navigation */
 header { background: var(--bg); }
 
 nav {
@@ -101,7 +99,6 @@ nav {
 
 .nav-links a:hover { color: var(--burgundy-2); }
 
-/* Banner */
 .hero-banner {
   background: var(--burgundy);
   padding: 20px 0;
@@ -114,7 +111,6 @@ nav {
   border-radius: 10px;
 }
 
-/* Buttons */
 .btn {
   display: inline-block;
   padding: 12px 17px;
@@ -136,7 +132,6 @@ nav {
 
 .primary:hover { background: #F0A4BA; }
 
-/* Sections */
 section { padding: 54px 0; }
 .white { background: var(--white); }
 
@@ -168,7 +163,6 @@ h3 { line-height: 1.35; }
   flex-wrap: wrap;
 }
 
-/* Service cards */
 .cards {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -202,7 +196,6 @@ h3 { line-height: 1.35; }
   line-height: 1.2;
 }
 
-/* Sample assessment */
 .report-strip {
   margin-top: 28px;
   padding: 22px 24px;
@@ -227,7 +220,6 @@ h3 { line-height: 1.35; }
   font-size: 14px;
 }
 
-/* Process */
 .steps {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -254,7 +246,6 @@ h3 { line-height: 1.35; }
   margin: 0;
 }
 
-/* About and technical focus */
 .split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -291,7 +282,6 @@ ul.clean li { margin: 8px 0; }
   font-weight: 700;
 }
 
-/* FAQs */
 .faq-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -318,7 +308,6 @@ ul.clean li { margin: 8px 0; }
   margin: 0;
 }
 
-/* Contact */
 .contact {
   background: var(--burgundy);
   color: var(--white);
@@ -337,7 +326,6 @@ ul.clean li { margin: 8px 0; }
 .contact .btn.primary { color: #35101D; }
 .contact-meta { font-size: 14px; }
 
-/* Footer */
 footer {
   padding: 24px 0;
   color: var(--muted);
@@ -353,7 +341,6 @@ footer {
 
 footer a { color: var(--burgundy-2); }
 
-/* Tablet */
 @media (max-width: 800px) {
   .split {
     grid-template-columns: 1fr;
@@ -371,7 +358,6 @@ footer a { color: var(--burgundy-2); }
   section { padding: 42px 0; }
 }
 
-/* Mobile */
 @media (max-width: 560px) {
   .wrap { width: 90%; }
 
@@ -464,6 +450,7 @@ footer a { color: var(--burgundy-2); }
 
     <div class="nav-links">
       <a href="#services">Services</a>
+      <a href="enterprise-backup-recovery.html">Enterprise Consulting</a>
       <a href="#approach">Our process</a>
       <a href="#about">About</a>
       <a href="#faq">FAQs</a>
@@ -483,6 +470,7 @@ footer a { color: var(--burgundy-2); }
       >
     </div>
   </section>
+
   <section id="services">
     <div class="wrap">
       <div class="section-top">
@@ -564,7 +552,10 @@ footer a { color: var(--burgundy-2); }
           <h3>See an example of the deliverable</h3>
           <p>Review a fictional sample assessment showing findings, priorities and a remediation plan.</p>
         </div>
-        <a class="btn primary" href="sample-assessment.html">View sample assessment ↗</a>
+        <div>
+          <a class="btn primary" href="sample-assessment.html">View sample assessment ↗</a>
+          <a class="btn primary" href="enterprise-backup-recovery.html">Enterprise Backup &amp; Recovery Consulting ↗</a>
+        </div>
       </div>
     </div>
   </section>
@@ -648,6 +639,7 @@ footer a { color: var(--burgundy-2); }
       </div>
     </div>
   </section>
+
   <section class="white" id="faq">
     <div class="wrap">
       <h2>Frequently asked questions</h2>
@@ -708,6 +700,8 @@ footer a { color: var(--burgundy-2); }
     <span>© 2026 BackupSteward Backup &amp; Recovery Consulting</span>
     <span>
       <a href="sample-assessment.html">Sample assessment</a>
+      ·
+      <a href="enterprise-backup-recovery.html">Enterprise consulting</a>
       ·
       <a href="#top">Back to top ↑</a>
     </span>
