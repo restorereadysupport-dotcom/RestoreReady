@@ -60,12 +60,14 @@ h3{line-height:1.35}
 .card a{display:inline-block;margin-top:12px;font-size:14px;font-weight:700}
 .symbol{font-size:25px;color:var(--burgundy-2);line-height:1.2}
 
-.health-check{margin:24px 0 10px;padding:24px 26px;background:var(--rose-light);border:1px solid #EBC5D1;border-radius:14px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
-.health-check-copy{flex:1 1 420px}
+/* Free assessment cards */
+.assessment-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:24px 0 10px}
+.health-check{padding:24px 26px;background:var(--rose-light);border:1px solid #EBC5D1;border-radius:14px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:16px;min-height:235px}
+.health-check-copy{flex:1}
 .health-check .eyebrow{color:var(--burgundy-2);font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
 .health-check h3{color:var(--burgundy);font-size:23px;line-height:1.25;margin:5px 0 7px}
 .health-check p{color:#55464B;margin:0;font-size:15px}
-.health-check .btn{flex:0 0 auto;margin:0}
+.health-check .btn{margin:0}
 
 .report-strip{margin-top:28px;padding:22px 24px;background:var(--rose-light);border:1px solid #EBC5D1;border-radius:14px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
 .report-strip h3{margin:0 0 4px;color:var(--burgundy)}
@@ -122,7 +124,8 @@ h2{font-size:28px}
 .card p{font-size:15px}
 .steps{gap:14px;margin-top:20px}
 .step{padding:16px}
-.health-check{padding:20px;gap:14px}
+.assessment-tools{grid-template-columns:1fr;gap:14px}
+.health-check{padding:20px;gap:14px;min-height:0}
 .health-check h3{font-size:21px}
 .health-check .btn{width:100%;text-align:center}
 .report-strip{padding:18px;gap:12px}
@@ -153,7 +156,7 @@ html{scroll-behavior:auto}
 <a href="#technologies">Technologies</a>
 <a href="#approach">Our Process</a>
 <a href="#about">About</a>
-<a class="nav-health" href="backup-health-check.html">Free Health Check ↗</a>
+<a class="nav-health" href="#assessments">Free Assessments ↗</a>
 <a href="#contact">Contact</a>
 </div>
 </nav>
@@ -179,13 +182,24 @@ html{scroll-behavior:auto}
 </div>
 </div>
 
-<div class="health-check">
+<div class="assessment-tools" id="assessments">
+<article class="health-check">
 <div class="health-check-copy">
 <div class="eyebrow">Free backup health check</div>
 <h3>How healthy is your backup environment?</h3>
 <p>Identify potential backup and recovery gaps with a short assessment. Answer a few questions and receive an initial report with prioritised findings and practical recommendations.</p>
 </div>
 <a class="btn primary" href="backup-health-check.html">Start Free Backup Health Check ↗</a>
+</article>
+
+<article class="health-check">
+<div class="health-check-copy">
+<div class="eyebrow">Free recovery assessment</div>
+<h3>Can your organisation recover when it matters?</h3>
+<p>Evaluate RTO/RPO, recovery testing, application dependencies, runbooks, clean recovery environments and disaster recovery preparedness. Receive a Recovery Readiness Score with maturity insights and priority actions.</p>
+</div>
+<a class="btn primary" href="recovery-readiness-score.html">Get Your Recovery Readiness Score ↗</a>
+</article>
 </div>
 
 <div class="cards">
