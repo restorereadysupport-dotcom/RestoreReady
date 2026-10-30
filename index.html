@@ -1,717 +1,389 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="BackupSteward provides independent backup and recovery consulting, backup assessments, troubleshooting, immutable backup reviews, infrastructure migrations, restore testing and disaster recovery readiness.">
+<meta name="description" content="Independent Commvault and Veeam backup consulting from BackupSteward. Get help with backup assessments, troubleshooting, MediaAgent migrations, immutable backups, restore testing and disaster recovery readiness.">
 <meta name="theme-color" content="#4A1022">
 <meta name="robots" content="index, follow">
-<title>BackupSteward | Backup &amp; Recovery Consulting</title>
+<link rel="canonical" href="https://backupsteward.com/">
+<title>Commvault &amp; Veeam Backup Consulting | BackupSteward</title>
 
 <style>
-:root {
-  --burgundy: #4A1022;
-  --burgundy-2: #72223B;
-  --rose: #D66A88;
-  --rose-light: #F7E8ED;
-  --ink: #1F2428;
-  --muted: #626873;
-  --bg: #F7F4F5;
-  --line: #E5DFE2;
-  --white: #FFFFFF;
+:root{--burgundy:#4A1022;--burgundy-2:#72223B;--rose:#D66A88;--rose-light:#F7E8ED;--ink:#33232A;--muted:#655B60;--bg:#F7F4F5;--line:#E5DFE2;--white:#FFF}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:20px}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.7;background:var(--bg);overflow-wrap:break-word}
+img{max-width:100%}
+a{color:var(--burgundy-2)}
+a:focus-visible,button:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
+.wrap{width:min(1100px,92%);margin-inline:auto}
+header{background:var(--bg)}
+nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:18px 0;flex-wrap:wrap}
+.brand{font-size:23px;font-weight:800;color:var(--burgundy);text-decoration:none;line-height:1.2;white-space:nowrap}
+.brand span{color:var(--rose)}
+.brand small{display:block;font-size:12px;font-weight:600;letter-spacing:.2px;margin-top:5px;color:var(--burgundy-2)}
+.nav-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
+.nav-links a:hover{color:var(--burgundy-2)}
+.hero-banner{background:var(--burgundy);padding:20px 0}
+.banner-image{display:block;width:100%;height:auto;border-radius:10px}
+.btn{display:inline-block;padding:12px 17px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;margin:8px 8px 0 0;transition:transform .15s ease,background .15s ease}
+.btn:hover{transform:translateY(-1px)}
+.primary{background:var(--rose);color:#35101D;border:1px solid var(--rose)}
+.primary:hover{background:#F0A4BA}
+section{padding:54px 0}
+.white{background:var(--white)}
+h2{color:var(--burgundy);font-size:clamp(27px,3.8vw,36px);line-height:1.2;margin:0 0 14px}
+h3{line-height:1.35}
+.intro{color:var(--muted);max-width:760px;margin-top:0}
+.intro-cta{margin-top:18px;margin-bottom:8px}
+.section-top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+.cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+.card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 3px 12px #4A102208}
+.card h3{color:var(--burgundy);font-size:18px;margin:8px 0}
+.card p{color:var(--muted);margin:0;font-size:15px}
+.card p+p{margin-top:12px}
+.symbol{font-size:25px;color:var(--burgundy-2);line-height:1.2}
+.report-strip{margin-top:28px;padding:22px 24px;background:var(--rose-light);border:1px solid #EBC5D1;border-radius:14px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
+.report-strip h3{margin:0 0 4px;color:var(--burgundy)}
+.report-strip p{margin:0;color:#55464B;font-size:14px}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-top:26px}
+.step{border-top:3px solid var(--rose);padding:18px;background:#FAF7F8;border-radius:0 0 10px 10px}
+.step h3{font-size:17px;color:var(--burgundy);margin:4px 0 8px}
+.step p{color:var(--muted);font-size:14px;margin:0}
+.split{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.about-panel{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px}
+.about-panel p{color:var(--muted)}
+ul.clean{padding-left:20px}
+ul.clean li{margin:8px 0}
+.pill-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.pill{background:var(--rose-light);border:1px solid #EBC5D1;color:var(--burgundy);padding:6px 10px;border-radius:99px;font-size:13px;font-weight:700}
+.faq-list{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:24px}
+.faq{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px}
+.faq h3{color:var(--burgundy);font-size:17px;margin:0 0 8px}
+.faq p{color:var(--muted);font-size:14px;margin:0}
+.contact{background:var(--burgundy);color:var(--white);padding:32px;border-radius:16px}
+.contact h2{color:var(--white)}
+.contact p{color:#F5E9ED}
+.contact a:not(.btn){color:#F0A4BA;overflow-wrap:anywhere}
+.contact .btn.primary{color:#35101D}
+.contact-meta{font-size:14px}
+footer{padding:24px 0;color:var(--muted);font-size:13px}
+.footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+footer a{color:var(--burgundy-2)}
+
+@media(max-width:800px){
+.split{grid-template-columns:1fr;gap:24px}
+.cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+.steps{grid-template-columns:repeat(2,minmax(0,1fr))}
+section{padding:42px 0}
 }
 
-* { box-sizing: border-box; }
-
-html {
-  scroll-behavior: smooth;
-  scroll-padding-top: 20px;
+@media(max-width:560px){
+.wrap{width:90%}
+nav{align-items:flex-start;padding:15px 0 12px;gap:12px}
+.brand{font-size:22px}
+.brand small{font-size:12px}
+.nav-links{width:100%;gap:10px 14px;justify-content:flex-start;border-top:1px solid var(--line);padding-top:10px}
+.nav-links a{font-size:13px}
+.hero-banner{padding:14px 0}
+.banner-image{border-radius:8px}
+section{padding:30px 0}
+h2{font-size:28px}
+.intro{font-size:15px}
+.cards,.steps,.faq-list{grid-template-columns:1fr}
+.cards{gap:14px;margin-top:20px}
+.card{padding:20px}
+.card h3{font-size:18px}
+.card p{font-size:15px}
+.steps{gap:14px;margin-top:20px}
+.step{padding:16px}
+.report-strip{padding:18px;gap:12px}
+.report-strip .btn{width:100%;text-align:center;margin-right:0}
+.about-panel{padding:20px}
+.faq-list{gap:12px}
+.faq{padding:18px}
+.contact{padding:24px 20px}
+.contact .btn{width:100%;text-align:center;margin-right:0}
+footer{padding:20px 0}
+.footer-inner{flex-direction:column;gap:8px}
 }
 
-body {
-  margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  color: var(--ink);
-  line-height: 1.7;
-  background: var(--bg);
-  overflow-wrap: break-word;
-}
-
-img { max-width: 100%; }
-a { color: var(--burgundy-2); }
-
-a:focus-visible,
-button:focus-visible {
-  outline: 3px solid var(--rose);
-  outline-offset: 3px;
-}
-
-.wrap {
-  width: min(1100px, 92%);
-  margin-inline: auto;
-}
-
-header { background: var(--bg); }
-
-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
-  padding: 18px 0;
-  flex-wrap: wrap;
-}
-
-.brand {
-  font-size: 23px;
-  font-weight: 800;
-  color: var(--burgundy);
-  text-decoration: none;
-  line-height: 1.2;
-  white-space: nowrap;
-}
-
-.brand span { color: var(--rose); }
-
-.brand small {
-  display: block;
-  font-size: 12px;
-  font-weight: 600;
-  letter-spacing: .2px;
-  margin-top: 5px;
-  color: var(--burgundy-2);
-}
-
-.nav-links {
-  display: flex;
-  gap: 18px;
-  flex-wrap: wrap;
-  align-items: center;
-}
-
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-}
-
-.nav-links a:hover { color: var(--burgundy-2); }
-
-.hero-banner {
-  background: var(--burgundy);
-  padding: 20px 0;
-}
-
-.banner-image {
-  display: block;
-  width: 100%;
-  height: auto;
-  border-radius: 10px;
-}
-
-.btn {
-  display: inline-block;
-  padding: 12px 17px;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 14px;
-  margin: 8px 8px 0 0;
-  transition: transform .15s ease, background .15s ease;
-}
-
-.btn:hover { transform: translateY(-1px); }
-
-.primary {
-  background: var(--rose);
-  color: #35101D;
-  border: 1px solid var(--rose);
-}
-
-.primary:hover { background: #F0A4BA; }
-
-section { padding: 54px 0; }
-.white { background: var(--white); }
-
-h2 {
-  color: var(--burgundy);
-  font-size: clamp(27px, 3.8vw, 36px);
-  line-height: 1.2;
-  margin: 0 0 14px;
-}
-
-h3 { line-height: 1.35; }
-
-.intro {
-  color: var(--muted);
-  max-width: 760px;
-  margin-top: 0;
-}
-
-.intro-cta {
-  margin-top: 18px;
-  margin-bottom: 8px;
-}
-
-.section-top {
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 18px;
-  margin-top: 28px;
-}
-
-.card {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 22px;
-  box-shadow: 0 3px 12px #4A102208;
-}
-
-.card h3 {
-  color: var(--burgundy);
-  font-size: 18px;
-  margin: 8px 0;
-}
-
-.card p {
-  color: var(--muted);
-  margin: 0;
-  font-size: 15px;
-}
-
-.symbol {
-  font-size: 25px;
-  color: var(--burgundy-2);
-  line-height: 1.2;
-}
-
-.report-strip {
-  margin-top: 28px;
-  padding: 22px 24px;
-  background: var(--rose-light);
-  border: 1px solid #EBC5D1;
-  border-radius: 14px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 18px;
-  flex-wrap: wrap;
-}
-
-.report-strip h3 {
-  margin: 0 0 4px;
-  color: var(--burgundy);
-}
-
-.report-strip p {
-  margin: 0;
-  color: #55464B;
-  font-size: 14px;
-}
-
-.steps {
-  display: grid;
-  grid-template-columns: repeat(4, minmax(0, 1fr));
-  gap: 15px;
-  margin-top: 26px;
-}
-
-.step {
-  border-top: 3px solid var(--rose);
-  padding: 18px;
-  background: #FAF7F8;
-  border-radius: 0 0 10px 10px;
-}
-
-.step h3 {
-  font-size: 17px;
-  color: var(--burgundy);
-  margin: 4px 0 8px;
-}
-
-.step p {
-  color: var(--muted);
-  font-size: 14px;
-  margin: 0;
-}
-
-.split {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px;
-  align-items: start;
-}
-
-.about-panel {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 14px;
-  padding: 24px;
-}
-
-.about-panel p { color: var(--muted); }
-
-ul.clean { padding-left: 20px; }
-ul.clean li { margin: 8px 0; }
-
-.pill-list {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 16px;
-}
-
-.pill {
-  background: var(--rose-light);
-  border: 1px solid #EBC5D1;
-  color: var(--burgundy);
-  padding: 6px 10px;
-  border-radius: 99px;
-  font-size: 13px;
-  font-weight: 700;
-}
-
-.faq-list {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 15px;
-  margin-top: 24px;
-}
-
-.faq {
-  background: var(--white);
-  border: 1px solid var(--line);
-  border-radius: 12px;
-  padding: 20px;
-}
-
-.faq h3 {
-  color: var(--burgundy);
-  font-size: 17px;
-  margin: 0 0 8px;
-}
-
-.faq p {
-  color: var(--muted);
-  font-size: 14px;
-  margin: 0;
-}
-
-.contact {
-  background: var(--burgundy);
-  color: var(--white);
-  padding: 32px;
-  border-radius: 16px;
-}
-
-.contact h2 { color: var(--white); }
-.contact p { color: #F5E9ED; }
-
-.contact a:not(.btn) {
-  color: #F0A4BA;
-  overflow-wrap: anywhere;
-}
-
-.contact .btn.primary { color: #35101D; }
-.contact-meta { font-size: 14px; }
-
-footer {
-  padding: 24px 0;
-  color: var(--muted);
-  font-size: 13px;
-}
-
-.footer-inner {
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  flex-wrap: wrap;
-}
-
-footer a { color: var(--burgundy-2); }
-
-@media (max-width: 800px) {
-  .split {
-    grid-template-columns: 1fr;
-    gap: 24px;
-  }
-
-  .cards {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  .steps {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
-  section { padding: 42px 0; }
-}
-
-@media (max-width: 560px) {
-  .wrap { width: 90%; }
-
-  nav {
-    align-items: flex-start;
-    padding: 15px 0 12px;
-    gap: 12px;
-  }
-
-  .brand { font-size: 22px; }
-  .brand small { font-size: 12px; }
-
-  .nav-links {
-    width: 100%;
-    gap: 10px 14px;
-    justify-content: flex-start;
-    border-top: 1px solid var(--line);
-    padding-top: 10px;
-  }
-
-  .nav-links a { font-size: 13px; }
-  .hero-banner { padding: 14px 0; }
-  .banner-image { border-radius: 8px; }
-  section { padding: 30px 0; }
-  h2 { font-size: 28px; }
-  .intro { font-size: 15px; }
-
-  .cards,
-  .steps,
-  .faq-list {
-    grid-template-columns: 1fr;
-  }
-
-  .cards {
-    gap: 14px;
-    margin-top: 20px;
-  }
-
-  .card { padding: 20px; }
-  .card h3 { font-size: 18px; }
-  .card p { font-size: 15px; }
-
-  .steps {
-    gap: 14px;
-    margin-top: 20px;
-  }
-
-  .step { padding: 16px; }
-  .report-strip { padding: 18px; gap: 12px; }
-
-  .report-strip .btn {
-    width: 100%;
-    text-align: center;
-    margin-right: 0;
-  }
-
-  .about-panel { padding: 20px; }
-  .faq-list { gap: 12px; }
-  .faq { padding: 18px; }
-  .contact { padding: 24px 20px; }
-
-  .contact .btn {
-    width: 100%;
-    text-align: center;
-    margin-right: 0;
-  }
-
-  footer { padding: 20px 0; }
-
-  .footer-inner {
-    flex-direction: column;
-    gap: 8px;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
-  .btn { transition: none; }
+@media(prefers-reduced-motion:reduce){
+html{scroll-behavior:auto}
+.btn{transition:none}
 }
 </style>
 </head>
 
 <body>
 <header>
-  <nav class="wrap" aria-label="Main navigation">
-    <a class="brand" href="#top">
-      Backup<span>Steward</span>
-      <small>Backup &amp; Recovery Consulting</small>
-    </a>
-
-    <div class="nav-links">
-      <a href="#services">Services</a>
-      <a href="enterprise-backup-recovery.html">Enterprise Consulting</a>
-      <a href="#approach">Our process</a>
-      <a href="#about">About</a>
-      <a href="#faq">FAQs</a>
-      <a href="#contact">Contact</a>
-    </div>
-  </nav>
+<nav class="wrap" aria-label="Main navigation">
+<a class="brand" href="#top">Backup<span>Steward</span><small>Backup &amp; Recovery Consulting</small></a>
+<div class="nav-links">
+<a href="#services">Services</a>
+<a href="#technologies">Technologies</a>
+<a href="enterprise-backup-recovery.html">Enterprise Consulting</a>
+<a href="#approach">Our process</a>
+<a href="#about">About</a>
+<a href="#faq">FAQs</a>
+<a href="#contact">Contact</a>
+</div>
+</nav>
 </header>
 
 <main id="top">
-  <section class="hero-banner" aria-label="BackupSteward introduction">
-    <div class="wrap">
-      <img
-        src="backupsteward-banner.png"
-        alt="BackupSteward — Backup and Recovery Consulting. Protect Data. Prove Recovery. Build Resilience."
-        class="banner-image"
-        fetchpriority="high"
-      >
-    </div>
-  </section>
 
-  <section id="services">
-    <div class="wrap">
-      <div class="section-top">
-        <div>
-          <h2>Backup expertise. Clear recommendations. Better readiness.</h2>
-          <p class="intro">
-            Independent backup and recovery guidance to improve backup health,
-            strengthen data protection, plan migrations and build confidence
-            in recovery.
-          </p>
+<section class="hero-banner" aria-label="BackupSteward introduction">
+<div class="wrap">
+<img src="backupsteward-banner.png" alt="BackupSteward — Backup and Recovery Consulting. Protect Data. Prove Recovery. Build Resilience." class="banner-image" fetchpriority="high">
+</div>
+</section>
 
-          <div class="intro-cta">
-            <a
-              class="btn primary"
-              href="mailto:contact@backupsteward.com?subject=BackupSteward%20Consulting%20Enquiry&amp;body=Hello%20BackupSteward%2C%0A%0AWorkload%20or%20environment%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you."
-            >Discuss Your Backup Challenges ↗</a>
-          </div>
-        </div>
-      </div>
+<section id="services">
+<div class="wrap">
+<div class="section-top">
+<div>
+<h2>Backup expertise. Clear recommendations. Better readiness.</h2>
+<p class="intro">Independent backup and recovery consulting for organisations using Commvault, Veeam and enterprise backup infrastructure. Improve backup health, investigate failures, strengthen data protection, plan migrations and build confidence in recovery.</p>
+<div class="intro-cta">
+<a class="btn primary" href="mailto:contact@backupsteward.com?subject=BackupSteward%20Consulting%20Enquiry&amp;body=Hello%20BackupSteward%2C%0A%0ABackup%20platform%3A%0AWorkload%20or%20environment%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you.">Discuss Your Backup Challenges ↗</a>
+</div>
+</div>
+</div>
 
-      <div class="card">
-        <div class="symbol" aria-hidden="true">◈</div>
-        <h3>Immutable Backup &amp; Ransomware Resilience</h3>
-        <p>Review backup immutability, retention controls, protection gaps and restore readiness with independent backup consulting.</p>
-        <p><a href="immutable-backup-ransomware-resilience.html">Explore immutable backup consulting →</a></p>
-      </div>
-      <div class="cards">
-        <article class="card">
-          <div class="symbol" aria-hidden="true">⌕</div>
-          <h3>Backup &amp; Restore Assessment</h3>
-          <p>Review backup policies, job outcomes, retention, workload coverage and restore evidence. Receive prioritised findings and practical remediation guidance.</p>
-        </article>
+<div class="cards">
+<article class="card">
+<div class="symbol" aria-hidden="true">⌕</div>
+<h3>Commvault &amp; Veeam Backup Assessment</h3>
+<p>Review backup policies, job outcomes, retention, workload coverage, repository or storage health and restore evidence. Receive prioritised findings and practical remediation guidance.</p>
+</article>
 
-        <article class="card">
-          <div class="symbol" aria-hidden="true">⚙</div>
-          <h3>Backup Troubleshooting</h3>
-          <p>Investigate backup failures, connectivity, infrastructure, performance and operational challenges through agreed-scope technical advisory.</p>
-        </article>
+<article class="card">
+<div class="symbol" aria-hidden="true">⚙</div>
+<h3>Backup Troubleshooting</h3>
+<p>Investigate Commvault and Veeam backup failures, connectivity, infrastructure bottlenecks, performance and recurring operational challenges through agreed-scope technical advisory.</p>
+</article>
 
-        <article class="card">
-          <div class="symbol" aria-hidden="true">◈</div>
-          <h3>Immutable Backup &amp; Ransomware Resilience</h3>
-          <p>Review immutability settings, retention controls, protection gaps and recovery readiness to help strengthen resilience against unauthorised changes and ransomware.</p>
-        </article>
+<article class="card">
+<div class="symbol" aria-hidden="true">◈</div>
+<h3>Immutable Backup &amp; Ransomware Resilience</h3>
+<p>Review immutability settings, retention controls, protection gaps and recovery readiness to help strengthen resilience against unauthorised changes and ransomware.</p>
+<p><a href="immutable-backup-ransomware-resilience.html">Explore immutable backup consulting →</a></p>
+</article>
 
-        <article class="card">
-          <div class="symbol" aria-hidden="true">↻</div>
-          <h3>Backup Infrastructure Migrations</h3>
-          <p>Plan and support backup platform transitions, media agent migrations, storage changes and moves between on-premises and cloud environments.</p>
-        </article>
+<article class="card">
+<div class="symbol" aria-hidden="true">↻</div>
+<h3>Backup Infrastructure Migrations</h3>
+<p>Plan and support backup platform transitions, Commvault MediaAgent migrations, deduplication database considerations, storage changes and moves between on-premises and cloud environments.</p>
+</article>
 
-        <article class="card">
-          <div class="symbol" aria-hidden="true">☁</div>
-          <h3>Cloud &amp; Enterprise Backup</h3>
-          <p>Guidance for on-premises, cloud and hybrid environments, virtual machines, physical servers, endpoints and enterprise workloads.</p>
-        </article>
+<article class="card">
+<div class="symbol" aria-hidden="true">☁</div>
+<h3>Cloud &amp; Enterprise Backup</h3>
+<p>Guidance for on-premises, cloud and hybrid environments, including VMware vSphere, Microsoft Hyper-V, Windows and Linux servers, and Oracle Cloud Infrastructure (OCI).</p>
+</article>
 
-        <article class="card">
-          <div class="symbol" aria-hidden="true">✓</div>
-          <h3>Restore Testing &amp; BCP/DR Readiness</h3>
-          <p>Review restore-test evidence, recovery procedures, dependencies and continuity-test outcomes. Identify gaps and recommend validation steps.</p>
-        </article>
+<article class="card">
+<div class="symbol" aria-hidden="true">✓</div>
+<h3>Restore Testing &amp; BCP/DR Readiness</h3>
+<p>Review restore-test evidence, recovery procedures, dependencies and continuity-test outcomes. Identify gaps and recommend validation steps for critical workloads.</p>
+</article>
 
-        <article class="card">
-          <div class="symbol" aria-hidden="true">▤</div>
-          <h3>Remediation &amp; Documentation</h3>
-          <p>Develop clear runbooks and action plans covering findings, priorities, recommended fixes, ownership considerations and validation steps.</p>
-        </article>
+<article class="card">
+<div class="symbol" aria-hidden="true">▤</div>
+<h3>Remediation &amp; Documentation</h3>
+<p>Develop clear runbooks and action plans covering findings, priorities, recommended fixes, ownership considerations and validation steps.</p>
+</article>
 
-        <article class="card">
-          <div class="symbol" aria-hidden="true">⌁</div>
-          <h3>Backup Architecture &amp; Performance</h3>
-          <p>Review backup design, capacity considerations, workload coverage, infrastructure bottlenecks and opportunities for operational improvement.</p>
-        </article>
+<article class="card">
+<div class="symbol" aria-hidden="true">⌁</div>
+<h3>Backup Architecture &amp; Performance</h3>
+<p>Review backup design, capacity considerations, workload coverage, MediaAgent or proxy performance, infrastructure bottlenecks and opportunities for operational improvement.</p>
+</article>
 
-        <article class="card">
-          <div class="symbol" aria-hidden="true">◷</div>
-          <h3>Ongoing Backup Advisory</h3>
-          <p>Agreed-scope periodic reviews, technical discussions, follow-up on findings and help prioritising backup and recovery improvements.</p>
-        </article>
-      </div>
+<article class="card">
+<div class="symbol" aria-hidden="true">◷</div>
+<h3>Ongoing Backup Advisory</h3>
+<p>Agreed-scope periodic reviews, technical discussions, follow-up on findings and help prioritising backup and recovery improvements.</p>
+</article>
+</div>
 
-      <div class="report-strip">
-        <div>
-          <h3>See an example of the deliverable</h3>
-          <p>Review a fictional sample assessment showing findings, priorities and a remediation plan.</p>
-        </div>
-        <div>
-          <a class="btn primary" href="sample-assessment.html">View sample assessment ↗</a>
-          <a class="btn primary" href="enterprise-backup-recovery.html">Enterprise Backup &amp; Recovery Consulting ↗</a>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="report-strip">
+<div>
+<h3>See an example of the deliverable</h3>
+<p>Review a fictional sample assessment showing findings, priorities and a remediation plan.</p>
+</div>
+<div>
+<a class="btn primary" href="sample-assessment.html">View sample assessment ↗</a>
+<a class="btn primary" href="enterprise-backup-recovery.html">Enterprise Backup &amp; Recovery Consulting ↗</a>
+</div>
+</div>
+</div>
+</section>
 
-  <section class="white" id="approach">
-    <div class="wrap">
-      <h2>A clear, evidence-led process</h2>
-      <p class="intro">Every engagement is agreed in advance and shaped around your objectives, available evidence, operational constraints and desired outcomes.</p>
+<section class="white" id="technologies">
+<div class="wrap">
+<h2>Backup Platforms &amp; Infrastructure Expertise</h2>
+<p class="intro">Independent backup and recovery guidance across enterprise backup software, virtualisation platforms, operating systems and cloud infrastructure. Engagement scope is confirmed against the platform and the specific technical requirements.</p>
 
-      <div class="steps">
-        <article class="step">
-          <h3>1. Discover</h3>
-          <p>Discuss the environment, the challenge, objectives and expected outcome.</p>
-        </article>
+<div class="cards">
+<article class="card">
+<h3>Commvault Backup &amp; Recovery</h3>
+<p>Commvault backup assessments, job failure investigation, MediaAgent connectivity and performance, deduplication database (DDB) considerations, Windows-to-Linux MediaAgent migrations, restore validation and operational health reviews.</p>
+</article>
 
-        <article class="step">
-          <h3>2. Agree scope</h3>
-          <p>Confirm deliverables, access requirements, assumptions, exclusions and timeline.</p>
-        </article>
+<article class="card">
+<h3>Veeam Backup &amp; Replication</h3>
+<p>Backup and recovery assessment topics including job outcomes, VMware workload protection, repository health, backup infrastructure and restore-readiness reviews. Scope is agreed according to the environment and requirements.</p>
+</article>
 
-        <article class="step">
-          <h3>3. Assess</h3>
-          <p>Review agreed evidence, investigate the issue and prioritise findings by impact.</p>
-        </article>
+<article class="card">
+<h3>Virtualisation &amp; Cloud Infrastructure</h3>
+<p>Backup environments involving VMware vSphere, Microsoft Hyper-V, Oracle Cloud Infrastructure (OCI), Windows Server, Linux systems and hybrid infrastructure.</p>
+</article>
+</div>
+</div>
+</section>
 
-        <article class="step">
-          <h3>4. Recommend</h3>
-          <p>Provide practical next steps and validation guidance, with follow-up if agreed.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+<section class="white" id="approach">
+<div class="wrap">
+<h2>A clear, evidence-led process</h2>
+<p class="intro">Every engagement is agreed in advance and shaped around your objectives, available evidence, operational constraints and desired outcomes.</p>
 
-  <section id="about">
-    <div class="wrap split">
-      <div>
-        <div style="color:var(--burgundy-2)">About BackupSteward</div>
-        <h2>Experience focused on recovery outcomes</h2>
-        <p>BackupSteward is an independent backup and recovery consulting brand focused on helping IT teams understand risks, resolve technical challenges and make recovery plans more actionable.</p>
-        <p>Our approach is practical: review the available evidence, explain why an issue matters, and document what to do next. Engagements can be a one-time assessment, a defined-scope troubleshooting assignment or ongoing advisory support.</p>
-        <p>With more than 15 years of experience in backup and recovery environments, the focus includes day-to-day operational health, recovery validation, infrastructure transitions and improvement planning.</p>
-      </div>
+<div class="steps">
+<article class="step">
+<h3>1. Discover</h3>
+<p>Discuss the backup platform, environment, challenge, objectives and expected outcome.</p>
+</article>
+<article class="step">
+<h3>2. Agree scope</h3>
+<p>Confirm deliverables, access requirements, assumptions, exclusions and timeline.</p>
+</article>
+<article class="step">
+<h3>3. Assess</h3>
+<p>Review agreed evidence, investigate the issue and prioritise findings by impact.</p>
+</article>
+<article class="step">
+<h3>4. Recommend</h3>
+<p>Provide practical next steps and validation guidance, with follow-up if agreed.</p>
+</article>
+</div>
+</div>
+</section>
 
-      <div class="about-panel">
-        <h2>Areas of technical focus</h2>
-        <ul class="clean">
-          <li>Virtual machine backup and recovery</li>
-          <li>Physical server and operating system protection</li>
-          <li>Database backup, transaction log protection and recovery</li>
-          <li>NAS devices, network shares and file server backups</li>
-          <li>File system protection and granular file-level restores</li>
-          <li>Endpoint backup coverage for laptops, desktops and mobile devices</li>
-          <li>Application-aware backup and recovery considerations</li>
-          <li>Cloud and hybrid workload protection</li>
-          <li>Kubernetes and container workload protection</li>
-          <li>Immutable backups and ransomware resilience</li>
-          <li>Backup infrastructure, storage and platform migrations</li>
-          <li>Backup architecture, capacity and performance reviews</li>
-          <li>Restore testing, business continuity and disaster recovery readiness</li>
-          <li>Retention, backup policy and workload coverage assessments</li>
-          <li>Remediation documentation, runbooks and operational guidance</li>
-        </ul>
+<section id="about">
+<div class="wrap split">
+<div>
+<div style="color:var(--burgundy-2)">About BackupSteward</div>
+<h2>Experience focused on recovery outcomes</h2>
+<p>BackupSteward is an independent backup and recovery consulting brand focused on helping IT teams understand risks, resolve technical challenges and make recovery plans more actionable.</p>
+<p>Our approach is practical: review the available evidence, explain why an issue matters, and document what to do next. Engagements can be a one-time assessment, a defined-scope troubleshooting assignment or ongoing advisory support.</p>
+<p>With more than 15 years of experience in backup and recovery environments, the focus includes day-to-day operational health, recovery validation, infrastructure transitions and improvement planning.</p>
+</div>
 
-        <div class="pill-list" aria-label="Backup workload coverage">
-          <span class="pill">Virtual Machines</span>
-          <span class="pill">Physical Servers</span>
-          <span class="pill">Databases</span>
-          <span class="pill">NAS &amp; File Shares</span>
-          <span class="pill">File Systems</span>
-          <span class="pill">Endpoint Devices</span>
-          <span class="pill">Laptops &amp; Desktops</span>
-          <span class="pill">Mobile Devices</span>
-          <span class="pill">Cloud Workloads</span>
-          <span class="pill">Kubernetes &amp; Containers</span>
-          <span class="pill">Applications</span>
-          <span class="pill">Enterprise Storage</span>
-          <span class="pill">Immutable Backups</span>
-          <span class="pill">Migrations</span>
-          <span class="pill">Disaster Recovery</span>
-        </div>
-      </div>
-    </div>
-  </section>
+<div class="about-panel">
+<h2>Areas of technical focus</h2>
+<ul class="clean">
+<li>Commvault backup operations and recovery</li>
+<li>Veeam Backup &amp; Replication assessment topics</li>
+<li>VMware vSphere and Microsoft Hyper-V workloads</li>
+<li>Physical server and operating system protection</li>
+<li>Database backup, transaction log protection and recovery</li>
+<li>NAS devices, network shares and file server backups</li>
+<li>File system protection and granular file-level restores</li>
+<li>Endpoint backup coverage for laptops and desktops</li>
+<li>Application-aware backup and recovery considerations</li>
+<li>Oracle Cloud Infrastructure and hybrid workload protection</li>
+<li>Immutable backups and ransomware resilience</li>
+<li>Backup infrastructure, storage and platform migrations</li>
+<li>Backup architecture, capacity and performance reviews</li>
+<li>Restore testing, business continuity and disaster recovery readiness</li>
+<li>Retention, backup policy and workload coverage assessments</li>
+<li>Remediation documentation, runbooks and operational guidance</li>
+</ul>
 
-  <section class="white" id="faq">
-    <div class="wrap">
-      <h2>Frequently asked questions</h2>
-      <p class="intro">A few details to help you decide whether BackupSteward is a fit for your requirements.</p>
+<div class="pill-list" aria-label="Backup workload coverage">
+<span class="pill">Commvault</span>
+<span class="pill">Veeam</span>
+<span class="pill">VMware</span>
+<span class="pill">Hyper-V</span>
+<span class="pill">Windows</span>
+<span class="pill">Linux</span>
+<span class="pill">OCI</span>
+<span class="pill">Databases</span>
+<span class="pill">NAS &amp; File Shares</span>
+<span class="pill">Cloud Workloads</span>
+<span class="pill">Immutable Backups</span>
+<span class="pill">Disaster Recovery</span>
+</div>
+</div>
+</div>
+</section>
 
-      <div class="faq-list">
-        <article class="faq">
-          <h3>Do you work remotely?</h3>
-          <p>Remote consulting can be considered where the scope, access method, security requirements and working arrangements are agreed in advance.</p>
-        </article>
+<section class="white" id="faq">
+<div class="wrap">
+<h2>Frequently asked questions</h2>
+<p class="intro">A few details to help you decide whether BackupSteward is a fit for your requirements.</p>
 
-        <article class="faq">
-          <h3>Can you help with an existing backup issue?</h3>
-          <p>Share a high-level description of the symptoms, impact and workload. The next step is to confirm the scope and whether the issue fits the available expertise.</p>
-        </article>
+<div class="faq-list">
+<article class="faq">
+<h3>Which backup platforms do you cover?</h3>
+<p>BackupSteward's technical focus includes Commvault and Veeam Backup &amp; Replication, alongside related virtualisation, operating system and cloud infrastructure. The specific platform and scope are confirmed before an engagement.</p>
+</article>
 
-        <article class="faq">
-          <h3>Can you help with migrations and immutable backups?</h3>
-          <p>These can be considered as defined-scope advisory engagements, subject to the environment, requirements, access and agreed deliverables.</p>
-        </article>
+<article class="faq">
+<h3>Can you help with Commvault MediaAgent issues?</h3>
+<p>Commvault-related advisory can cover MediaAgent connectivity and performance, backup failures, deduplication database considerations, migrations and restore validation, subject to the agreed scope.</p>
+</article>
 
-        <article class="faq">
-          <h3>What will I receive?</h3>
-          <p>Deliverables depend on the agreed scope and may include findings, prioritised recommendations, troubleshooting notes, a remediation plan or recovery-validation checklist.</p>
-        </article>
+<article class="faq">
+<h3>Do you work remotely?</h3>
+<p>Remote consulting can be considered where the scope, access method, security requirements and working arrangements are agreed in advance.</p>
+</article>
 
-        <article class="faq">
-          <h3>How do we get started?</h3>
-          <p>Email a short summary of your requirements. Please do not include passwords, credentials, production secrets or confidential data in your first message.</p>
-        </article>
-      </div>
-    </div>
-  </section>
+<article class="faq">
+<h3>Can you help with an existing backup issue?</h3>
+<p>Share a high-level description of the symptoms, impact, backup platform and workload. The next step is to confirm the scope and whether the issue fits the available expertise.</p>
+</article>
 
-  <section id="contact">
-    <div class="wrap contact">
-      <div>Start a conversation</div>
-      <h2>Have a backup or recovery challenge?</h2>
-      <p>Tell us which workload or environment you use, what problem or goal you have, and the outcome you need. We can discuss whether a scoped assessment or advisory engagement is suitable.</p>
+<article class="faq">
+<h3>Can you help with migrations and immutable backups?</h3>
+<p>These can be considered as defined-scope advisory engagements, subject to the environment, requirements, access and agreed deliverables.</p>
+</article>
 
-      <p>
-        <strong>Email:</strong>
-        <a href="mailto:contact@backupsteward.com">contact@backupsteward.com</a>
-      </p>
+<article class="faq">
+<h3>What will I receive?</h3>
+<p>Deliverables depend on the agreed scope and may include findings, prioritised recommendations, troubleshooting notes, a remediation plan or recovery-validation checklist.</p>
+</article>
+</div>
+</div>
+</section>
 
-      <a
-        class="btn primary"
-        href="mailto:contact@backupsteward.com?subject=BackupSteward%20Consulting%20Enquiry&amp;body=Hello%20BackupSteward%2C%0A%0AWorkload%20or%20environment%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you."
-      >Discuss Your Backup Challenges ↗</a>
+<section id="contact">
+<div class="wrap contact">
+<div>Start a conversation</div>
+<h2>Have a Commvault, Veeam or backup recovery challenge?</h2>
+<p>Tell us which backup platform and workload you use, what problem or goal you have, and the outcome you need. We can discuss whether a scoped assessment or advisory engagement is suitable.</p>
+<p><strong>Email:</strong> <a href="mailto:contact@backupsteward.com">contact@backupsteward.com</a></p>
+<a class="btn primary" href="mailto:contact@backupsteward.com?subject=BackupSteward%20Consulting%20Enquiry&amp;body=Hello%20BackupSteward%2C%0A%0ABackup%20platform%3A%0AWorkload%20or%20environment%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you.">Discuss Your Backup Challenges ↗</a>
+<p class="contact-meta">Please share only high-level information initially. Do not email credentials, passwords, tokens or sensitive production data.</p>
+</div>
+</section>
 
-      <p class="contact-meta">Please share only high-level information initially. Do not email credentials, passwords, tokens or sensitive production data.</p>
-    </div>
-  </section>
 </main>
 
 <footer>
-  <div class="wrap footer-inner">
-    <span>© 2026 BackupSteward Backup &amp; Recovery Consulting</span>
-    <span>
-      <a href="sample-assessment.html">Sample assessment</a>
-      ·
-      <a href="enterprise-backup-recovery.html">Enterprise consulting</a>
-      ·
-      <a href="#top">Back to top ↑</a>
-    </span>
-  </div>
+<div class="wrap footer-inner">
+<span>© 2026 BackupSteward Backup &amp; Recovery Consulting</span>
+<span>
+<a href="sample-assessment.html">Sample assessment</a> ·
+<a href="enterprise-backup-recovery.html">Enterprise consulting</a> ·
+<a href="immutable-backup-ransomware-resilience.html">Immutable backup consulting</a> ·
+<a href="#top">Back to top ↑</a>
+</span>
+</div>
 </footer>
 
 </body>
