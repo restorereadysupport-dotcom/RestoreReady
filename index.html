@@ -34,9 +34,11 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:18px;paddi
 .brand{font-size:23px;font-weight:800;color:var(--burgundy);text-decoration:none;line-height:1.2;white-space:nowrap}
 .brand span{color:var(--rose)}
 .brand small{display:block;font-size:12px;font-weight:600;letter-spacing:.2px;margin-top:5px;color:var(--burgundy-2)}
-.nav-links{display:flex;gap:18px;flex-wrap:wrap;align-items:center}
+.nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
 .nav-links a:hover{color:var(--burgundy-2)}
+.nav-links .nav-health{background:var(--rose);color:#35101D;padding:7px 12px;border-radius:7px;font-weight:800}
+.nav-links .nav-health:hover{background:#F0A4BA;color:#35101D}
 .hero-banner{background:var(--burgundy);padding:20px 0}
 .banner-image{display:block;width:100%;height:auto;border-radius:10px}
 .btn{display:inline-block;padding:12px 17px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;margin:8px 8px 0 0;transition:transform .15s ease,background .15s ease}
@@ -58,32 +60,10 @@ h3{line-height:1.35}
 .card a{display:inline-block;margin-top:12px;font-size:14px;font-weight:700}
 .symbol{font-size:25px;color:var(--burgundy-2);line-height:1.2}
 
-.health-check{
-margin:24px 0 10px;
-padding:24px 26px;
-background:var(--rose-light);
-border:1px solid #EBC5D1;
-border-radius:14px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-gap:20px;
-flex-wrap:wrap
-}
+.health-check{margin:24px 0 10px;padding:24px 26px;background:var(--rose-light);border:1px solid #EBC5D1;border-radius:14px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap}
 .health-check-copy{flex:1 1 420px}
-.health-check .eyebrow{
-color:var(--burgundy-2);
-font-size:12px;
-font-weight:800;
-letter-spacing:.5px;
-text-transform:uppercase
-}
-.health-check h3{
-color:var(--burgundy);
-font-size:23px;
-line-height:1.25;
-margin:5px 0 7px
-}
+.health-check .eyebrow{color:var(--burgundy-2);font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase}
+.health-check h3{color:var(--burgundy);font-size:23px;line-height:1.25;margin:5px 0 7px}
 .health-check p{color:#55464B;margin:0;font-size:15px}
 .health-check .btn{flex:0 0 auto;margin:0}
 
@@ -127,8 +107,9 @@ section{padding:42px 0}
 nav{align-items:flex-start;padding:15px 0 12px;gap:12px}
 .brand{font-size:22px}
 .brand small{font-size:12px}
-.nav-links{width:100%;gap:10px 14px;justify-content:flex-start;border-top:1px solid var(--line);padding-top:10px}
+.nav-links{width:100%;gap:9px 12px;justify-content:flex-start;border-top:1px solid var(--line);padding-top:10px}
 .nav-links a{font-size:13px}
+.nav-links .nav-health{padding:5px 9px}
 .hero-banner{padding:14px 0}
 .banner-image{border-radius:8px}
 section{padding:30px 0}
@@ -170,10 +151,9 @@ html{scroll-behavior:auto}
 <a href="#services">Services</a>
 <a href="#workloads">Workloads</a>
 <a href="#technologies">Technologies</a>
-<a href="enterprise-backup-recovery.html">Enterprise Consulting</a>
-<a href="#approach">Our process</a>
+<a href="#approach">Our Process</a>
 <a href="#about">About</a>
-<a href="#faq">FAQs</a>
+<a class="nav-health" href="backup-health-check.html">Free Health Check ↗</a>
 <a href="#contact">Contact</a>
 </div>
 </nav>
@@ -285,52 +265,42 @@ html{scroll-behavior:auto}
 <p class="intro">Enterprise data protection extends across many workload types. BackupSteward assesses protection coverage, backup operations and recovery requirements across the technologies that support your business. Actual integration and protection capabilities depend on the backup product and environment.</p>
 
 <div class="cards">
-
 <article class="card">
 <h3>Databases</h3>
 <p>Oracle Database, Microsoft SQL Server, SAP HANA, IBM Db2, PostgreSQL, MySQL and other enterprise database platforms. Review database protection, application consistency, transaction log handling and recovery requirements.</p>
 </article>
-
 <article class="card">
 <h3>Enterprise Applications</h3>
 <p>SAP applications, Microsoft Exchange, Microsoft 365, SharePoint and other business-critical applications. Review application-aware protection, dependencies and recovery procedures.</p>
 </article>
-
 <article class="card">
 <h3>Virtualisation Platforms</h3>
 <p>VMware vSphere, Microsoft Hyper-V and other virtualisation environments. Review VM protection, workload coverage, infrastructure dependencies and recovery options.</p>
 </article>
-
 <article class="card">
 <h3>Physical Servers</h3>
 <p>Windows Server, Linux servers, bare-metal systems and standalone workloads. Review system protection, file-system backups and bare-metal recovery readiness.</p>
 </article>
-
 <article class="card">
 <h3>File Services &amp; NAS</h3>
 <p>Enterprise file servers, NAS appliances, network shares, unstructured data and large-scale file environments. Review file protection, retention, capacity and recovery granularity.</p>
 </article>
-
 <article class="card">
 <h3>Cloud Workloads</h3>
 <p>Amazon Web Services, Microsoft Azure, Oracle Cloud Infrastructure and other cloud environments. Review cloud VM protection, storage, connectivity, data protection policies and recovery dependencies.</p>
 </article>
-
 <article class="card">
 <h3>Containers &amp; Kubernetes</h3>
 <p>Kubernetes clusters, containerised applications, persistent volumes and cloud-native environments. Review application data protection, configuration protection and recovery considerations.</p>
 </article>
-
 <article class="card">
 <h3>Endpoints &amp; User Data</h3>
 <p>Enterprise laptops, desktops, remote-user systems and business-critical endpoint data. Review endpoint protection coverage and recovery requirements.</p>
 </article>
-
 <article class="card">
 <h3>Object &amp; Unstructured Storage</h3>
 <p>Object storage, enterprise repositories and large-scale unstructured data. Review data protection, retention, versioning, immutability and recovery requirements.</p>
 </article>
-
 </div>
 
 <div class="report-strip">
@@ -354,42 +324,35 @@ html{scroll-behavior:auto}
 <p>Backup and recovery assessments, job failure investigation, MediaAgent connectivity and performance, deduplication database management, infrastructure migrations, restore validation and operational health reviews.</p>
 <p><a href="commvault-backup-consulting.html">Commvault Backup Consulting →</a></p>
 </article>
-
 <article class="card">
 <h3>Veritas NetBackup</h3>
 <p>Enterprise backup and recovery consulting covering backup policy reviews, job troubleshooting, storage and media management, workload protection and recovery-readiness assessments.</p>
 <p><a href="veritas-netbackup-consulting.html">Veritas NetBackup Consulting →</a></p>
 </article>
-
 <article class="card">
 <h3>Dell EMC NetWorker</h3>
 <p>Backup environment assessments, workflow and job troubleshooting, storage node and device considerations, client protection coverage and recovery validation.</p>
 <p><a href="dell-emc-networker-consulting.html">Dell EMC NetWorker Consulting →</a></p>
 </article>
-
 <article class="card">
 <h3>Veeam Backup &amp; Replication</h3>
 <p>Backup and recovery consulting covering job outcomes, VMware and Hyper-V workload protection, repository health, backup infrastructure, replication and restore readiness.</p>
 <p><a href="veeam-backup-consulting.html">Veeam Backup Consulting →</a></p>
 </article>
-
 <article class="card">
 <h3>Rubrik</h3>
 <p>Data protection and recovery-readiness reviews covering workload coverage, SLA policy considerations, retention, platform health, cyber resilience and recovery validation.</p>
 <p><a href="rubrik-backup-consulting.html">Rubrik Backup Consulting →</a></p>
 </article>
-
 <article class="card">
 <h3>Cohesity</h3>
 <p>Backup and recovery assessments covering workload protection, policy and retention reviews, platform health, data security considerations and restore readiness.</p>
 <p><a href="cohesity-backup-consulting.html">Cohesity Backup Consulting →</a></p>
 </article>
-
 <article class="card">
 <h3>Virtualisation, Cloud &amp; Infrastructure</h3>
 <p>Backup environments involving VMware vSphere, Microsoft Hyper-V, Oracle Cloud Infrastructure, Windows Server, Linux systems, on-premises infrastructure and hybrid cloud.</p>
 </article>
-
 <article class="card">
 <h3>Other Backup Technologies</h3>
 <p>Additional platforms can also be considered according to the environment and engagement scope, including IBM Storage Protect, Acronis, Druva, HYCU, Arcserve and other enterprise data protection solutions.</p>
@@ -478,42 +441,34 @@ html{scroll-behavior:auto}
 <h2>Frequently asked questions</h2>
 <p class="intro">A few details to help you decide whether BackupSteward is a fit for your requirements.</p>
 <div class="faq-list">
-
 <article class="faq">
 <h3>Which backup platforms do you cover?</h3>
 <p>BackupSteward provides vendor-independent backup and recovery consulting across Commvault, Veritas NetBackup, Dell EMC NetWorker, Veeam, Rubrik and Cohesity. Other enterprise backup technologies can also be considered depending on the environment and agreed scope.</p>
 </article>
-
 <article class="faq">
 <h3>Which workloads can be assessed?</h3>
 <p>Workload reviews can include databases, enterprise applications, virtual and physical servers, file services, NAS, cloud workloads, containers, endpoints and object storage. Actual protection capabilities depend on the backup product and environment.</p>
 </article>
-
 <article class="faq">
 <h3>Can you help with backup migrations?</h3>
 <p>Yes. Migration advisory can cover backup platform transitions, infrastructure and storage changes, cloud adoption, consolidation, data movement, cutover planning and post-migration validation.</p>
 </article>
-
 <article class="faq">
 <h3>Do you work remotely?</h3>
 <p>Remote consulting can be considered where the scope, access method, security requirements and working arrangements are agreed in advance.</p>
 </article>
-
 <article class="faq">
 <h3>Can you help with an existing backup issue?</h3>
 <p>Share a high-level description of the symptoms, impact, backup platform and workload. The next step is to confirm the scope and whether the issue fits the available expertise.</p>
 </article>
-
 <article class="faq">
 <h3>Can you help with immutable backups and recovery testing?</h3>
 <p>These can be considered as defined-scope advisory engagements, subject to the environment, requirements, access and agreed deliverables.</p>
 </article>
-
 <article class="faq">
 <h3>What will I receive?</h3>
 <p>Deliverables depend on the agreed scope and may include findings, prioritised recommendations, troubleshooting notes, a remediation plan or recovery-validation checklist.</p>
 </article>
-
 </div>
 </div>
 </section>
