@@ -154,7 +154,7 @@
       color: var(--burgundy-dark);
     }
 
-    input[type="text"], select {
+    select {
       width: 100%;
       padding: 12px;
       border: 1px solid #d9cbd2;
@@ -164,9 +164,7 @@
       color: var(--text);
     }
 
-    .progress-wrap {
-      margin: 25px 0;
-    }
+    .progress-wrap { margin: 25px 0; }
 
     .progress-label {
       display: flex;
@@ -337,6 +335,57 @@
 
     .result-block li { margin-bottom: 7px; }
 
+    .maturity-item {
+      margin: 19px 0;
+    }
+
+    .maturity-heading {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 7px;
+      font-size: 14px;
+    }
+
+    .maturity-name {
+      color: var(--burgundy-dark);
+      font-weight: 700;
+    }
+
+    .maturity-score {
+      color: var(--burgundy);
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .maturity-track {
+      height: 12px;
+      background: var(--rose);
+      border-radius: 20px;
+      overflow: hidden;
+    }
+
+    .maturity-fill {
+      height: 100%;
+      width: 0%;
+      background: var(--burgundy);
+      border-radius: 20px;
+      transition: width .3s ease;
+    }
+
+    .maturity-description {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 5px;
+    }
+
+    .maturity-note {
+      font-size: 12px;
+      color: var(--muted);
+      margin-top: 15px;
+    }
+
     .cta {
       margin-top: 25px;
       padding: 23px;
@@ -379,20 +428,30 @@
     }
 
     @media print {
-      header, .hero, .intro, #assessment, .actions, footer,
-      .no-print { display: none !important; }
+      header, .hero, .intro, #assessment, .actions,
+      footer, .no-print { display: none !important; }
 
       body { background: white; color: #222; }
       main { max-width: 100%; padding: 0; }
+
       .result {
         display: block !important;
         background: white;
         border: 0;
         padding: 0;
       }
+
       .result-block { break-inside: avoid; }
-      .cta { background: white; color: #222; border: 1px solid #ccc; }
+
+      .cta {
+        background: white;
+        color: #222;
+        border: 1px solid #ccc;
+      }
+
       .cta a { color: var(--burgundy); }
+
+      .maturity-item { break-inside: avoid; }
     }
   </style>
 </head>
@@ -465,12 +524,15 @@
 
   <section id="assessment">
     <h2 class="section-title">Recovery readiness assessment</h2>
+
     <div class="progress-wrap">
       <div class="progress-label">
         <span>Assessment progress</span>
         <span id="progressText">0 of 8 answered</span>
       </div>
-      <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+      <div class="progress-track">
+        <div class="progress-bar" id="progressBar"></div>
+      </div>
     </div>
 
     <div id="questions"></div>
@@ -479,6 +541,7 @@
       <button class="primary" id="calculateBtn" type="button">Calculate my readiness score</button>
       <button class="secondary" id="resetBtn" type="button">Reset assessment</button>
     </div>
+
     <p id="validation" role="alert" style="color:#a21e45;font-size:14px;"></p>
   </section>
 
@@ -494,15 +557,27 @@
       <div>
         <div class="score-status" id="status"></div>
         <p id="statusDescription"></p>
-        <p><strong>Platform:</strong> <span id="reportPlatform"></span><br>
-        <strong>Environment:</strong> <span id="reportEnvironment"></span><br>
-        <strong>Scope:</strong> <span id="reportScope"></span></p>
+        <p>
+          <strong>Platform:</strong> <span id="reportPlatform"></span><br>
+          <strong>Environment:</strong> <span id="reportEnvironment"></span><br>
+          <strong>Scope:</strong> <span id="reportScope"></span>
+        </p>
       </div>
     </div>
 
     <div class="result-block">
       <h3>Executive summary</h3>
       <p id="executiveSummary"></p>
+    </div>
+
+    <div class="result-block">
+      <h3>Recovery Maturity Breakdown</h3>
+      <p>See how your organisation performed across four key recovery dimensions.</p>
+      <div id="maturityBreakdown"></div>
+      <p class="maturity-note">
+        Each dimension is scored out of 100 based on its corresponding assessment answers.
+        These are indicative self-assessment scores, not independently verified maturity ratings.
+      </p>
     </div>
 
     <div class="result-block">
@@ -527,7 +602,12 @@
       <p><a href="mailto:contact@backupsteward.com">Contact BackupSteward</a></p>
     </div>
 
-    <p class="disclaimer">This is a preliminary self-assessment based on the answers provided. It is not a technical audit, recovery test, compliance certification or guarantee of recoverability. Actual readiness should be validated through documented and witnessed recovery testing.</p>
+    <p class="disclaimer">
+      This is a preliminary self-assessment based on the answers provided.
+      It is not a technical audit, recovery test, compliance certification or
+      guarantee of recoverability. Actual readiness should be validated through
+      documented and witnessed recovery testing.
+    </p>
 
     <div class="actions no-print">
       <button class="primary" type="button" onclick="window.print()">Print / Save as PDF</button>
@@ -538,7 +618,10 @@
 
 <footer>
   <p>© 2026 BackupSteward · Independent Backup &amp; Recovery Consulting</p>
-  <p><a href="https://backupsteward.com/">Home</a> · <a href="mailto:contact@backupsteward.com">Contact</a></p>
+  <p>
+    <a href="https://backupsteward.com/">Home</a> ·
+    <a href="mailto:contact@backupsteward.com">Contact</a>
+  </p>
 </footer>
 
 <script>
@@ -641,29 +724,58 @@ const questions = [
   }
 ];
 
+const maturityDimensions = [
+  {
+    name: "Planning & Documentation",
+    questions: [0, 2, 3],
+    description: "RTO/RPO definition, application dependencies and recovery runbooks."
+  },
+  {
+    name: "Recovery Testing",
+    questions: [1, 7],
+    description: "Restore testing, DR exercises and continuous improvement."
+  },
+  {
+    name: "Recovery Infrastructure",
+    questions: [4, 6],
+    description: "Clean recovery environments and infrastructure capacity."
+  },
+  {
+    name: "People & Governance",
+    questions: [5],
+    description: "Recovery ownership, roles, responsibilities and emergency access."
+  }
+];
+
 const questionContainer = document.getElementById("questions");
 
 questions.forEach((q, index) => {
   const card = document.createElement("div");
   card.className = "question";
+
   const heading = document.createElement("h3");
   heading.textContent = q.title;
+
   const help = document.createElement("p");
   help.className = "help";
   help.textContent = q.help;
+
   const options = document.createElement("div");
   options.className = "options";
 
-  q.options.forEach((option, optionIndex) => {
+  q.options.forEach(option => {
     const label = document.createElement("label");
     label.className = "option";
+
     const radio = document.createElement("input");
     radio.type = "radio";
     radio.name = "q" + index;
     radio.value = option[1];
     radio.addEventListener("change", updateProgress);
+
     const span = document.createElement("span");
     span.textContent = option[0];
+
     label.append(radio, span);
     options.appendChild(label);
   });
@@ -679,6 +791,7 @@ function updateProgress() {
 
   document.getElementById("progressText").textContent =
     answered + " of 8 answered";
+
   document.getElementById("progressBar").style.width =
     (answered / 8 * 100) + "%";
 }
@@ -687,15 +800,73 @@ function getSelectedRisk(index) {
   const selected = document.querySelector(
     'input[name="q' + index + '"]:checked'
   );
+
   return selected ? Number(selected.value) : null;
 }
 
 function getRecommendation(index) {
-  const selected = getSelectedRisk(index);
-  if (selected === 0) {
+  if (getSelectedRisk(index) === 0) {
     return "Maintain the current control and continue periodic validation.";
   }
+
   return questions[index].action;
+}
+
+function getMaturityLabel(score) {
+  if (score >= 85) return "Strong";
+  if (score >= 70) return "Generally prepared";
+  if (score >= 50) return "Improvement needed";
+  return "Critical attention";
+}
+
+function renderMaturityBreakdown(risks) {
+  const container = document.getElementById("maturityBreakdown");
+  container.replaceChildren();
+
+  maturityDimensions.forEach(dimension => {
+    const dimensionRisks = dimension.questions.map(index => risks[index]);
+    const averageRisk = dimensionRisks.reduce((sum, value) => sum + value, 0)
+      / (dimensionRisks.length * 15);
+
+    const score = Math.round((1 - averageRisk) * 100);
+
+    const item = document.createElement("div");
+    item.className = "maturity-item";
+
+    const heading = document.createElement("div");
+    heading.className = "maturity-heading";
+
+    const name = document.createElement("span");
+    name.className = "maturity-name";
+    name.textContent = dimension.name;
+
+    const value = document.createElement("span");
+    value.className = "maturity-score";
+    value.textContent = score + "/100 · " + getMaturityLabel(score);
+
+    heading.append(name, value);
+
+    const track = document.createElement("div");
+    track.className = "maturity-track";
+    track.setAttribute("role", "progressbar");
+    track.setAttribute("aria-label", dimension.name + " score");
+    track.setAttribute("aria-valuemin", "0");
+    track.setAttribute("aria-valuemax", "100");
+    track.setAttribute("aria-valuenow", String(score));
+
+    const fill = document.createElement("div");
+    fill.className = "maturity-fill";
+    fill.style.width = score + "%";
+
+    track.appendChild(fill);
+
+    const description = document.createElement("div");
+    description.className = "maturity-description";
+    description.textContent = dimension.description;
+
+    item.append(heading, track, description);
+    container.appendChild(item);
+  });
 }
 
 function calculateScore() {
@@ -707,8 +878,10 @@ function calculateScore() {
     document.getElementById("validation").textContent =
       "Please answer all eight questions. Questions not answered: " +
       unanswered.join(", ") + ".";
+
     document.querySelectorAll(".question")[unanswered[0] - 1]
       .scrollIntoView({behavior:"smooth", block:"center"});
+
     return;
   }
 
@@ -719,6 +892,7 @@ function calculateScore() {
   const score = Math.max(0, 100 - totalRisk);
 
   let status, description;
+
   if (score >= 85) {
     status = "Strong readiness";
     description = "Your responses indicate a generally mature recovery approach. Continue testing and validating recovery capabilities.";
@@ -736,12 +910,16 @@ function calculateScore() {
   document.getElementById("score").textContent = score;
   document.getElementById("status").textContent = status;
   document.getElementById("statusDescription").textContent = description;
+
   document.getElementById("reportPlatform").textContent =
     document.getElementById("platform").value || "Not specified";
+
   document.getElementById("reportEnvironment").textContent =
     document.getElementById("environment").value || "Not specified";
+
   document.getElementById("reportScope").textContent =
     document.getElementById("scope").value || "Not specified";
+
   document.getElementById("reportDate").textContent =
     "Assessment generated: " + new Date().toLocaleString();
 
@@ -750,12 +928,12 @@ function calculateScore() {
     "/100. " + description +
     " This result is based on the information supplied and should be validated through practical recovery exercises.";
 
+  renderMaturityBreakdown(risks);
+
   const gaps = questions.map((q, i) => ({
-    title: q.title,
     risk: risks[i],
     gap: q.gap,
-    action: getRecommendation(i),
-    index: i
+    action: getRecommendation(i)
   })).filter(item => item.risk > 0)
     .sort((a, b) => b.risk - a.risk);
 
@@ -764,7 +942,8 @@ function calculateScore() {
 
   if (!gaps.length) {
     const li = document.createElement("li");
-    li.textContent = "No gaps identified in the selected responses. Continue validating all controls through regular testing.";
+    li.textContent =
+      "No gaps identified in the selected responses. Continue validating all controls through regular testing.";
     topGaps.appendChild(li);
   } else {
     gaps.slice(0, 3).forEach(item => {
@@ -779,24 +958,26 @@ function calculateScore() {
 
   questions.forEach((q, i) => {
     const li = document.createElement("li");
+
     li.textContent = q.title + " — " +
       (risks[i] === 0 ? "Positive response: control reported in place." :
       risks[i] <= 5 ? "Some improvement recommended." :
       risks[i] <= 10 ? "Gap identified: improvement required." :
       "Significant gap identified: priority attention required.");
+
     findings.appendChild(li);
   });
 
   const actionPlan = document.getElementById("actionPlan");
   actionPlan.replaceChildren();
 
-  const recommendations = gaps.length ? gaps : [];
-  if (!recommendations.length) {
+  if (!gaps.length) {
     const li = document.createElement("li");
-    li.textContent = "Maintain existing controls and schedule regular recovery validation exercises.";
+    li.textContent =
+      "Maintain existing controls and schedule regular recovery validation exercises.";
     actionPlan.appendChild(li);
   } else {
-    recommendations.forEach(item => {
+    gaps.forEach(item => {
       const li = document.createElement("li");
       li.textContent = item.action;
       actionPlan.appendChild(li);
@@ -815,14 +996,17 @@ function calculateScore() {
   }
 }
 
-document.getElementById("calculateBtn").addEventListener("click", calculateScore);
+document.getElementById("calculateBtn")
+  .addEventListener("click", calculateScore);
 
 document.getElementById("resetBtn").addEventListener("click", () => {
   document.querySelectorAll('input[type="radio"]').forEach(input => {
     input.checked = false;
   });
+
   document.getElementById("result").style.display = "none";
   document.getElementById("validation").textContent = "";
+
   updateProgress();
   window.scrollTo({top:0, behavior:"smooth"});
 });
