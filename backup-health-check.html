@@ -9,330 +9,130 @@
 <meta name="theme-color" content="#4A1022">
 <link rel="canonical" href="https://backupsteward.com/backup-health-check.html">
 <title>Free Backup Health Check | BackupSteward</title>
-
-<!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-214R25SYC8"></script>
 <script>
-window.dataLayer = window.dataLayer || [];
+window.dataLayer=window.dataLayer||[];
 function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-214R25SYC8');
+gtag('js',new Date());
+gtag('config','G-214R25SYC8');
 </script>
-<!-- End Google Analytics -->
 
 <style>
-:root{
---burgundy:#4A1022;
---burgundy2:#72223B;
---rose:#D66A88;
---rose-light:#F7E8ED;
---ink:#33232A;
---muted:#655B60;
---bg:#F7F4F5;
---line:#E5DFE2;
---white:#FFFFFF;
---green:#287A4B;
---amber:#A66A12;
---red:#B53B42;
-}
+:root{--burgundy:#4A1022;--burgundy2:#72223B;--rose:#D66A88;--rose-light:#F7E8ED;--ink:#33232A;--muted:#655B60;--bg:#F7F4F5;--line:#E5DFE2;--white:#FFFFFF;--green:#287A4B;--amber:#A66A12;--red:#B53B42}
 *{box-sizing:border-box}
-body{
-margin:0;
-font-family:Arial,Helvetica,sans-serif;
-background:var(--bg);
-color:var(--ink);
-line-height:1.65;
-}
+body{margin:0;font-family:Arial,Helvetica,sans-serif;background:var(--bg);color:var(--ink);line-height:1.65}
 .wrap{width:min(900px,92%);margin:auto}
 header{background:white;border-bottom:1px solid var(--line)}
-nav{
-display:flex;
-justify-content:space-between;
-align-items:center;
-padding:17px 0;
-gap:15px;
-flex-wrap:wrap;
-}
-.brand{
-font-size:23px;
-font-weight:800;
-color:var(--burgundy);
-text-decoration:none;
-}
+nav{display:flex;justify-content:space-between;align-items:center;padding:17px 0;gap:15px;flex-wrap:wrap}
+.brand{font-size:23px;font-weight:800;color:var(--burgundy);text-decoration:none}
 .brand span{color:var(--rose)}
 .navlinks{display:flex;gap:18px;flex-wrap:wrap}
-.navlinks a{
-text-decoration:none;
-color:var(--muted);
-font-size:14px;
-font-weight:600;
-}
-.hero{
-background:var(--burgundy);
-color:white;
-padding:45px 0;
-}
-.hero h1{
-font-size:clamp(29px,5vw,42px);
-line-height:1.2;
-margin:0 0 14px;
-}
+.navlinks a{text-decoration:none;color:var(--muted);font-size:14px;font-weight:600}
+.hero{background:var(--burgundy);color:white;padding:45px 0}
+.hero h1{font-size:clamp(29px,5vw,42px);line-height:1.2;margin:0 0 14px}
 .hero p{max-width:700px;color:#F5E9ED;margin:0}
-.hero-tag{
-display:inline-block;
-background:#72223B;
-border:1px solid #A95B73;
-padding:6px 12px;
-border-radius:30px;
-font-size:12px;
-font-weight:bold;
-margin-bottom:15px;
-}
+.hero-tag{display:inline-block;background:#72223B;border:1px solid #A95B73;padding:6px 12px;border-radius:30px;font-size:12px;font-weight:bold;margin-bottom:15px}
 main{padding:35px 0 55px}
-.intro{
-background:white;
-padding:22px;
-border:1px solid var(--line);
-border-radius:13px;
-margin-bottom:22px;
-}
+.intro{background:white;padding:22px;border:1px solid var(--line);border-radius:13px;margin-bottom:22px}
 .intro h2{color:var(--burgundy);margin:0 0 8px}
 .muted{color:var(--muted);font-size:14px}
 .progress-wrap{margin:20px 0}
-.progress-label{
-display:flex;
-justify-content:space-between;
-font-size:13px;
-font-weight:bold;
-color:var(--burgundy);
-margin-bottom:7px;
-}
-.progress{
-height:8px;
-background:#E9DFE3;
-border-radius:20px;
-overflow:hidden;
-}
-.progress-fill{
-height:100%;
-width:0;
-background:var(--rose);
-transition:width .2s ease;
-}
-.form-card{
-background:white;
-border:1px solid var(--line);
-border-radius:14px;
-padding:25px;
-margin-bottom:18px;
-}
-.form-card h2{
-font-size:19px;
-color:var(--burgundy);
-margin:0 0 5px;
-}
+.progress-label{display:flex;justify-content:space-between;font-size:13px;font-weight:bold;color:var(--burgundy);margin-bottom:7px}
+.progress{height:8px;background:#E9DFE3;border-radius:20px;overflow:hidden}
+.progress-fill{height:100%;width:0;background:var(--rose);transition:width .2s ease}
+.form-card{background:white;border:1px solid var(--line);border-radius:14px;padding:25px;margin-bottom:18px}
+.form-card h2{font-size:19px;color:var(--burgundy);margin:0 0 5px}
 .field{margin-top:20px}
-label.field-label{
-display:block;
-font-weight:bold;
-font-size:14px;
-margin-bottom:8px;
-}
-select{
-width:100%;
-padding:13px;
-border:1px solid #D8CDD1;
-border-radius:8px;
-background:white;
-color:var(--ink);
-font-size:15px;
-}
-.question{
-padding:19px 0;
-border-bottom:1px solid var(--line);
-}
+label.field-label{display:block;font-weight:bold;font-size:14px;margin-bottom:8px}
+select{width:100%;padding:13px;border:1px solid #D8CDD1;border-radius:8px;background:white;color:var(--ink);font-size:15px}
+.question{padding:19px 0;border-bottom:1px solid var(--line)}
 .question:last-child{border-bottom:0}
-.question h3{
-font-size:16px;
-margin:0 0 12px;
-color:var(--ink);
-}
-.question small{
-display:block;
-color:var(--muted);
-font-weight:normal;
-margin-top:4px;
-}
+.question h3{font-size:16px;margin:0 0 12px;color:var(--ink)}
+.question small{display:block;color:var(--muted);font-weight:normal;margin-top:4px}
 .options{display:grid;gap:8px}
-.option{
-display:flex;
-align-items:flex-start;
-gap:10px;
-border:1px solid var(--line);
-border-radius:9px;
-padding:11px 12px;
-cursor:pointer;
-font-size:14px;
-background:#FFFEFE;
-}
-.option:hover{
-border-color:var(--rose);
-background:#FFF9FB;
-}
-.option input{
-margin-top:3px;
-accent-color:var(--burgundy);
-}
-.option:has(input:checked){
-border-color:var(--burgundy2);
-background:var(--rose-light);
-}
-.actions{
-display:flex;
-gap:12px;
-flex-wrap:wrap;
-margin-top:22px;
-}
-button{
-border:0;
-border-radius:8px;
-padding:13px 19px;
-font-size:14px;
-font-weight:bold;
-cursor:pointer;
-}
-.primary{
-background:var(--rose);
-color:#35101D;
-}
-.secondary{
-background:white;
-border:1px solid var(--burgundy);
-color:var(--burgundy);
-}
+.option{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--line);border-radius:9px;padding:11px 12px;cursor:pointer;font-size:14px;background:#FFFEFE}
+.option:hover{border-color:var(--rose);background:#FFF9FB}
+.option input{margin-top:3px;accent-color:var(--burgundy)}
+.option:has(input:checked){border-color:var(--burgundy2);background:var(--rose-light)}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:22px}
+button{border:0;border-radius:8px;padding:13px 19px;font-size:14px;font-weight:bold;cursor:pointer}
+.primary{background:var(--rose);color:#35101D}
+.secondary{background:white;border:1px solid var(--burgundy);color:var(--burgundy)}
 button:hover{opacity:.9}
-.error{
-display:none;
-background:#FFF0F0;
-color:#9D2828;
-padding:12px;
-border-radius:8px;
-margin-top:15px;
-font-size:14px;
-}
+.error{display:none;background:#FFF0F0;color:#9D2828;padding:12px;border-radius:8px;margin-top:15px;font-size:14px}
 #results{display:none}
-.result-card{
-background:white;
-border:1px solid var(--line);
-border-radius:15px;
-padding:25px;
-margin-bottom:18px;
-}
-.result-heading{
-color:var(--burgundy);
-margin-top:0;
-}
-.score-area{
-display:flex;
-align-items:center;
-gap:25px;
-flex-wrap:wrap;
-margin:20px 0;
-}
-.score-circle{
-width:135px;
-height:135px;
-border-radius:50%;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-background:var(--rose-light);
-border:8px solid var(--rose);
-flex-shrink:0;
-}
-.score-circle strong{
-font-size:38px;
-color:var(--burgundy);
-line-height:1;
-}
-.score-circle span{
-font-size:12px;
-color:var(--muted);
-}
-.risk{
-display:inline-block;
-padding:7px 13px;
-border-radius:25px;
-font-size:13px;
-font-weight:bold;
-margin-top:5px;
-}
+.result-card{background:white;border:1px solid var(--line);border-radius:15px;padding:25px;margin-bottom:18px}
+.result-heading{color:var(--burgundy);margin-top:0}
+.score-area{display:flex;align-items:center;gap:18px;flex-wrap:nowrap;margin:14px 0}
+.score-area>div:last-child{flex:1;min-width:0}
+.score-area h2{margin:0 0 5px;font-size:clamp(21px,4vw,28px)}
+.score-circle{width:135px;height:135px;border-radius:50%;display:flex;flex-direction:column;justify-content:center;align-items:center;background:var(--rose-light);border:8px solid var(--rose);flex-shrink:0}
+.score-circle strong{font-size:38px;color:var(--burgundy);line-height:1}
+.score-circle span{font-size:12px;color:var(--muted)}
+.score-meter{height:10px;background:#E9DFE3;border-radius:20px;overflow:hidden;margin:10px 0 5px}
+.score-meter span{display:block;height:100%;width:0;background:var(--rose);border-radius:20px}
+.risk{display:inline-block;padding:7px 13px;border-radius:25px;font-size:13px;font-weight:bold;margin-top:5px}
 .risk-low{background:#E6F4EB;color:var(--green)}
 .risk-moderate{background:#FFF2D9;color:var(--amber)}
 .risk-high{background:#FCE7E7;color:var(--red)}
 .risk-critical{background:#8E2029;color:white}
-.result-item{
-border-bottom:1px solid var(--line);
-padding:14px 0;
-}
+.executive-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin-top:16px}
+.executive-stat{background:#FAF7F8;border:1px solid var(--line);border-radius:10px;padding:13px}
+.executive-stat strong{display:block;color:var(--burgundy);font-size:18px;overflow-wrap:anywhere}
+.executive-stat span{font-size:12px;color:var(--muted)}
+.priority-label{display:inline-block;border-radius:20px;padding:4px 9px;font-size:11px;font-weight:bold;margin:5px 0}
+.priority-critical{background:#FCE7E7;color:#9D2828}
+.priority-high{background:#FFF2D9;color:#8A5A0A}
+.priority-medium{background:#E9EEF9;color:#38547E}
+.top-gap{background:#FAF7F8;border:1px solid var(--line);border-radius:10px;padding:13px;margin:10px 0}
+.report-brand{font-size:13px;letter-spacing:1px;text-transform:uppercase;color:var(--burgundy);font-weight:800;border-bottom:2px solid var(--rose);padding-bottom:10px;margin-bottom:18px}
+.report-footer{border-top:1px solid var(--line);padding-top:10px;margin-top:20px;color:var(--muted);font-size:11px}
+.result-item{border-bottom:1px solid var(--line);padding:14px 0}
 .result-item:last-child{border:0}
 .result-item strong{color:var(--burgundy)}
-.recommendation{
-background:var(--rose-light);
-border-left:4px solid var(--rose);
-padding:13px 15px;
-border-radius:5px;
-margin-top:10px;
-font-size:14px;
-}
-.notice{
-background:#F7F4F5;
-padding:14px;
-border-radius:9px;
-font-size:12px;
-color:var(--muted);
-margin-top:18px;
-}
-.contact-box{
-background:var(--burgundy);
-color:white;
-border-radius:14px;
-padding:25px;
-}
+.recommendation{background:var(--rose-light);border-left:4px solid var(--rose);padding:13px 15px;border-radius:5px;margin-top:10px;font-size:14px}
+.notice{background:#F7F4F5;padding:14px;border-radius:9px;font-size:12px;color:var(--muted);margin-top:18px}
+.contact-box{background:var(--burgundy);color:white;border-radius:14px;padding:25px}
 .contact-box h2{margin-top:0}
 .contact-box p{color:#F5E9ED}
 .contact-box a{color:#F0A4BA;font-weight:bold}
-footer{
-padding:23px 0;
-color:var(--muted);
-font-size:13px;
-text-align:center;
-}
+footer{padding:23px 0;color:var(--muted);font-size:13px;text-align:center}
 footer a{color:var(--burgundy2)}
+
 @media(max-width:600px){
 nav{align-items:flex-start}
 .navlinks{width:100%;gap:10px 14px}
 .hero{padding:35px 0}
 main{padding-top:22px}
 .form-card,.result-card{padding:19px}
-.score-area{gap:15px}
-.score-circle{width:115px;height:115px}
-.score-circle strong{font-size:32px}
+.score-circle{width:100px;height:100px;border-width:6px}
+.score-circle strong{font-size:30px}
+.score-area{gap:12px;align-items:center}
+.score-area h2{font-size:21px}
+.executive-grid{grid-template-columns:1fr}
 .actions button{width:100%}
 }
+
 @media print{
-header,footer,.hero,.actions,.contact-box{display:none!important}
-body{background:white}
+@page{size:A4;margin:16mm}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+header,footer,.hero,.actions,.contact-box,.intro,.progress-wrap,#assessment{display:none!important}
+body{background:white;color:#33232A;font-size:11pt;line-height:1.45}
+.wrap{width:100%;max-width:none}
 main{padding:0}
 #results{display:block!important}
-.result-card{break-inside:avoid}
+.result-card{box-shadow:none;border:1px solid #D8CDD1;padding:18px;margin:0 0 12px;break-inside:avoid}
+#results>.result-card:first-child{break-after:page}
+.result-heading{font-size:17pt}
+.report-brand{font-size:12pt}
+.score-circle{width:95px;height:95px}
+.executive-grid{grid-template-columns:repeat(3,1fr)}
+.top-gap,.result-item{break-inside:avoid}
 }
 </style>
 </head>
 
 <body>
-
 <header>
 <nav class="wrap">
 <a class="brand" href="index.html">Backup<span>Steward</span></a>
@@ -354,7 +154,6 @@ main{padding:0}
 </section>
 
 <main class="wrap">
-
 <div class="intro">
 <h2>Before you begin</h2>
 <p class="muted">This assessment takes approximately 5 minutes. Select the answers that best describe your current environment. Your answers are processed in your browser and are not uploaded or stored by this tool.</p>
@@ -362,7 +161,6 @@ main{padding:0}
 </div>
 
 <div id="assessment">
-
 <div class="progress-wrap">
 <div class="progress-label">
 <span>Assessment progress</span>
@@ -374,7 +172,6 @@ main{padding:0}
 <div class="form-card">
 <h2>Environment details</h2>
 <p class="muted">Tell us a little about your backup environment.</p>
-
 <div class="field">
 <label class="field-label" for="platform">Primary backup platform</label>
 <select id="platform">
@@ -389,7 +186,6 @@ main{padding:0}
 <option>Other / Multiple platforms</option>
 </select>
 </div>
-
 <div class="field">
 <label class="field-label" for="environment">Environment type</label>
 <select id="environment">
@@ -487,7 +283,6 @@ main{padding:0}
 </div>
 
 <div id="error" class="error">Please answer all 8 questions before generating your health check report.</div>
-
 <div class="actions">
 <button class="primary" type="button" id="calculate">Generate My Health Report</button>
 <button class="secondary" type="button" id="reset">Reset Assessment</button>
@@ -496,11 +291,10 @@ main{padding:0}
 </div>
 
 <section id="results" aria-live="polite">
-
-<div class="result-card">
-<h2 class="result-heading">Your Backup Health Report</h2>
+<div class="result-card report-cover">
+<div class="report-brand">BackupSteward | Backup &amp; Recovery Consulting</div>
+<h2 class="result-heading">Backup Health Assessment Report</h2>
 <p class="muted" id="reportDetails"></p>
-
 <div class="score-area">
 <div class="score-circle">
 <strong id="score">0</strong>
@@ -512,8 +306,16 @@ main{padding:0}
 <p class="muted" id="riskDescription"></p>
 </div>
 </div>
-
-<p class="muted">This score is calculated from your selected answers. A higher score indicates stronger reported backup and recovery practices.</p>
+<div class="score-meter"><span id="scoreMeterFill"></span></div>
+<p class="muted">Higher scores indicate stronger reported backup and recovery practices. This is a self-assessment, not a technical verification.</p>
+<div class="executive-grid">
+<div class="executive-stat"><strong id="executiveRiskCount">0</strong><span>Priority gaps identified</span></div>
+<div class="executive-stat"><strong id="executivePlatform">—</strong><span>Backup platform</span></div>
+<div class="executive-stat"><strong id="executiveEnvironment">—</strong><span>Environment</span></div>
+</div>
+<h3 class="result-heading" style="margin-top:22px">Executive summary – top priorities</h3>
+<div id="topPriorities"></div>
+<div class="report-footer">Prepared by BackupSteward · Preliminary self-assessment · Validate findings against technical evidence before making operational decisions.</div>
 </div>
 
 <div class="result-card">
@@ -522,7 +324,8 @@ main{padding:0}
 </div>
 
 <div class="result-card">
-<h2 class="result-heading">Recommended next steps</h2>
+<h2 class="result-heading">Prioritised remediation action plan</h2>
+<p class="muted">Priorities are indicative and should be confirmed against business criticality, exposure and recovery objectives.</p>
 <div id="recommendations"></div>
 </div>
 
@@ -542,9 +345,7 @@ main{padding:0}
 <p><a href="mailto:contact@backupsteward.com?subject=Backup%20Health%20Check%20Enquiry">contact@backupsteward.com</a></p>
 <a href="enterprise-backup-recovery.html">Explore Enterprise Backup &amp; Recovery Consulting →</a>
 </div>
-
 </section>
-
 </main>
 
 <footer>
@@ -559,54 +360,28 @@ main{padding:0}
 
 <script>
 (function(){
-
-const totalQuestions = 8;
-
-const questionData = [
-{
-name:"Backup job success rate",
-recommendation:"Review failed and missed backup jobs, identify recurring causes, and establish regular reporting with clear operational ownership."
-},
-{
-name:"Restore testing",
-recommendation:"Introduce a documented restore-testing schedule. Validate file, database, application and full-system recovery for critical workloads."
-},
-{
-name:"Immutable backup protection",
-recommendation:"Evaluate immutable or tamper-resistant backup copies, isolation, retention lock and protection against compromised administrator accounts."
-},
-{
-name:"Infrastructure monitoring",
-recommendation:"Review monitoring and alerting for backup servers, MediaAgents, proxies, repositories, storage capacity and deduplication components."
-},
-{
-name:"Policy and retention alignment",
-recommendation:"Map backup policies and retention periods to business requirements, recovery objectives and applicable compliance obligations."
-},
-{
-name:"Administrative access security",
-recommendation:"Strengthen MFA, least-privilege access, privileged account separation and periodic access reviews."
-},
-{
-name:"Disaster recovery readiness",
-recommendation:"Document recovery procedures, dependencies, roles and recovery objectives. Conduct periodic recovery exercises."
-},
-{
-name:"Workload coverage",
-recommendation:"Reconcile backup protection against the production workload inventory and investigate unprotected or excluded systems."
-}
+const totalQuestions=8;
+const questionData=[
+{name:"Backup job success rate",recommendation:"Review failed and missed backup jobs, identify recurring causes, and establish regular reporting with clear operational ownership."},
+{name:"Restore testing",recommendation:"Introduce a documented restore-testing schedule. Validate file, database, application and full-system recovery for critical workloads."},
+{name:"Immutable backup protection",recommendation:"Evaluate immutable or tamper-resistant backup copies, isolation, retention lock and protection against compromised administrator accounts."},
+{name:"Infrastructure monitoring",recommendation:"Review monitoring and alerting for backup servers, MediaAgents, proxies, repositories, storage capacity and deduplication components."},
+{name:"Policy and retention alignment",recommendation:"Map backup policies and retention periods to business requirements, recovery objectives and applicable compliance obligations."},
+{name:"Administrative access security",recommendation:"Strengthen MFA, least-privilege access, privileged account separation and periodic access reviews."},
+{name:"Disaster recovery readiness",recommendation:"Document recovery procedures, dependencies, roles and recovery objectives. Conduct periodic recovery exercises."},
+{name:"Workload coverage",recommendation:"Reconcile backup protection against the production workload inventory and investigate unprotected or excluded systems."}
 ];
 
-const form = document.getElementById("assessment");
-const results = document.getElementById("results");
-const error = document.getElementById("error");
-const progressFill = document.getElementById("progressFill");
-const progressText = document.getElementById("progressText");
+const form=document.getElementById("assessment");
+const results=document.getElementById("results");
+const error=document.getElementById("error");
+const progressFill=document.getElementById("progressFill");
+const progressText=document.getElementById("progressText");
 
 function answeredCount(){
 let count=0;
 for(let i=1;i<=totalQuestions;i++){
-if(document.querySelector('input[name="q'+i+'"]:checked')) count++;
+if(document.querySelector('input[name="q'+i+'"]:checked'))count++;
 }
 return count;
 }
@@ -623,7 +398,6 @@ input.addEventListener("change",updateProgress);
 
 function generateReport(){
 const count=answeredCount();
-
 if(count!==totalQuestions){
 error.style.display="block";
 const firstMissing=Array.from({length:totalQuestions},(_,i)=>i+1)
@@ -633,13 +407,12 @@ document.querySelector('[data-question="'+firstMissing+'"]').scrollIntoView({beh
 }
 return;
 }
-
 error.style.display="none";
 
 let totalRisk=0;
 let findingsHTML="";
 let recommendationsHTML="";
-let highRiskCount=0;
+const gaps=[];
 
 questionData.forEach((item,index)=>{
 const questionNumber=index+1;
@@ -648,9 +421,14 @@ const risk=Number(selected.value);
 totalRisk+=risk;
 
 let status="Strong";
-if(risk>=15){status="Critical gap";highRiskCount++;}
-else if(risk>=10){status="Needs improvement";highRiskCount++;}
-else if(risk>=5){status="Partial controls";}
+if(risk>=15)status="Critical gap";
+else if(risk>=10)status="Needs improvement";
+else if(risk>=5)status="Partial controls";
+
+if(risk>0){
+const priority=risk>=15?"Critical":risk>=10?"High":"Medium";
+gaps.push({number:questionNumber,name:item.name,risk,priority,recommendation:item.recommendation});
+}
 
 findingsHTML+=`
 <div class="result-item">
@@ -660,9 +438,12 @@ findingsHTML+=`
 </div>`;
 
 if(risk>0){
+const priority=risk>=15?"Critical":risk>=10?"High":"Medium";
+const priorityClass=risk>=15?"priority-critical":risk>=10?"priority-high":"priority-medium";
 recommendationsHTML+=`
 <div class="result-item">
 <strong>${questionNumber}. ${item.name}</strong>
+<div><span class="priority-label ${priorityClass}">${priority} priority</span></div>
 <div class="recommendation">${item.recommendation}</div>
 </div>`;
 }
@@ -672,23 +453,19 @@ const score=Math.max(0,100-totalRisk);
 let title,badge,description,riskClass;
 
 if(score>=85){
-title="Strong";
-badge="LOW RISK";
+title="Strong";badge="LOW RISK";
 description="Your answers indicate relatively mature backup and recovery practices. Continue validating controls and testing recovery.";
 riskClass="risk-low";
 }else if(score>=70){
-title="Generally healthy";
-badge="MODERATE RISK";
+title="Generally healthy";badge="MODERATE RISK";
 description="Several good practices are reported, but some gaps should be addressed to improve backup reliability and recovery confidence.";
 riskClass="risk-moderate";
 }else if(score>=50){
-title="Improvement needed";
-badge="HIGH RISK";
+title="Improvement needed";badge="HIGH RISK";
 description="Your answers indicate important weaknesses that may affect backup reliability, security or recovery readiness.";
 riskClass="risk-high";
 }else{
-title="Immediate attention recommended";
-badge="CRITICAL RISK";
+title="Immediate attention recommended";badge="CRITICAL RISK";
 description="Your answers indicate multiple significant gaps. Prioritise protection of critical workloads and validate recoverability.";
 riskClass="risk-critical";
 }
@@ -707,10 +484,17 @@ document.getElementById("recommendations").innerHTML=recommendationsHTML;
 
 const platform=document.getElementById("platform").value||"Not specified";
 const environment=document.getElementById("environment").value||"Not specified";
+document.getElementById("reportDetails").textContent="Platform: "+platform+" | Environment: "+environment+" | Assessment date: "+new Date().toLocaleDateString();
+document.getElementById("scoreMeterFill").style.width=score+"%";
+document.getElementById("executiveRiskCount").textContent=gaps.length;
+document.getElementById("executivePlatform").textContent=platform;
+document.getElementById("executiveEnvironment").textContent=environment;
 
-document.getElementById("reportDetails").textContent=
-"Platform: "+platform+" | Environment: "+environment+
-" | Assessment date: "+new Date().toLocaleDateString();
+const top=gaps.slice().sort((a,b)=>b.risk-a.risk).slice(0,3);
+document.getElementById("topPriorities").innerHTML=top.length?top.map(g=>{
+const cls=g.priority==="Critical"?"priority-critical":g.priority==="High"?"priority-high":"priority-medium";
+return '<div class="top-gap"><strong>'+g.number+'. '+g.name+'</strong><br><span class="priority-label '+cls+'">'+g.priority+' priority</span><div class="muted">'+g.recommendation+'</div></div>';
+}).join(""):'<p class="muted">No gaps were reported in the selected answers. Continue periodic validation and retain restore-test evidence.</p>';
 
 form.style.display="none";
 results.style.display="block";
@@ -727,9 +511,7 @@ error.style.display="none";
 updateProgress();
 });
 
-document.getElementById("print").addEventListener("click",()=>{
-window.print();
-});
+document.getElementById("print").addEventListener("click",()=>window.print());
 
 document.getElementById("edit").addEventListener("click",()=>{
 results.style.display="none";
@@ -738,9 +520,7 @@ form.scrollIntoView({behavior:"smooth",block:"start"});
 });
 
 updateProgress();
-
 })();
 </script>
-
 </body>
 </html>
