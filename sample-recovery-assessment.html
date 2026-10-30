@@ -4,8 +4,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta name="theme-color" content="#FAF7F8">
 <meta name="description" content="Explore a fictional sample Recovery Readiness Assessment report from BackupSteward, including maturity scores, recovery risks and prioritised recommendations.">
-<meta name="theme-color" content="#4A1022">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://backupsteward.com/sample-recovery-assessment.html">
 <title>Sample Recovery Readiness Report | BackupSteward</title>
@@ -18,7 +19,8 @@ gtag('config', 'G-214R25SYC8');
 </script>
 
 <style>
-:root{
+:root {
+  color-scheme: light;
   --burgundy:#4A1022;
   --burgundy2:#72223B;
   --rose:#D66A88;
@@ -26,24 +28,38 @@ gtag('config', 'G-214R25SYC8');
   --ink:#33232A;
   --muted:#655B60;
   --line:#E5DFE2;
-  --white:#fff;
+  --white:#FFFFFF;
   --bg:#FAF7F8;
 }
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
+
+html {
+  color-scheme: light;
+  background:#FAF7F8;
+}
+
+* {
+  box-sizing:border-box;
+}
+
+body {
   margin:0;
   font-family:Arial,Helvetica,sans-serif;
   color:var(--ink);
   background:var(--bg);
   line-height:1.7;
+  color-scheme:light;
 }
-a{color:var(--burgundy2)}
-header{
-  background:white;
+
+a {
+  color:var(--burgundy2);
+}
+
+header {
+  background:#FFFFFF;
   border-bottom:1px solid var(--line);
 }
-.nav{
+
+.nav {
   max-width:1100px;
   margin:auto;
   padding:17px 22px;
@@ -53,44 +69,61 @@ header{
   gap:15px;
   flex-wrap:wrap;
 }
-.brand{
+
+.brand {
   color:var(--burgundy);
   font-size:24px;
   font-weight:800;
   text-decoration:none;
 }
-.nav-links{
+
+.nav-links {
   display:flex;
   gap:18px;
   flex-wrap:wrap;
   font-size:14px;
 }
-.nav-links a{text-decoration:none;font-weight:600}
-.hero{
+
+.nav-links a {
+  text-decoration:none;
+  font-weight:600;
+  color:var(--burgundy);
+}
+
+.hero {
   background:var(--burgundy);
-  color:white;
+  color:#FFFFFF;
   padding:52px 20px;
 }
-.hero-inner{max-width:1000px;margin:auto}
-.eyebrow{
+
+.hero-inner {
+  max-width:1000px;
+  margin:auto;
+}
+
+.eyebrow {
   color:#F4B8CA;
   font-size:12px;
   font-weight:800;
   letter-spacing:1.5px;
   text-transform:uppercase;
 }
-h1{
+
+h1 {
   font-size:clamp(30px,5vw,44px);
   line-height:1.2;
   margin:12px 0;
+  color:#FFFFFF;
 }
-.hero p{
+
+.hero p {
   max-width:760px;
   color:#F5E9ED;
   font-size:17px;
   margin:10px 0;
 }
-.hero-tag{
+
+.hero-tag {
   display:inline-block;
   margin-top:18px;
   padding:8px 14px;
@@ -100,65 +133,85 @@ h1{
   font-size:12px;
   font-weight:800;
 }
-main{
+
+main {
   max-width:1000px;
   margin:auto;
   padding:28px 18px 60px;
 }
-.notice{
-  background:var(--rose-light);
+
+.notice {
+  background:#F7E8ED;
   border:1px solid #EBC5D1;
   border-radius:10px;
   padding:17px 19px;
   margin-bottom:24px;
   color:var(--burgundy);
 }
-section{
-  background:white;
+
+section {
+  background:#FFFFFF;
   border:1px solid var(--line);
   border-radius:13px;
   padding:24px;
   margin:20px 0;
 }
-h2{
+
+h2 {
   color:var(--burgundy);
   font-size:23px;
   margin:0 0 12px;
   line-height:1.3;
 }
-h3{
+
+h3 {
   color:var(--burgundy2);
   font-size:17px;
   margin:0 0 9px;
 }
-p{margin:8px 0 13px}
-.muted{color:var(--muted)}
-.meta-grid{
+
+p {
+  margin:8px 0 13px;
+}
+
+.muted {
+  color:var(--muted);
+}
+
+.meta-grid {
   display:grid;
   grid-template-columns:repeat(3,1fr);
   gap:12px;
   margin-top:18px;
 }
-.meta{
-  background:var(--bg);
+
+.meta {
+  background:#FAF7F8;
   border:1px solid var(--line);
   border-radius:9px;
   padding:13px;
 }
-.meta strong{
+
+.meta strong {
   display:block;
   color:var(--burgundy);
   font-size:13px;
 }
-.meta span{font-size:14px}
-.score-grid{
+
+.meta span {
+  font-size:14px;
+  color:var(--ink);
+}
+
+.score-grid {
   display:grid;
   grid-template-columns:190px 1fr;
   gap:25px;
   align-items:center;
   margin-top:20px;
 }
-.score-circle{
+
+.score-circle {
   width:165px;
   height:165px;
   border:10px solid var(--rose);
@@ -168,33 +221,44 @@ p{margin:8px 0 13px}
   justify-content:center;
   align-items:center;
   margin:auto;
-  background:white;
+  background:#FFFFFF;
 }
-.score-number{
+
+.score-number {
   color:var(--burgundy);
   font-size:49px;
   font-weight:800;
   line-height:1.1;
 }
-.score-label{font-size:12px;color:var(--muted)}
-.status{
+
+.score-label {
+  font-size:12px;
+  color:var(--muted);
+}
+
+.status {
   display:inline-block;
   padding:6px 12px;
-  background:var(--rose-light);
+  background:#F7E8ED;
   color:var(--burgundy);
   border-radius:20px;
   font-size:13px;
   font-weight:800;
 }
-.summary{
-  background:var(--bg);
+
+.summary {
+  background:#FAF7F8;
   border-left:4px solid var(--rose);
   padding:16px 18px;
   border-radius:5px;
   margin-top:17px;
 }
-.maturity-row{margin:19px 0}
-.maturity-head{
+
+.maturity-row {
+  margin:19px 0;
+}
+
+.maturity-head {
   display:flex;
   justify-content:space-between;
   gap:12px;
@@ -202,78 +266,94 @@ p{margin:8px 0 13px}
   font-weight:700;
   color:var(--burgundy);
 }
-.track{
+
+.track {
   height:12px;
-  background:var(--rose-light);
+  background:#F7E8ED;
   border-radius:20px;
   overflow:hidden;
   margin:7px 0;
 }
-.fill{
+
+.fill {
   height:100%;
   background:var(--burgundy2);
   border-radius:20px;
 }
-.maturity-desc{
+
+.maturity-desc {
   color:var(--muted);
   font-size:13px;
 }
-table{
+
+table {
   width:100%;
   border-collapse:collapse;
   margin-top:14px;
   font-size:14px;
 }
-th,td{
+
+th,td {
   border:1px solid var(--line);
   padding:12px;
   text-align:left;
   vertical-align:top;
+  color:var(--ink);
 }
-th{
-  background:var(--rose-light);
+
+th {
+  background:#F7E8ED;
   color:var(--burgundy);
 }
-.priority{
+
+.priority {
   font-weight:800;
   color:var(--burgundy2);
   white-space:nowrap;
 }
-.finding{
+
+.finding {
   border:1px solid var(--line);
   border-radius:10px;
   padding:17px;
   margin:13px 0;
+  background:#FFFFFF;
 }
-.finding-top{
+
+.finding-top {
   display:flex;
   justify-content:space-between;
   gap:12px;
   flex-wrap:wrap;
   margin-bottom:8px;
 }
-.finding-id{
+
+.finding-id {
   font-weight:800;
   color:var(--burgundy);
 }
-.finding-priority{
+
+.finding-priority {
   color:var(--burgundy2);
   font-size:12px;
   font-weight:800;
 }
-.action-list{
+
+.action-list {
   counter-reset:steps;
   list-style:none;
   padding:0;
 }
-.action-list li{
+
+.action-list li {
   counter-increment:steps;
   position:relative;
   padding:0 0 18px 48px;
   margin-bottom:16px;
   border-bottom:1px solid var(--line);
 }
-.action-list li:before{
+
+.action-list li:before {
   content:counter(steps);
   position:absolute;
   left:0;
@@ -283,28 +363,43 @@ th{
   display:flex;
   justify-content:center;
   align-items:center;
-  background:var(--rose-light);
+  background:#F7E8ED;
   color:var(--burgundy);
   border-radius:50%;
   font-weight:800;
 }
-.action-list li:last-child{border-bottom:0}
-.evidence{
-  background:var(--bg);
+
+.action-list li:last-child {
+  border-bottom:0;
+}
+
+.evidence {
+  background:#FAF7F8;
   border-radius:9px;
   padding:16px 18px;
 }
-.evidence li{margin:6px 0}
-.cta{
+
+.evidence li {
+  margin:6px 0;
+}
+
+.cta {
   background:var(--burgundy);
-  color:white;
+  color:#FFFFFF;
   border-radius:13px;
   padding:25px;
   margin-top:24px;
 }
-.cta h2{color:white}
-.cta p{color:#F5E9ED}
-.btn{
+
+.cta h2 {
+  color:#FFFFFF;
+}
+
+.cta p {
+  color:#F5E9ED;
+}
+
+.btn {
   display:inline-block;
   background:var(--rose);
   color:#35101D;
@@ -315,55 +410,136 @@ th{
   margin:7px 8px 0 0;
   font-size:14px;
 }
-.btn-light{
-  background:white;
+
+.btn-light {
+  background:#FFFFFF;
   color:var(--burgundy);
 }
-.disclaimer{
+
+.disclaimer {
   color:var(--muted);
   font-size:12px;
   margin-top:20px;
 }
-footer{
+
+footer {
   text-align:center;
   padding:25px 15px;
   border-top:1px solid var(--line);
   color:var(--muted);
   font-size:13px;
+  background:#FFFFFF;
 }
-@media(max-width:650px){
-  .nav{justify-content:center}
-  .nav-links{justify-content:center;gap:12px}
-  .hero{padding:38px 18px}
-  main{padding:20px 13px 40px}
-  section{padding:18px}
-  .meta-grid{grid-template-columns:1fr}
-  .score-grid{grid-template-columns:1fr;text-align:center}
-  table{font-size:12px}
-  th,td{padding:8px}
-  .finding-top{display:block}
+
+footer a {
+  color:var(--burgundy);
 }
-@media print{
-  body{background:white}
-  header,.hero .nav-links,.no-print,footer{display:none!important}
-  .hero{
-    background:white;
+
+@media(max-width:650px) {
+  .nav {
+    justify-content:center;
+  }
+
+  .nav-links {
+    justify-content:center;
+    gap:12px;
+  }
+
+  .hero {
+    padding:38px 18px;
+  }
+
+  main {
+    padding:20px 13px 40px;
+  }
+
+  section {
+    padding:18px;
+  }
+
+  .meta-grid {
+    grid-template-columns:1fr;
+  }
+
+  .score-grid {
+    grid-template-columns:1fr;
+    text-align:center;
+  }
+
+  table {
+    font-size:12px;
+  }
+
+  th,td {
+    padding:8px;
+  }
+
+  .finding-top {
+    display:block;
+  }
+}
+
+@media print {
+  body {
+    background:#FFFFFF;
+    color:#222222;
+  }
+
+  header,.no-print,footer {
+    display:none!important;
+  }
+
+  .hero {
+    background:#FFFFFF;
     color:var(--burgundy);
     padding:15px 0;
   }
-  .hero p{color:var(--ink)}
-  .hero-tag{border:1px solid var(--line)}
-  main{padding:0;max-width:100%}
-  section{break-inside:avoid;box-shadow:none}
-  .cta{background:white;color:var(--ink);border:1px solid var(--line)}
-  .cta h2,.cta p{color:var(--burgundy)}
-  .btn{display:none}
-  table{font-size:11px}
+
+  .hero h1 {
+    color:var(--burgundy);
+  }
+
+  .hero p {
+    color:var(--ink);
+  }
+
+  .hero-tag {
+    border:1px solid var(--line);
+  }
+
+  main {
+    padding:0;
+    max-width:100%;
+  }
+
+  section {
+    break-inside:avoid;
+    box-shadow:none;
+  }
+
+  .cta {
+    background:#FFFFFF;
+    color:var(--ink);
+    border:1px solid var(--line);
+  }
+
+  .cta h2,.cta p {
+    color:var(--burgundy);
+  }
+
+  .btn {
+    display:none;
+  }
+
+  table {
+    font-size:11px;
+  }
 }
 </style>
 </head>
 
 <body>
+
 <header>
   <nav class="nav">
     <a class="brand" href="https://backupsteward.com/">BackupSteward</a>
@@ -638,5 +814,6 @@ footer{
   <a href="https://backupsteward.com/">Home</a> |
   <a href="mailto:contact@backupsteward.com">Contact</a>
 </footer>
+
 </body>
 </html>
