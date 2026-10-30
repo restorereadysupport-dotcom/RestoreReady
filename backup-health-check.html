@@ -1,0 +1,746 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Take the free BackupSteward Backup Health Check. Assess backup reliability, immutability, recovery readiness and operational risks across enterprise backup platforms.">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#4A1022">
+<link rel="canonical" href="https://backupsteward.com/backup-health-check.html">
+<title>Free Backup Health Check | BackupSteward</title>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-214R25SYC8"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-214R25SYC8');
+</script>
+<!-- End Google Analytics -->
+
+<style>
+:root{
+--burgundy:#4A1022;
+--burgundy2:#72223B;
+--rose:#D66A88;
+--rose-light:#F7E8ED;
+--ink:#33232A;
+--muted:#655B60;
+--bg:#F7F4F5;
+--line:#E5DFE2;
+--white:#FFFFFF;
+--green:#287A4B;
+--amber:#A66A12;
+--red:#B53B42;
+}
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Arial,Helvetica,sans-serif;
+background:var(--bg);
+color:var(--ink);
+line-height:1.65;
+}
+.wrap{width:min(900px,92%);margin:auto}
+header{background:white;border-bottom:1px solid var(--line)}
+nav{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:17px 0;
+gap:15px;
+flex-wrap:wrap;
+}
+.brand{
+font-size:23px;
+font-weight:800;
+color:var(--burgundy);
+text-decoration:none;
+}
+.brand span{color:var(--rose)}
+.navlinks{display:flex;gap:18px;flex-wrap:wrap}
+.navlinks a{
+text-decoration:none;
+color:var(--muted);
+font-size:14px;
+font-weight:600;
+}
+.hero{
+background:var(--burgundy);
+color:white;
+padding:45px 0;
+}
+.hero h1{
+font-size:clamp(29px,5vw,42px);
+line-height:1.2;
+margin:0 0 14px;
+}
+.hero p{max-width:700px;color:#F5E9ED;margin:0}
+.hero-tag{
+display:inline-block;
+background:#72223B;
+border:1px solid #A95B73;
+padding:6px 12px;
+border-radius:30px;
+font-size:12px;
+font-weight:bold;
+margin-bottom:15px;
+}
+main{padding:35px 0 55px}
+.intro{
+background:white;
+padding:22px;
+border:1px solid var(--line);
+border-radius:13px;
+margin-bottom:22px;
+}
+.intro h2{color:var(--burgundy);margin:0 0 8px}
+.muted{color:var(--muted);font-size:14px}
+.progress-wrap{margin:20px 0}
+.progress-label{
+display:flex;
+justify-content:space-between;
+font-size:13px;
+font-weight:bold;
+color:var(--burgundy);
+margin-bottom:7px;
+}
+.progress{
+height:8px;
+background:#E9DFE3;
+border-radius:20px;
+overflow:hidden;
+}
+.progress-fill{
+height:100%;
+width:0;
+background:var(--rose);
+transition:width .2s ease;
+}
+.form-card{
+background:white;
+border:1px solid var(--line);
+border-radius:14px;
+padding:25px;
+margin-bottom:18px;
+}
+.form-card h2{
+font-size:19px;
+color:var(--burgundy);
+margin:0 0 5px;
+}
+.field{margin-top:20px}
+label.field-label{
+display:block;
+font-weight:bold;
+font-size:14px;
+margin-bottom:8px;
+}
+select{
+width:100%;
+padding:13px;
+border:1px solid #D8CDD1;
+border-radius:8px;
+background:white;
+color:var(--ink);
+font-size:15px;
+}
+.question{
+padding:19px 0;
+border-bottom:1px solid var(--line);
+}
+.question:last-child{border-bottom:0}
+.question h3{
+font-size:16px;
+margin:0 0 12px;
+color:var(--ink);
+}
+.question small{
+display:block;
+color:var(--muted);
+font-weight:normal;
+margin-top:4px;
+}
+.options{display:grid;gap:8px}
+.option{
+display:flex;
+align-items:flex-start;
+gap:10px;
+border:1px solid var(--line);
+border-radius:9px;
+padding:11px 12px;
+cursor:pointer;
+font-size:14px;
+background:#FFFEFE;
+}
+.option:hover{
+border-color:var(--rose);
+background:#FFF9FB;
+}
+.option input{
+margin-top:3px;
+accent-color:var(--burgundy);
+}
+.option:has(input:checked){
+border-color:var(--burgundy2);
+background:var(--rose-light);
+}
+.actions{
+display:flex;
+gap:12px;
+flex-wrap:wrap;
+margin-top:22px;
+}
+button{
+border:0;
+border-radius:8px;
+padding:13px 19px;
+font-size:14px;
+font-weight:bold;
+cursor:pointer;
+}
+.primary{
+background:var(--rose);
+color:#35101D;
+}
+.secondary{
+background:white;
+border:1px solid var(--burgundy);
+color:var(--burgundy);
+}
+button:hover{opacity:.9}
+.error{
+display:none;
+background:#FFF0F0;
+color:#9D2828;
+padding:12px;
+border-radius:8px;
+margin-top:15px;
+font-size:14px;
+}
+#results{display:none}
+.result-card{
+background:white;
+border:1px solid var(--line);
+border-radius:15px;
+padding:25px;
+margin-bottom:18px;
+}
+.result-heading{
+color:var(--burgundy);
+margin-top:0;
+}
+.score-area{
+display:flex;
+align-items:center;
+gap:25px;
+flex-wrap:wrap;
+margin:20px 0;
+}
+.score-circle{
+width:135px;
+height:135px;
+border-radius:50%;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+background:var(--rose-light);
+border:8px solid var(--rose);
+flex-shrink:0;
+}
+.score-circle strong{
+font-size:38px;
+color:var(--burgundy);
+line-height:1;
+}
+.score-circle span{
+font-size:12px;
+color:var(--muted);
+}
+.risk{
+display:inline-block;
+padding:7px 13px;
+border-radius:25px;
+font-size:13px;
+font-weight:bold;
+margin-top:5px;
+}
+.risk-low{background:#E6F4EB;color:var(--green)}
+.risk-moderate{background:#FFF2D9;color:var(--amber)}
+.risk-high{background:#FCE7E7;color:var(--red)}
+.risk-critical{background:#8E2029;color:white}
+.result-item{
+border-bottom:1px solid var(--line);
+padding:14px 0;
+}
+.result-item:last-child{border:0}
+.result-item strong{color:var(--burgundy)}
+.recommendation{
+background:var(--rose-light);
+border-left:4px solid var(--rose);
+padding:13px 15px;
+border-radius:5px;
+margin-top:10px;
+font-size:14px;
+}
+.notice{
+background:#F7F4F5;
+padding:14px;
+border-radius:9px;
+font-size:12px;
+color:var(--muted);
+margin-top:18px;
+}
+.contact-box{
+background:var(--burgundy);
+color:white;
+border-radius:14px;
+padding:25px;
+}
+.contact-box h2{margin-top:0}
+.contact-box p{color:#F5E9ED}
+.contact-box a{color:#F0A4BA;font-weight:bold}
+footer{
+padding:23px 0;
+color:var(--muted);
+font-size:13px;
+text-align:center;
+}
+footer a{color:var(--burgundy2)}
+@media(max-width:600px){
+nav{align-items:flex-start}
+.navlinks{width:100%;gap:10px 14px}
+.hero{padding:35px 0}
+main{padding-top:22px}
+.form-card,.result-card{padding:19px}
+.score-area{gap:15px}
+.score-circle{width:115px;height:115px}
+.score-circle strong{font-size:32px}
+.actions button{width:100%}
+}
+@media print{
+header,footer,.hero,.actions,.contact-box{display:none!important}
+body{background:white}
+main{padding:0}
+#results{display:block!important}
+.result-card{break-inside:avoid}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<nav class="wrap">
+<a class="brand" href="index.html">Backup<span>Steward</span></a>
+<div class="navlinks">
+<a href="index.html">Home</a>
+<a href="enterprise-backup-recovery.html">Services</a>
+<a href="sample-assessment.html">Sample Report</a>
+<a href="mailto:contact@backupsteward.com">Contact</a>
+</div>
+</nav>
+</header>
+
+<section class="hero">
+<div class="wrap">
+<span class="hero-tag">FREE SELF-ASSESSMENT TOOL</span>
+<h1>How healthy is your backup environment?</h1>
+<p>Evaluate your backup operations, data protection controls and recovery readiness. Answer a few questions to receive an instant preliminary health score and practical recommendations.</p>
+</div>
+</section>
+
+<main class="wrap">
+
+<div class="intro">
+<h2>Before you begin</h2>
+<p class="muted">This assessment takes approximately 5 minutes. Select the answers that best describe your current environment. Your answers are processed in your browser and are not uploaded or stored by this tool.</p>
+<p class="muted"><strong>Important:</strong> This is a preliminary self-assessment, not a technical audit or certification.</p>
+</div>
+
+<div id="assessment">
+
+<div class="progress-wrap">
+<div class="progress-label">
+<span>Assessment progress</span>
+<span id="progressText">0 of 8 answered</span>
+</div>
+<div class="progress"><div class="progress-fill" id="progressFill"></div></div>
+</div>
+
+<div class="form-card">
+<h2>Environment details</h2>
+<p class="muted">Tell us a little about your backup environment.</p>
+
+<div class="field">
+<label class="field-label" for="platform">Primary backup platform</label>
+<select id="platform">
+<option value="">Select your platform</option>
+<option>Commvault</option>
+<option>Veeam</option>
+<option>Veritas NetBackup</option>
+<option>Dell EMC NetWorker</option>
+<option>Rubrik</option>
+<option>Cohesity</option>
+<option>IBM Storage Protect</option>
+<option>Other / Multiple platforms</option>
+</select>
+</div>
+
+<div class="field">
+<label class="field-label" for="environment">Environment type</label>
+<select id="environment">
+<option value="">Select environment</option>
+<option>On-premises</option>
+<option>Cloud</option>
+<option>Hybrid</option>
+<option>Multiple data centres</option>
+</select>
+</div>
+</div>
+
+<div class="form-card">
+<h2>Backup health questions</h2>
+<p class="muted">Choose one answer for each question.</p>
+
+<div class="question" data-question="1">
+<h3>1. What is your recent backup job success rate?<small>Consider the last 30 days.</small></h3>
+<div class="options">
+<label class="option"><input type="radio" name="q1" value="0"> Above 98%, consistently monitored</label>
+<label class="option"><input type="radio" name="q1" value="5"> Between 95% and 98%</label>
+<label class="option"><input type="radio" name="q1" value="10"> Between 85% and 94%</label>
+<label class="option"><input type="radio" name="q1" value="15"> Below 85% or not monitored</label>
+</div>
+</div>
+
+<div class="question" data-question="2">
+<h3>2. How frequently do you test data restores?<small>Include file, database and application-level restores where applicable.</small></h3>
+<div class="options">
+<label class="option"><input type="radio" name="q2" value="0"> Monthly or more frequently, with evidence</label>
+<label class="option"><input type="radio" name="q2" value="5"> Quarterly</label>
+<label class="option"><input type="radio" name="q2" value="10"> Only occasionally or after an issue</label>
+<label class="option"><input type="radio" name="q2" value="15"> Never / Not sure</label>
+</div>
+</div>
+
+<div class="question" data-question="3">
+<h3>3. Are immutable or otherwise tamper-resistant backups configured?<small>Consider isolation, retention lock and protection from administrative compromise.</small></h3>
+<div class="options">
+<label class="option"><input type="radio" name="q3" value="0"> Yes, configured and regularly validated</label>
+<label class="option"><input type="radio" name="q3" value="5"> Configured for selected workloads only</label>
+<label class="option"><input type="radio" name="q3" value="10"> Planned but not implemented</label>
+<label class="option"><input type="radio" name="q3" value="15"> No / Not sure</label>
+</div>
+</div>
+
+<div class="question" data-question="4">
+<h3>4. Is backup infrastructure health monitored?<small>Examples include MediaAgents, proxies, repositories, storage and deduplication components.</small></h3>
+<div class="options">
+<label class="option"><input type="radio" name="q4" value="0"> Proactively monitored with alerts and ownership</label>
+<label class="option"><input type="radio" name="q4" value="5"> Monitored, but mostly reviewed manually</label>
+<label class="option"><input type="radio" name="q4" value="10"> Basic monitoring only</label>
+<label class="option"><input type="radio" name="q4" value="15"> No consistent monitoring</label>
+</div>
+</div>
+
+<div class="question" data-question="5">
+<h3>5. Are backup policies and retention aligned with business requirements?<small>Consider critical workloads, retention periods and recovery objectives.</small></h3>
+<div class="options">
+<label class="option"><input type="radio" name="q5" value="0"> Documented, approved and periodically reviewed</label>
+<label class="option"><input type="radio" name="q5" value="5"> Mostly aligned, with some gaps</label>
+<label class="option"><input type="radio" name="q5" value="10"> Policies exist but are not regularly reviewed</label>
+<label class="option"><input type="radio" name="q5" value="15"> Not documented / Not sure</label>
+</div>
+</div>
+
+<div class="question" data-question="6">
+<h3>6. How do you protect backup administration and access?<small>Consider MFA, privileged access, separate credentials and access reviews.</small></h3>
+<div class="options">
+<label class="option"><input type="radio" name="q6" value="0"> MFA, least privilege and regular access reviews</label>
+<label class="option"><input type="radio" name="q6" value="5"> MFA and restricted access on critical systems</label>
+<label class="option"><input type="radio" name="q6" value="10"> Partial controls or shared accounts</label>
+<label class="option"><input type="radio" name="q6" value="15"> Weak controls / Not sure</label>
+</div>
+</div>
+
+<div class="question" data-question="7">
+<h3>7. Do you have documented disaster recovery procedures?<small>Consider recovery dependencies, runbooks, ownership and recovery time objectives.</small></h3>
+<div class="options">
+<label class="option"><input type="radio" name="q7" value="0"> Documented and tested successfully</label>
+<label class="option"><input type="radio" name="q7" value="5"> Documented but not recently tested</label>
+<label class="option"><input type="radio" name="q7" value="10"> Partially documented</label>
+<label class="option"><input type="radio" name="q7" value="15"> No documented procedures</label>
+</div>
+</div>
+
+<div class="question" data-question="8">
+<h3>8. Is backup coverage reviewed against the complete workload inventory?<small>Include servers, databases, virtual machines, NAS, cloud and critical applications.</small></h3>
+<div class="options">
+<label class="option"><input type="radio" name="q8" value="0"> Regular reconciliation with documented exceptions</label>
+<label class="option"><input type="radio" name="q8" value="5"> Reviewed periodically</label>
+<label class="option"><input type="radio" name="q8" value="10"> Informal checks only</label>
+<label class="option"><input type="radio" name="q8" value="15"> No reliable inventory / Not sure</label>
+</div>
+</div>
+
+<div id="error" class="error">Please answer all 8 questions before generating your health check report.</div>
+
+<div class="actions">
+<button class="primary" type="button" id="calculate">Generate My Health Report</button>
+<button class="secondary" type="button" id="reset">Reset Assessment</button>
+</div>
+</div>
+</div>
+
+<section id="results" aria-live="polite">
+
+<div class="result-card">
+<h2 class="result-heading">Your Backup Health Report</h2>
+<p class="muted" id="reportDetails"></p>
+
+<div class="score-area">
+<div class="score-circle">
+<strong id="score">0</strong>
+<span>OUT OF 100</span>
+</div>
+<div>
+<h2 id="riskTitle"></h2>
+<span id="riskBadge" class="risk"></span>
+<p class="muted" id="riskDescription"></p>
+</div>
+</div>
+
+<p class="muted">This score is calculated from your selected answers. A higher score indicates stronger reported backup and recovery practices.</p>
+</div>
+
+<div class="result-card">
+<h2 class="result-heading">Assessment findings</h2>
+<div id="findings"></div>
+</div>
+
+<div class="result-card">
+<h2 class="result-heading">Recommended next steps</h2>
+<div id="recommendations"></div>
+</div>
+
+<div class="result-card">
+<h2 class="result-heading">Assessment summary</h2>
+<p class="muted">This preliminary assessment is based on the information selected by the user. It does not verify actual backup configurations, job logs, storage controls or restore performance.</p>
+<div class="notice">For a full assessment, technical validation of backup policies, job history, infrastructure, immutability settings and restore evidence is recommended. Do not share credentials or sensitive production information through this tool.</div>
+<div class="actions">
+<button class="primary" type="button" id="print">Print / Save as PDF</button>
+<button class="secondary" type="button" id="edit">Edit My Answers</button>
+</div>
+</div>
+
+<div class="contact-box">
+<h2>Need a deeper backup assessment?</h2>
+<p>BackupSteward provides independent backup and recovery consulting across enterprise platforms. Discuss your findings and potential improvement areas with us.</p>
+<p><a href="mailto:contact@backupsteward.com?subject=Backup%20Health%20Check%20Enquiry">contact@backupsteward.com</a></p>
+<a href="enterprise-backup-recovery.html">Explore Enterprise Backup &amp; Recovery Consulting →</a>
+</div>
+
+</section>
+
+</main>
+
+<footer>
+<div class="wrap">
+© 2026 BackupSteward | Backup &amp; Recovery Consulting
+<br>
+<a href="index.html">Home</a> ·
+<a href="enterprise-backup-recovery.html">Services</a> ·
+<a href="mailto:contact@backupsteward.com">Contact</a>
+</div>
+</footer>
+
+<script>
+(function(){
+
+const totalQuestions = 8;
+
+const questionData = [
+{
+name:"Backup job success rate",
+recommendation:"Review failed and missed backup jobs, identify recurring causes, and establish regular reporting with clear operational ownership."
+},
+{
+name:"Restore testing",
+recommendation:"Introduce a documented restore-testing schedule. Validate file, database, application and full-system recovery for critical workloads."
+},
+{
+name:"Immutable backup protection",
+recommendation:"Evaluate immutable or tamper-resistant backup copies, isolation, retention lock and protection against compromised administrator accounts."
+},
+{
+name:"Infrastructure monitoring",
+recommendation:"Review monitoring and alerting for backup servers, MediaAgents, proxies, repositories, storage capacity and deduplication components."
+},
+{
+name:"Policy and retention alignment",
+recommendation:"Map backup policies and retention periods to business requirements, recovery objectives and applicable compliance obligations."
+},
+{
+name:"Administrative access security",
+recommendation:"Strengthen MFA, least-privilege access, privileged account separation and periodic access reviews."
+},
+{
+name:"Disaster recovery readiness",
+recommendation:"Document recovery procedures, dependencies, roles and recovery objectives. Conduct periodic recovery exercises."
+},
+{
+name:"Workload coverage",
+recommendation:"Reconcile backup protection against the production workload inventory and investigate unprotected or excluded systems."
+}
+];
+
+const form = document.getElementById("assessment");
+const results = document.getElementById("results");
+const error = document.getElementById("error");
+const progressFill = document.getElementById("progressFill");
+const progressText = document.getElementById("progressText");
+
+function answeredCount(){
+let count=0;
+for(let i=1;i<=totalQuestions;i++){
+if(document.querySelector('input[name="q'+i+'"]:checked')) count++;
+}
+return count;
+}
+
+function updateProgress(){
+const count=answeredCount();
+progressText.textContent=count+" of "+totalQuestions+" answered";
+progressFill.style.width=(count/totalQuestions*100)+"%";
+}
+
+document.querySelectorAll('input[type="radio"]').forEach(input=>{
+input.addEventListener("change",updateProgress);
+});
+
+function generateReport(){
+const count=answeredCount();
+
+if(count!==totalQuestions){
+error.style.display="block";
+const firstMissing=Array.from({length:totalQuestions},(_,i)=>i+1)
+.find(i=>!document.querySelector('input[name="q'+i+'"]:checked'));
+if(firstMissing){
+document.querySelector('[data-question="'+firstMissing+'"]').scrollIntoView({behavior:"smooth",block:"center"});
+}
+return;
+}
+
+error.style.display="none";
+
+let totalRisk=0;
+let findingsHTML="";
+let recommendationsHTML="";
+let highRiskCount=0;
+
+questionData.forEach((item,index)=>{
+const questionNumber=index+1;
+const selected=document.querySelector('input[name="q'+questionNumber+'"]:checked');
+const risk=Number(selected.value);
+totalRisk+=risk;
+
+let status="Strong";
+if(risk>=15){status="Critical gap";highRiskCount++;}
+else if(risk>=10){status="Needs improvement";highRiskCount++;}
+else if(risk>=5){status="Partial controls";}
+
+findingsHTML+=`
+<div class="result-item">
+<strong>${questionNumber}. ${item.name}</strong>
+<div class="muted">${selected.parentElement.textContent.trim()}</div>
+<div><strong>Status:</strong> ${status}</div>
+</div>`;
+
+if(risk>0){
+recommendationsHTML+=`
+<div class="result-item">
+<strong>${questionNumber}. ${item.name}</strong>
+<div class="recommendation">${item.recommendation}</div>
+</div>`;
+}
+});
+
+const score=Math.max(0,100-totalRisk);
+let title,badge,description,riskClass;
+
+if(score>=85){
+title="Strong";
+badge="LOW RISK";
+description="Your answers indicate relatively mature backup and recovery practices. Continue validating controls and testing recovery.";
+riskClass="risk-low";
+}else if(score>=70){
+title="Generally healthy";
+badge="MODERATE RISK";
+description="Several good practices are reported, but some gaps should be addressed to improve backup reliability and recovery confidence.";
+riskClass="risk-moderate";
+}else if(score>=50){
+title="Improvement needed";
+badge="HIGH RISK";
+description="Your answers indicate important weaknesses that may affect backup reliability, security or recovery readiness.";
+riskClass="risk-high";
+}else{
+title="Immediate attention recommended";
+badge="CRITICAL RISK";
+description="Your answers indicate multiple significant gaps. Prioritise protection of critical workloads and validate recoverability.";
+riskClass="risk-critical";
+}
+
+document.getElementById("score").textContent=score;
+document.getElementById("riskTitle").textContent=title;
+document.getElementById("riskBadge").textContent=badge;
+document.getElementById("riskBadge").className="risk "+riskClass;
+document.getElementById("riskDescription").textContent=description;
+document.getElementById("findings").innerHTML=findingsHTML;
+
+if(!recommendationsHTML){
+recommendationsHTML='<p>Your answers indicate strong reported practices across all assessment areas. Continue periodic validation and retain evidence of successful recovery tests.</p>';
+}
+document.getElementById("recommendations").innerHTML=recommendationsHTML;
+
+const platform=document.getElementById("platform").value||"Not specified";
+const environment=document.getElementById("environment").value||"Not specified";
+
+document.getElementById("reportDetails").textContent=
+"Platform: "+platform+" | Environment: "+environment+
+" | Assessment date: "+new Date().toLocaleDateString();
+
+form.style.display="none";
+results.style.display="block";
+results.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+document.getElementById("calculate").addEventListener("click",generateReport);
+
+document.getElementById("reset").addEventListener("click",()=>{
+document.querySelectorAll('input[type="radio"]').forEach(input=>input.checked=false);
+document.getElementById("platform").value="";
+document.getElementById("environment").value="";
+error.style.display="none";
+updateProgress();
+});
+
+document.getElementById("print").addEventListener("click",()=>{
+window.print();
+});
+
+document.getElementById("edit").addEventListener("click",()=>{
+results.style.display="none";
+form.style.display="block";
+form.scrollIntoView({behavior:"smooth",block:"start"});
+});
+
+updateProgress();
+
+})();
+</script>
+
+</body>
+</html>
