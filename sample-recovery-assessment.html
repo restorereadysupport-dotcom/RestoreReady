@@ -1,0 +1,642 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Explore a fictional sample Recovery Readiness Assessment report from BackupSteward, including maturity scores, recovery risks and prioritised recommendations.">
+<meta name="theme-color" content="#4A1022">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://backupsteward.com/sample-recovery-assessment.html">
+<title>Sample Recovery Readiness Report | BackupSteward</title>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-214R25SYC8"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){gtag('js', new Date());}
+gtag('config', 'G-214R25SYC8');
+</script>
+
+<style>
+:root{
+  --burgundy:#4A1022;
+  --burgundy2:#72223B;
+  --rose:#D66A88;
+  --rose-light:#F7E8ED;
+  --ink:#33232A;
+  --muted:#655B60;
+  --line:#E5DFE2;
+  --white:#fff;
+  --bg:#FAF7F8;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--ink);
+  background:var(--bg);
+  line-height:1.7;
+}
+a{color:var(--burgundy2)}
+header{
+  background:white;
+  border-bottom:1px solid var(--line);
+}
+.nav{
+  max-width:1100px;
+  margin:auto;
+  padding:17px 22px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  gap:15px;
+  flex-wrap:wrap;
+}
+.brand{
+  color:var(--burgundy);
+  font-size:24px;
+  font-weight:800;
+  text-decoration:none;
+}
+.nav-links{
+  display:flex;
+  gap:18px;
+  flex-wrap:wrap;
+  font-size:14px;
+}
+.nav-links a{text-decoration:none;font-weight:600}
+.hero{
+  background:var(--burgundy);
+  color:white;
+  padding:52px 20px;
+}
+.hero-inner{max-width:1000px;margin:auto}
+.eyebrow{
+  color:#F4B8CA;
+  font-size:12px;
+  font-weight:800;
+  letter-spacing:1.5px;
+  text-transform:uppercase;
+}
+h1{
+  font-size:clamp(30px,5vw,44px);
+  line-height:1.2;
+  margin:12px 0;
+}
+.hero p{
+  max-width:760px;
+  color:#F5E9ED;
+  font-size:17px;
+  margin:10px 0;
+}
+.hero-tag{
+  display:inline-block;
+  margin-top:18px;
+  padding:8px 14px;
+  border-radius:30px;
+  background:#F7E8ED;
+  color:var(--burgundy);
+  font-size:12px;
+  font-weight:800;
+}
+main{
+  max-width:1000px;
+  margin:auto;
+  padding:28px 18px 60px;
+}
+.notice{
+  background:var(--rose-light);
+  border:1px solid #EBC5D1;
+  border-radius:10px;
+  padding:17px 19px;
+  margin-bottom:24px;
+  color:var(--burgundy);
+}
+section{
+  background:white;
+  border:1px solid var(--line);
+  border-radius:13px;
+  padding:24px;
+  margin:20px 0;
+}
+h2{
+  color:var(--burgundy);
+  font-size:23px;
+  margin:0 0 12px;
+  line-height:1.3;
+}
+h3{
+  color:var(--burgundy2);
+  font-size:17px;
+  margin:0 0 9px;
+}
+p{margin:8px 0 13px}
+.muted{color:var(--muted)}
+.meta-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+  margin-top:18px;
+}
+.meta{
+  background:var(--bg);
+  border:1px solid var(--line);
+  border-radius:9px;
+  padding:13px;
+}
+.meta strong{
+  display:block;
+  color:var(--burgundy);
+  font-size:13px;
+}
+.meta span{font-size:14px}
+.score-grid{
+  display:grid;
+  grid-template-columns:190px 1fr;
+  gap:25px;
+  align-items:center;
+  margin-top:20px;
+}
+.score-circle{
+  width:165px;
+  height:165px;
+  border:10px solid var(--rose);
+  border-radius:50%;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  margin:auto;
+  background:white;
+}
+.score-number{
+  color:var(--burgundy);
+  font-size:49px;
+  font-weight:800;
+  line-height:1.1;
+}
+.score-label{font-size:12px;color:var(--muted)}
+.status{
+  display:inline-block;
+  padding:6px 12px;
+  background:var(--rose-light);
+  color:var(--burgundy);
+  border-radius:20px;
+  font-size:13px;
+  font-weight:800;
+}
+.summary{
+  background:var(--bg);
+  border-left:4px solid var(--rose);
+  padding:16px 18px;
+  border-radius:5px;
+  margin-top:17px;
+}
+.maturity-row{margin:19px 0}
+.maturity-head{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  font-size:14px;
+  font-weight:700;
+  color:var(--burgundy);
+}
+.track{
+  height:12px;
+  background:var(--rose-light);
+  border-radius:20px;
+  overflow:hidden;
+  margin:7px 0;
+}
+.fill{
+  height:100%;
+  background:var(--burgundy2);
+  border-radius:20px;
+}
+.maturity-desc{
+  color:var(--muted);
+  font-size:13px;
+}
+table{
+  width:100%;
+  border-collapse:collapse;
+  margin-top:14px;
+  font-size:14px;
+}
+th,td{
+  border:1px solid var(--line);
+  padding:12px;
+  text-align:left;
+  vertical-align:top;
+}
+th{
+  background:var(--rose-light);
+  color:var(--burgundy);
+}
+.priority{
+  font-weight:800;
+  color:var(--burgundy2);
+  white-space:nowrap;
+}
+.finding{
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:17px;
+  margin:13px 0;
+}
+.finding-top{
+  display:flex;
+  justify-content:space-between;
+  gap:12px;
+  flex-wrap:wrap;
+  margin-bottom:8px;
+}
+.finding-id{
+  font-weight:800;
+  color:var(--burgundy);
+}
+.finding-priority{
+  color:var(--burgundy2);
+  font-size:12px;
+  font-weight:800;
+}
+.action-list{
+  counter-reset:steps;
+  list-style:none;
+  padding:0;
+}
+.action-list li{
+  counter-increment:steps;
+  position:relative;
+  padding:0 0 18px 48px;
+  margin-bottom:16px;
+  border-bottom:1px solid var(--line);
+}
+.action-list li:before{
+  content:counter(steps);
+  position:absolute;
+  left:0;
+  top:0;
+  width:32px;
+  height:32px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:var(--rose-light);
+  color:var(--burgundy);
+  border-radius:50%;
+  font-weight:800;
+}
+.action-list li:last-child{border-bottom:0}
+.evidence{
+  background:var(--bg);
+  border-radius:9px;
+  padding:16px 18px;
+}
+.evidence li{margin:6px 0}
+.cta{
+  background:var(--burgundy);
+  color:white;
+  border-radius:13px;
+  padding:25px;
+  margin-top:24px;
+}
+.cta h2{color:white}
+.cta p{color:#F5E9ED}
+.btn{
+  display:inline-block;
+  background:var(--rose);
+  color:#35101D;
+  padding:12px 18px;
+  border-radius:7px;
+  font-weight:800;
+  text-decoration:none;
+  margin:7px 8px 0 0;
+  font-size:14px;
+}
+.btn-light{
+  background:white;
+  color:var(--burgundy);
+}
+.disclaimer{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:20px;
+}
+footer{
+  text-align:center;
+  padding:25px 15px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font-size:13px;
+}
+@media(max-width:650px){
+  .nav{justify-content:center}
+  .nav-links{justify-content:center;gap:12px}
+  .hero{padding:38px 18px}
+  main{padding:20px 13px 40px}
+  section{padding:18px}
+  .meta-grid{grid-template-columns:1fr}
+  .score-grid{grid-template-columns:1fr;text-align:center}
+  table{font-size:12px}
+  th,td{padding:8px}
+  .finding-top{display:block}
+}
+@media print{
+  body{background:white}
+  header,.hero .nav-links,.no-print,footer{display:none!important}
+  .hero{
+    background:white;
+    color:var(--burgundy);
+    padding:15px 0;
+  }
+  .hero p{color:var(--ink)}
+  .hero-tag{border:1px solid var(--line)}
+  main{padding:0;max-width:100%}
+  section{break-inside:avoid;box-shadow:none}
+  .cta{background:white;color:var(--ink);border:1px solid var(--line)}
+  .cta h2,.cta p{color:var(--burgundy)}
+  .btn{display:none}
+  table{font-size:11px}
+}
+</style>
+</head>
+
+<body>
+<header>
+  <nav class="nav">
+    <a class="brand" href="https://backupsteward.com/">BackupSteward</a>
+    <div class="nav-links">
+      <a href="https://backupsteward.com/">Home</a>
+      <a href="https://backupsteward.com/recovery-readiness-score.html">Recovery Assessment</a>
+      <a href="https://backupsteward.com/enterprise-backup-recovery.html">Services</a>
+      <a href="https://backupsteward.com/#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<div class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">BackupSteward · Sample Deliverable</div>
+    <h1>Recovery Readiness Assessment Report</h1>
+    <p>A practical view of recovery capability, maturity gaps and prioritised actions to help improve an organisation's ability to restore critical services.</p>
+    <span class="hero-tag">Illustrative sample report · Fictional organisation</span>
+  </div>
+</div>
+
+<main>
+
+<div class="notice">
+  <strong>Fictional sample — not a real client engagement.</strong>
+  All organisation details, scores, observations and recommendations on this page are illustrative. They do not represent verified findings from an actual environment.
+</div>
+
+<section>
+  <h2>1. Assessment Overview</h2>
+  <p>This example demonstrates how BackupSteward translates recovery readiness responses into an executive-level view of preparedness, identifies areas requiring attention and recommends practical next steps.</p>
+
+  <div class="meta-grid">
+    <div class="meta">
+      <strong>Example organisation</strong>
+      <span>Northstar Manufacturing</span>
+    </div>
+    <div class="meta">
+      <strong>Environment</strong>
+      <span>Hybrid infrastructure</span>
+    </div>
+    <div class="meta">
+      <strong>Assessment scope</strong>
+      <span>Critical business applications</span>
+    </div>
+  </div>
+
+  <p class="muted"><strong>Illustrative technology context:</strong> Virtual infrastructure, business databases, file services and cloud-hosted workloads.</p>
+</section>
+
+<section>
+  <h2>2. Executive Summary</h2>
+  <p>The illustrative assessment indicates that the organisation has foundational backup and recovery capabilities, but several important recovery dependencies and validation activities require improvement.</p>
+
+  <div class="score-grid">
+    <div class="score-circle">
+      <div class="score-number">42</div>
+      <div class="score-label">OUT OF 100</div>
+    </div>
+    <div>
+      <span class="status">Improvements needed</span>
+      <h3 style="margin-top:12px">Recovery readiness requires attention</h3>
+      <p>The example score suggests that documented recovery expectations are not yet consistently supported by testing, dependency mapping and recovery environment preparation.</p>
+      <p><strong>Overall interpretation:</strong> The organisation should prioritise evidence-based recovery validation for its most critical workloads.</p>
+    </div>
+  </div>
+
+  <div class="summary">
+    <strong>Executive takeaway</strong>
+    <p>Backup availability does not automatically establish recoverability. The next step is to validate whether critical applications, their dependencies and the people responsible for recovery can work together to meet business recovery objectives.</p>
+  </div>
+</section>
+
+<section>
+  <h2>3. Recovery Maturity Breakdown</h2>
+  <p>The example scores below illustrate performance across the four dimensions used in the Recovery Readiness Score assessment.</p>
+
+  <div class="maturity-row">
+    <div class="maturity-head"><span>Planning &amp; Documentation</span><span>50 / 100</span></div>
+    <div class="track"><div class="fill" style="width:50%"></div></div>
+    <div class="maturity-desc">Recovery objectives and procedures need clearer ownership, application dependencies and documented recovery sequences.</div>
+  </div>
+
+  <div class="maturity-row">
+    <div class="maturity-head"><span>Recovery Testing</span><span>33 / 100</span></div>
+    <div class="track"><div class="fill" style="width:33%"></div></div>
+    <div class="maturity-desc">Testing evidence is limited. Recovery exercises should demonstrate actual application recovery and validation, not only backup completion.</div>
+  </div>
+
+  <div class="maturity-row">
+    <div class="maturity-head"><span>Recovery Infrastructure</span><span>50 / 100</span></div>
+    <div class="track"><div class="fill" style="width:50%"></div></div>
+    <div class="maturity-desc">The recovery environment requires validation for capacity, access, network readiness and availability of required resources.</div>
+  </div>
+
+  <div class="maturity-row">
+    <div class="maturity-head"><span>People &amp; Governance</span><span>33 / 100</span></div>
+    <div class="track"><div class="fill" style="width:33%"></div></div>
+    <div class="maturity-desc">Recovery responsibilities, escalation paths and stakeholder participation should be made more explicit.</div>
+  </div>
+
+  <p class="disclaimer">These dimension scores are illustrative examples created for this sample report. They are not calculated from a real organisation's assessment responses.</p>
+</section>
+
+<section>
+  <h2>4. Key Recovery Readiness Findings</h2>
+
+  <div class="finding">
+    <div class="finding-top">
+      <span class="finding-id">RR-01 · Recovery testing</span>
+      <span class="finding-priority">HIGH PRIORITY</span>
+    </div>
+    <h3>Critical application recovery has not been sufficiently validated</h3>
+    <p><strong>Illustrative observation:</strong> Available example evidence does not demonstrate a recent end-to-end recovery exercise for a critical business application.</p>
+    <p><strong>Potential impact:</strong> Actual recovery time, data integrity and application availability may differ from expectations during a major incident.</p>
+    <p><strong>Recommended action:</strong> Plan an authorised recovery exercise with infrastructure, database and application owners. Record recovery duration, validation results and business sign-off.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-top">
+      <span class="finding-id">RR-02 · Application dependencies</span>
+      <span class="finding-priority">HIGH PRIORITY</span>
+    </div>
+    <h3>Recovery sequence and dependencies require clarification</h3>
+    <p><strong>Illustrative observation:</strong> The example recovery documentation does not consistently map application dependencies, databases, authentication services and network prerequisites.</p>
+    <p><strong>Potential impact:</strong> Individual components may be restored successfully while the complete business service remains unavailable.</p>
+    <p><strong>Recommended action:</strong> Document application recovery order, upstream and downstream dependencies, validation checkpoints and accountable owners.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-top">
+      <span class="finding-id">RR-03 · Recovery environment</span>
+      <span class="finding-priority">HIGH PRIORITY</span>
+    </div>
+    <h3>Recovery capacity and access readiness need validation</h3>
+    <p><strong>Illustrative observation:</strong> Evidence of available compute, storage, network capacity, cloud quotas and emergency access is incomplete.</p>
+    <p><strong>Potential impact:</strong> Recovery may be delayed if the required resources or authorised access are unavailable when needed.</p>
+    <p><strong>Recommended action:</strong> Validate recovery capacity and access arrangements against the critical workload inventory. Confirm that required resources can be made available within agreed recovery objectives.</p>
+  </div>
+
+  <div class="finding">
+    <div class="finding-top">
+      <span class="finding-id">RR-04 · Recovery governance</span>
+      <span class="finding-priority">MEDIUM PRIORITY</span>
+    </div>
+    <h3>Recovery responsibilities and escalation paths need strengthening</h3>
+    <p><strong>Illustrative observation:</strong> The example plan does not clearly identify all technical and business decision-makers during a recovery event.</p>
+    <p><strong>Potential impact:</strong> Delayed decisions, unclear ownership and coordination gaps may extend service disruption.</p>
+    <p><strong>Recommended action:</strong> Establish a recovery responsibility matrix, escalation contacts and business validation responsibilities. Review them during scheduled exercises.</p>
+  </div>
+</section>
+
+<section>
+  <h2>5. Prioritised Improvement Roadmap</h2>
+  <p>The following example roadmap sequences improvements by urgency and practical execution.</p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Timeframe</th>
+        <th>Recommended activity</th>
+        <th>Expected evidence of completion</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>0–30 days</strong></td>
+        <td>Identify critical applications and confirm business-approved RTO and RPO requirements.</td>
+        <td>Approved critical workload inventory and recovery objectives.</td>
+      </tr>
+      <tr>
+        <td><strong>0–30 days</strong></td>
+        <td>Review recovery runbooks, application dependencies and recovery ownership.</td>
+        <td>Updated recovery procedures, dependency map and responsibility matrix.</td>
+      </tr>
+      <tr>
+        <td><strong>30–60 days</strong></td>
+        <td>Conduct controlled recovery tests for selected critical workloads.</td>
+        <td>Test results, actual recovery duration, data validation and application-owner sign-off.</td>
+      </tr>
+      <tr>
+        <td><strong>30–60 days</strong></td>
+        <td>Validate recovery infrastructure capacity, access and prerequisites.</td>
+        <td>Documented capacity and access validation with identified remediation items.</td>
+      </tr>
+      <tr>
+        <td><strong>60–90 days</strong></td>
+        <td>Conduct a coordinated recovery exercise and track improvement actions.</td>
+        <td>Exercise report, lessons learned, assigned owners and closure tracking.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>6. Evidence to Validate During a Real Assessment</h2>
+  <p>A real engagement would validate observations using agreed evidence sources and authorised discussions. Examples include:</p>
+  <div class="evidence">
+    <ul>
+      <li>Business-approved RTO and RPO requirements.</li>
+      <li>Critical application and infrastructure dependency maps.</li>
+      <li>Recovery runbooks and escalation procedures.</li>
+      <li>Recent restore and application recovery test records.</li>
+      <li>Recovery infrastructure capacity and access validation.</li>
+      <li>Disaster recovery exercise reports and tracked corrective actions.</li>
+      <li>Named technical owners and business stakeholders.</li>
+    </ul>
+  </div>
+  <p class="muted">The scope and availability of evidence will vary by organisation. Findings should be confirmed before they are treated as actual risks or control gaps.</p>
+</section>
+
+<section>
+  <h2>7. Suggested Success Measures</h2>
+  <table>
+    <thead>
+      <tr>
+        <th>Measure</th>
+        <th>What it demonstrates</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Recovery test completion</td>
+        <td>Whether planned recovery exercises are performed and documented.</td>
+      </tr>
+      <tr>
+        <td>Actual recovery time versus RTO</td>
+        <td>Whether tested recovery performance meets business expectations.</td>
+      </tr>
+      <tr>
+        <td>Data recovery point versus RPO</td>
+        <td>Whether recovered data meets agreed data-loss tolerances.</td>
+      </tr>
+      <tr>
+        <td>Runbook and dependency coverage</td>
+        <td>Whether recovery procedures account for critical service dependencies.</td>
+      </tr>
+      <tr>
+        <td>Corrective action closure</td>
+        <td>Whether issues identified during tests and exercises are resolved.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<section>
+  <h2>8. Closing Perspective</h2>
+  <p>Recovery readiness is demonstrated through preparation, tested procedures, available resources and coordinated execution. It should not be judged solely by the presence of successful backup jobs.</p>
+  <p>A structured assessment helps organisations understand where recovery capability is strong, where evidence is missing and which improvements should be prioritised first.</p>
+  <div class="summary">
+    <strong>BackupSteward approach</strong>
+    <p>Assess the current state. Identify practical gaps. Prioritise improvements. Validate recovery through evidence and testing.</p>
+  </div>
+</section>
+
+<div class="cta no-print">
+  <h2>Understand your organisation's recovery readiness</h2>
+  <p>Start with the free Recovery Readiness Score assessment or discuss a more detailed backup and recovery review.</p>
+  <a class="btn" href="https://backupsteward.com/recovery-readiness-score.html">Take the Free Assessment</a>
+  <a class="btn btn-light" href="https://backupsteward.com/enterprise-backup-recovery.html">Explore Consulting Services</a>
+  <a class="btn btn-light" href="mailto:contact@backupsteward.com">Contact BackupSteward</a>
+</div>
+
+<p class="disclaimer">
+  Disclaimer: This page is an illustrative sample only. It is not a technical audit, compliance certification, recovery test or guarantee of recovery performance. Actual assessment findings require agreed scope, evidence review and validation with the organisation.
+</p>
+
+</main>
+
+<footer>
+  © 2026 BackupSteward · Independent Backup &amp; Recovery Consulting<br>
+  <a href="https://backupsteward.com/">Home</a> |
+  <a href="mailto:contact@backupsteward.com">Contact</a>
+</footer>
+</body>
+</html>
