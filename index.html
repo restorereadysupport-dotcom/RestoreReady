@@ -57,6 +57,36 @@ h3{line-height:1.35}
 .card p+p{margin-top:12px}
 .card a{display:inline-block;margin-top:12px;font-size:14px;font-weight:700}
 .symbol{font-size:25px;color:var(--burgundy-2);line-height:1.2}
+
+.health-check{
+margin:24px 0 10px;
+padding:24px 26px;
+background:var(--rose-light);
+border:1px solid #EBC5D1;
+border-radius:14px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:20px;
+flex-wrap:wrap
+}
+.health-check-copy{flex:1 1 420px}
+.health-check .eyebrow{
+color:var(--burgundy-2);
+font-size:12px;
+font-weight:800;
+letter-spacing:.5px;
+text-transform:uppercase
+}
+.health-check h3{
+color:var(--burgundy);
+font-size:23px;
+line-height:1.25;
+margin:5px 0 7px
+}
+.health-check p{color:#55464B;margin:0;font-size:15px}
+.health-check .btn{flex:0 0 auto;margin:0}
+
 .report-strip{margin-top:28px;padding:22px 24px;background:var(--rose-light);border:1px solid #EBC5D1;border-radius:14px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
 .report-strip h3{margin:0 0 4px;color:var(--burgundy)}
 .report-strip p{margin:0;color:#55464B;font-size:14px}
@@ -111,6 +141,9 @@ h2{font-size:28px}
 .card p{font-size:15px}
 .steps{gap:14px;margin-top:20px}
 .step{padding:16px}
+.health-check{padding:20px;gap:14px}
+.health-check h3{font-size:21px}
+.health-check .btn{width:100%;text-align:center}
 .report-strip{padding:18px;gap:12px}
 .report-strip .btn{width:100%;text-align:center;margin-right:0}
 .about-panel{padding:20px}
@@ -164,6 +197,15 @@ html{scroll-behavior:auto}
 <a class="btn primary" href="mailto:contact@backupsteward.com?subject=BackupSteward%20Consulting%20Enquiry&amp;body=Hello%20BackupSteward%2C%0A%0ABackup%20platform%3A%0AWorkload%20or%20environment%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you.">Discuss Your Backup Challenges ↗</a>
 </div>
 </div>
+</div>
+
+<div class="health-check">
+<div class="health-check-copy">
+<div class="eyebrow">Free backup health check</div>
+<h3>How healthy is your backup environment?</h3>
+<p>Identify potential backup and recovery gaps with a short assessment. Answer a few questions and receive an initial report with prioritised findings and practical recommendations.</p>
+</div>
+<a class="btn primary" href="backup-health-check.html">Start Free Backup Health Check ↗</a>
 </div>
 
 <div class="cards">
@@ -232,7 +274,6 @@ html{scroll-behavior:auto}
 <div>
 <a class="btn primary" href="sample-assessment.html">View sample assessment ↗</a>
 <a class="btn primary" href="enterprise-backup-recovery.html">Enterprise Backup &amp; Recovery Consulting ↗</a>
-<a class="btn primary" href="backup-health-check.html">Start Free Backup Health Check ↗</a>
 </div>
 </div>
 </div>
