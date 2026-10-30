@@ -4,10 +4,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Enterprise Backup &amp; Recovery Consulting | BackupSteward</title>
-<meta name="description" content="Independent enterprise backup and recovery consulting for backup assessments, troubleshooting, immutable backups, cloud migrations and disaster recovery readiness.">
-<link rel="canonical" href="https://backupsteward.com/enterprise-backup-recovery.html">
+
+<title>Immutable Backup &amp; Ransomware Resilience Consulting | BackupSteward</title>
+
+<meta name="description" content="Independent immutable backup consulting to review immutability, retention, access controls and restore readiness. Practical ransomware resilience guidance for IT teams and MSPs.">
+
+<link rel="canonical" href="https://backupsteward.com/immutable-backup-ransomware-resilience.html">
 <meta name="robots" content="index, follow">
+<meta name="theme-color" content="#4A1022">
 
 <!-- Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-214R25SYC8"></script>
@@ -20,77 +24,329 @@ gtag('config', 'G-214R25SYC8');
 <!-- End Google Analytics -->
 
 <style>
+:root {
+  --burgundy: #4A1022;
+  --burgundy2: #72223B;
+  --rose: #D66A88;
+  --rose-light: #F7E8ED;
+  --text: #33232A;
+  --muted: #655B60;
+  --line: #E8DDE1;
+  --white: #FFFFFF;
+}
+
 * { box-sizing: border-box; }
-body { margin: 0; font-family: Arial, sans-serif; color: #42212d; background: #faf6f7; line-height: 1.7; }
-header { padding: 18px 6%; background: white; border-bottom: 1px solid #eadde2; }
-.brand { font-size: 23px; font-weight: 700; color: #54142a; }
-.brand span { color: #d66b8b; }
-main { max-width: 960px; margin: auto; padding: 36px 22px 60px; }
-.hero { background: #54142a; color: white; padding: 36px; border-radius: 14px; }
-h1 { line-height: 1.25; font-size: clamp(30px, 5vw, 44px); }
-h2 { margin-top: 32px; color: #671c37; }
-.button { display: inline-block; background: #d66b8b; color: #34111f; padding: 12px 20px; border-radius: 7px; text-decoration: none; font-weight: bold; margin-top: 12px; }
-.grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(230px, 1fr)); gap: 16px; margin-top: 22px; }
-.card { background: white; padding: 20px; border: 1px solid #eadde2; border-radius: 10px; }
-a { color: #8a2449; }
-footer { padding: 24px; text-align: center; background: white; border-top: 1px solid #eadde2; }
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  color: var(--text);
+  background: #FAF7F8;
+  line-height: 1.7;
+}
+
+a { color: var(--burgundy2); }
+
+header {
+  background: var(--white);
+  border-bottom: 1px solid var(--line);
+  padding: 18px 5%;
+}
+
+.brand {
+  font-size: 23px;
+  font-weight: 800;
+  color: var(--burgundy);
+  text-decoration: none;
+}
+
+.brand span { color: var(--rose); }
+
+.tagline {
+  display: block;
+  font-size: 12px;
+  color: var(--burgundy2);
+}
+
+main {
+  max-width: 980px;
+  width: 92%;
+  margin: auto;
+  padding: 34px 0 58px;
+}
+
+.hero {
+  background: var(--burgundy);
+  color: var(--white);
+  border-radius: 16px;
+  padding: clamp(24px, 5vw, 44px);
+}
+
+.eyebrow {
+  color: #F4B8C9;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+h1 {
+  font-size: clamp(30px, 5vw, 44px);
+  line-height: 1.2;
+  margin: 10px 0 14px;
+}
+
+h2 {
+  color: var(--burgundy);
+  line-height: 1.3;
+  margin-top: 34px;
+}
+
+h3 {
+  color: var(--burgundy);
+  line-height: 1.35;
+  margin-top: 0;
+}
+
+.hero p { color: #F8EAF0; }
+
+.button {
+  display: inline-block;
+  background: var(--rose);
+  color: #35101D;
+  padding: 12px 18px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 700;
+  margin: 8px 8px 0 0;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.card {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 20px;
+}
+
+.note {
+  background: var(--rose-light);
+  border: 1px solid #EBC5D1;
+  border-radius: 12px;
+  padding: 18px 20px;
+  margin: 22px 0;
+}
+
+li { margin: 8px 0; }
+
+.cta {
+  background: var(--burgundy);
+  color: var(--white);
+  border-radius: 14px;
+  padding: 26px;
+  margin-top: 34px;
+}
+
+.cta h2 { color: var(--white); margin-top: 0; }
+.cta p { color: #F8EAF0; }
+
+footer {
+  background: var(--white);
+  border-top: 1px solid var(--line);
+  padding: 22px 5%;
+  text-align: center;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+@media (max-width: 560px) {
+  main { width: 90%; padding-top: 22px; }
+  .hero { border-radius: 12px; }
+  .button {
+    display: block;
+    text-align: center;
+    margin-right: 0;
+  }
+}
 </style>
 </head>
+
 <body>
 <header>
-<a href="/" style="text-decoration:none">
-<div class="brand">Backup<span>Steward</span></div>
-<small style="color:#654653">Backup &amp; Recovery Consulting</small>
-</a>
+<a class="brand" href="/">Backup<span>Steward</span></a>
+<span class="tagline">Independent Backup &amp; Recovery Consulting</span>
 </header>
+
 <main>
 <section class="hero">
-<h1>Enterprise Backup &amp; Recovery Consulting</h1>
-<p>Protect critical data, improve backup reliability and build confidence in recovery with independent technical guidance.</p>
-<a class="button" href="mailto:contact@backupsteward.com">Discuss Your Backup Challenges</a>
+<div class="eyebrow">DATA PROTECTION · RECOVERY READINESS</div>
+
+<h1>Immutable Backup &amp; Ransomware Resilience Consulting</h1>
+
+<p>
+Immutable backups can help protect backup copies from unauthorised
+changes or deletion. However, immutability is only one part of a
+resilient recovery strategy. BackupSteward helps IT teams and managed
+service providers review protection controls, identify gaps and
+improve recovery readiness.
+</p>
+
+<a class="button"
+href="mailto:contact@backupsteward.com?subject=Immutable%20Backup%20Review">
+Discuss an Immutable Backup Review
+</a>
 </section>
 
-<h2>Practical guidance across your backup environment</h2>
-<p>BackupSteward provides independent backup and recovery consulting for organisations that need clearer visibility into protection gaps, operational risks and recovery readiness. Recommendations are tailored to your environment and priorities.</p>
+<h2>What does an immutable backup review cover?</h2>
+
+<p>
+A focused review examines how protected backup copies are configured
+and how your organisation would recover if production systems or
+administrative accounts were compromised. The scope is agreed
+according to your platform, available evidence and business needs.
+</p>
 
 <div class="grid">
 <section class="card">
-<h2>Backup Assessments</h2>
-<p>Review backup policies, job outcomes, retention, workload coverage and restore evidence. Identify gaps and prioritise practical improvements.</p>
+<h3>Immutability and Retention</h3>
+<p>
+Review protection settings, retention periods and lock controls
+against your recovery and compliance requirements.
+</p>
 </section>
+
 <section class="card">
-<h2>Troubleshooting &amp; Performance</h2>
-<p>Investigate backup failures, connectivity, infrastructure bottlenecks, capacity concerns and recurring operational issues.</p>
+<h3>Access and Administration</h3>
+<p>
+Examine privileged access, administrative pathways and controls
+that could affect the ability to alter or delete backup copies.
+</p>
 </section>
+
 <section class="card">
-<h2>Immutable Backup Security</h2>
-<p>Review immutability settings, retention controls and recovery safeguards to help strengthen resilience against unauthorised changes and ransomware.</p>
+<h3>Backup Coverage and Gaps</h3>
+<p>
+Review workload coverage, backup policies, job outcomes and
+exceptions that may leave critical data unprotected.
+</p>
 </section>
+
 <section class="card">
-<h2>Cloud &amp; Platform Migrations</h2>
-<p>Plan backup platform transitions and migrations across on-premises and cloud environments, virtual machines and Windows or Linux infrastructure.</p>
+<h3>Restore Validation</h3>
+<p>
+Review restore-test evidence, recovery dependencies and procedures.
+Identify where additional testing would provide better assurance.
+</p>
 </section>
+
 <section class="card">
-<h2>Disaster Recovery &amp; BCP</h2>
-<p>Validate restore procedures, recovery dependencies and test evidence. Identify gaps in disaster recovery and business continuity readiness.</p>
+<h3>Isolation and Resilience</h3>
+<p>
+Assess relevant considerations for separating backup infrastructure,
+copies and credentials from production environments.
+</p>
 </section>
+
 <section class="card">
-<h2>Architecture &amp; Documentation</h2>
-<p>Review backup design, capacity and operational processes. Provide clear findings, remediation recommendations and actionable documentation.</p>
+<h3>Prioritised Action Plan</h3>
+<p>
+Document findings, potential impact, recommended improvements
+and practical validation steps.
+</p>
 </section>
 </div>
 
-<h2>Technology-aware, outcome-focused support</h2>
-<p>Services can cover enterprise backup software, virtualisation, cloud infrastructure, Windows and Linux systems, storage and recovery workflows. Specific tools and scope are confirmed during the initial discussion.</p>
+<h2>Who can benefit from this service?</h2>
 
-<h2>How we work</h2>
-<p>We clarify your challenge, agree on a focused scope, review the relevant evidence and provide prioritised findings with practical next steps. Any access, testing and implementation responsibilities are agreed in advance.</p>
+<ul>
+<li>Businesses reviewing backup protection before an incident.</li>
+<li>IT teams preparing for risk reviews or recovery exercises.</li>
+<li>Managed service providers needing additional backup expertise.</li>
+<li>Organisations reviewing backup architecture or retention controls.</li>
+<li>Teams planning infrastructure changes or disaster recovery improvements.</li>
+</ul>
 
-<h2>Let's discuss your environment</h2>
-<p>Tell us about your backup platform, the issue you are facing and the outcome you need.</p>
-<a class="button" href="mailto:contact@backupsteward.com?subject=Enterprise%20Backup%20Consulting">Contact BackupSteward</a>
-<p><a href="/">Return to BackupSteward homepage</a> · <a href="/sample-assessment.html">View sample assessment</a></p>
+<h2>Vendor-independent backup consulting</h2>
+
+<p>
+BackupSteward provides independent backup and recovery guidance
+across on-premises, cloud and hybrid environments. The specific
+backup platform, storage design and security controls are confirmed
+during scoping. Recommendations depend on the evidence available
+and the capabilities of your environment.
+</p>
+
+<div class="note">
+<strong>Expected deliverables:</strong> agreed-scope findings,
+prioritised recommendations, a practical remediation plan and
+suggested validation steps. Production changes and hands-on testing
+are included only when specifically agreed.
+</div>
+
+<h2>How the engagement works</h2>
+
+<ol>
+<li><strong>Discuss:</strong> explain your environment and objectives.</li>
+<li><strong>Agree scope:</strong> confirm deliverables, access and timeline.</li>
+<li><strong>Review:</strong> assess the agreed controls and available evidence.</li>
+<li><strong>Recommend:</strong> receive prioritised findings and next steps.</li>
+</ol>
+
+<h2>Frequently asked questions</h2>
+
+<section class="card">
+<h3>Does immutable backup guarantee ransomware recovery?</h3>
+<p>
+No. Immutability can help protect backup copies, but recovery also
+depends on backup coverage, access security, retention, infrastructure
+dependencies and successful restore testing.
+</p>
+
+<h3>Can you review an existing backup environment?</h3>
+<p>
+Yes. A review can be scoped around your existing environment,
+objectives and the evidence available.
+</p>
+
+<h3>Do you work with managed service providers?</h3>
+<p>
+MSP engagements can be considered for defined-scope backup reviews
+and technical advisory support.
+</p>
+
+<h3>What should I include in my first enquiry?</h3>
+<p>
+Share your backup platform, a high-level description of the concern
+and the outcome you need. Do not email passwords, credentials,
+tokens or sensitive production data.
+</p>
+</section>
+
+<section class="cta">
+<h2>Review your backup resilience</h2>
+
+<p>
+Tell us about your backup platform and the protection or recovery
+question you want to address.
+</p>
+
+<a class="button"
+href="mailto:contact@backupsteward.com?subject=Immutable%20Backup%20Review">
+Contact BackupSteward
+</a>
+
+<p>
+<a href="/">BackupSteward homepage</a> ·
+<a href="/enterprise-backup-recovery.html">Enterprise consulting</a> ·
+<a href="/sample-assessment.html">Sample assessment</a>
+</p>
+</section>
 </main>
+
 <footer>
 BackupSteward · Independent Backup &amp; Recovery Consulting<br>
 <a href="mailto:contact@backupsteward.com">contact@backupsteward.com</a>
