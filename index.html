@@ -9,7 +9,6 @@
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://backupsteward.com/">
 <title>Enterprise Backup &amp; Recovery Consulting | BackupSteward</title>
-
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-214R25SYC8"></script>
 <script>
 window.dataLayer = window.dataLayer || [];
@@ -17,7 +16,6 @@ function gtag(){dataLayer.push(arguments);}
 gtag('js', new Date());
 gtag('config', 'G-214R25SYC8');
 </script>
-
 <style>
 :root{--burgundy:#4A1022;--burgundy-2:#72223B;--rose:#D66A88;--rose-light:#F7E8ED;--ink:#33232A;--muted:#655B60;--bg:#F7F4F5;--line:#E5DFE2;--white:#FFF}
 *{box-sizing:border-box}
@@ -58,18 +56,17 @@ h3{line-height:1.35}
 .card a{display:inline-block;margin-top:12px;font-size:14px;font-weight:700}
 .symbol{font-size:25px;color:var(--burgundy-2);line-height:1.2}
 
-/* Backup technology badge gallery */
+/* Image-based backup technology gallery */
 .badge-section{background:#fff;padding:34px 0 40px;border-bottom:1px solid var(--line)}
 .badge-heading{text-align:center;margin-bottom:23px}
 .badge-heading h2{font-size:25px;margin-bottom:7px}
 .badge-heading p{color:var(--muted);font-size:14px;margin:0}
 .badge-category{color:var(--burgundy);font-size:13px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;margin:23px 0 12px}
 .badge-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
-.tech-badge{min-height:94px;border:1px solid #E9DDE2;border-radius:12px;background:#FFFCFD;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:13px 8px;box-shadow:0 2px 8px #4A102208;transition:transform .18s ease,border-color .18s ease}
+.tech-badge{min-height:112px;border:1px solid #E9DDE2;border-radius:12px;background:#FFFCFD;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:13px 8px;box-shadow:0 2px 8px #4A102208;transition:transform .18s ease,border-color .18s ease}
 .tech-badge:hover{transform:translateY(-2px);border-color:var(--rose)}
-.tech-badge .badge-mark{width:34px;height:34px;border-radius:10px;background:var(--rose-light);color:var(--burgundy);display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:800;margin-bottom:7px}
+.tech-badge img{display:block;width:62px;height:48px;object-fit:contain;margin:0 auto 9px}
 .tech-badge strong{font-size:13px;line-height:1.25;color:var(--burgundy)}
-.tech-badge small{font-size:10px;line-height:1.25;color:var(--muted);margin-top:4px}
 .badge-note{text-align:center;font-size:11px;color:var(--muted);margin:18px 0 0}
 
 /* Free assessment cards */
@@ -139,10 +136,9 @@ h2{font-size:28px}
 .badge-heading h2{font-size:22px}
 .badge-heading p{font-size:13px}
 .badge-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.tech-badge{min-height:91px;padding:10px 5px}
+.tech-badge{min-height:102px;padding:10px 5px}
+.tech-badge img{width:52px;height:42px;margin-bottom:7px}
 .tech-badge strong{font-size:11px}
-.tech-badge small{font-size:9px}
-.tech-badge .badge-mark{width:30px;height:30px;font-size:14px}
 .badge-category{font-size:12px;margin-top:19px}
 .assessment-tools{grid-template-columns:1fr;gap:14px}
 .health-check{padding:20px;gap:14px;min-height:0}
@@ -199,25 +195,25 @@ html{scroll-behavior:auto}
 
 <div class="badge-category">Backup &amp; Recovery Platforms</div>
 <div class="badge-grid">
-<div class="tech-badge"><span class="badge-mark">C</span><strong>Commvault</strong><small>Certification programme</small></div>
-<div class="tech-badge"><span class="badge-mark">V</span><strong>Veeam</strong><small>Veeam Certified</small></div>
-<div class="tech-badge"><span class="badge-mark">N</span><strong>Veritas NetBackup</strong><small>Certification programme</small></div>
-<div class="tech-badge"><span class="badge-mark">D</span><strong>Dell EMC NetWorker</strong><small>Technology expertise</small></div>
-<div class="tech-badge"><span class="badge-mark">A</span><strong>Dell EMC Avamar</strong><small>Technology expertise</small></div>
-<div class="tech-badge"><span class="badge-mark">R</span><strong>Rubrik</strong><small>Certification programme</small></div>
-<div class="tech-badge"><span class="badge-mark">C</span><strong>Cohesity</strong><small>Certification programme</small></div>
-<div class="tech-badge"><span class="badge-mark">IBM</span><strong>IBM Storage Protect</strong><small>Technology expertise</small></div>
-<div class="tech-badge"><span class="badge-mark">A</span><strong>Acronis</strong><small>Certification programme</small></div>
-<div class="tech-badge"><span class="badge-mark">EMC</span><strong>Data Domain</strong><small>Technology expertise</small></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=commvault.com&sz=128" alt="Commvault logo" loading="lazy"><strong>Commvault</strong></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=veeam.com&sz=128" alt="Veeam logo" loading="lazy"><strong>Veeam</strong></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=veritas.com&sz=128" alt="Veritas logo" loading="lazy"><strong>Veritas NetBackup</strong></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=dell.com&sz=128" alt="Dell Technologies logo" loading="lazy"><strong>Dell EMC NetWorker</strong></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=dell.com&sz=128" alt="Dell Technologies logo" loading="lazy"><strong>Dell EMC Avamar</strong></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=rubrik.com&sz=128" alt="Rubrik logo" loading="lazy"><strong>Rubrik</strong></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=cohesity.com&sz=128" alt="Cohesity logo" loading="lazy"><strong>Cohesity</strong></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=ibm.com&sz=128" alt="IBM logo" loading="lazy"><strong>IBM Storage Protect</strong></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=acronis.com&sz=128" alt="Acronis logo" loading="lazy"><strong>Acronis</strong></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=dell.com&sz=128" alt="Dell Technologies logo" loading="lazy"><strong>Data Domain</strong></div>
 </div>
 
 <div class="badge-category">Cloud &amp; Infrastructure Technologies</div>
 <div class="badge-grid">
-<div class="tech-badge"><span class="badge-mark">W</span><strong>VMware</strong><small>Virtualisation</small></div>
-<div class="tech-badge"><span class="badge-mark">H</span><strong>Microsoft Hyper-V</strong><small>Virtualisation</small></div>
-<div class="tech-badge"><span class="badge-mark">AWS</span><strong>Amazon Web Services</strong><small>Cloud infrastructure</small></div>
-<div class="tech-badge"><span class="badge-mark">A</span><strong>Microsoft Azure</strong><small>Cloud infrastructure</small></div>
-<div class="tech-badge"><span class="badge-mark">G</span><strong>Google Cloud</strong><small>Cloud infrastructure</small></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=vmware.com&sz=128" alt="VMware logo" loading="lazy"><strong>VMware</strong></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=microsoft.com&sz=128" alt="Microsoft logo" loading="lazy"><strong>Microsoft Hyper-V</strong></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=aws.amazon.com&sz=128" alt="AWS logo" loading="lazy"><strong>Amazon Web Services</strong></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=azure.microsoft.com&sz=128" alt="Microsoft Azure logo" loading="lazy"><strong>Microsoft Azure</strong></div>
+<div class="tech-badge"><img src="https://www.google.com/s2/favicons?domain=cloud.google.com&sz=128" alt="Google Cloud logo" loading="lazy"><strong>Google Cloud</strong></div>
 </div>
 
 <p class="badge-note">Technology and certification-programme references indicate platforms covered by the BackupSteward ecosystem. They do not represent personal certification claims or endorsements by these vendors.</p>
@@ -245,7 +241,6 @@ html{scroll-behavior:auto}
 </div>
 <a class="btn primary" href="backup-health-check.html">Start Free Backup Health Check ↗</a>
 </article>
-
 <article class="health-check">
 <div class="health-check-copy">
 <div class="eyebrow">Free recovery assessment</div>
@@ -257,53 +252,15 @@ html{scroll-behavior:auto}
 </div>
 
 <div class="cards">
-<article class="card">
-<div class="symbol" aria-hidden="true">⌕</div>
-<h3>Enterprise Backup &amp; Workload Assessment</h3>
-<p>Review backup architecture, policies, job outcomes, retention, workload coverage, storage health and restore evidence across databases, applications, servers, virtual environments and cloud workloads. Receive prioritised findings and practical remediation guidance.</p>
-<p><a href="enterprise-backup-recovery.html">Explore enterprise backup consulting →</a></p>
-</article>
-<article class="card">
-<div class="symbol" aria-hidden="true">⚙</div>
-<h3>Backup Troubleshooting</h3>
-<p>Investigate backup failures, connectivity, infrastructure bottlenecks, performance, storage issues and recurring operational challenges across enterprise backup platforms and workloads.</p>
-</article>
-<article class="card">
-<div class="symbol" aria-hidden="true">◈</div>
-<h3>Immutable Backup &amp; Ransomware Resilience</h3>
-<p>Review immutability settings, retention controls, protection gaps and recovery readiness to help strengthen resilience against unauthorised changes and ransomware.</p>
-<p><a href="immutable-backup-ransomware-resilience.html">Explore immutable backup consulting →</a></p>
-</article>
-<article class="card">
-<div class="symbol" aria-hidden="true">↻</div>
-<h3>Backup Platform &amp; Infrastructure Migrations</h3>
-<p>Plan and support backup platform transitions, infrastructure modernisation, storage and repository migrations, data movement, cloud adoption and consolidation. Review migration risks, dependencies, cutover planning and post-migration backup and restore validation.</p>
-</article>
-<article class="card">
-<div class="symbol" aria-hidden="true">☁</div>
-<h3>Cloud &amp; Hybrid Backup</h3>
-<p>Guidance for on-premises, cloud and hybrid environments, including cloud infrastructure, virtual machines, physical servers, databases, file services and application workloads.</p>
-</article>
-<article class="card">
-<div class="symbol" aria-hidden="true">✓</div>
-<h3>Restore Testing &amp; BCP/DR Readiness</h3>
-<p>Review restore-test evidence, recovery procedures, dependencies and continuity-test outcomes. Identify gaps and recommend validation steps for critical workloads.</p>
-</article>
-<article class="card">
-<div class="symbol" aria-hidden="true">▤</div>
-<h3>Remediation &amp; Documentation</h3>
-<p>Develop clear runbooks and action plans covering findings, priorities, recommended fixes, ownership considerations and validation steps.</p>
-</article>
-<article class="card">
-<div class="symbol" aria-hidden="true">⌁</div>
-<h3>Backup Architecture &amp; Performance</h3>
-<p>Review backup design, capacity, workload coverage, storage and infrastructure performance, data growth and opportunities for operational improvement.</p>
-</article>
-<article class="card">
-<div class="symbol" aria-hidden="true">◷</div>
-<h3>Ongoing Backup Advisory</h3>
-<p>Agreed-scope periodic reviews, technical discussions, follow-up on findings and help prioritising backup and recovery improvements.</p>
-</article>
+<article class="card"><div class="symbol" aria-hidden="true">⌕</div><h3>Enterprise Backup &amp; Workload Assessment</h3><p>Review backup architecture, policies, job outcomes, retention, workload coverage, storage health and restore evidence across databases, applications, servers, virtual environments and cloud workloads. Receive prioritised findings and practical remediation guidance.</p><p><a href="enterprise-backup-recovery.html">Explore enterprise backup consulting →</a></p></article>
+<article class="card"><div class="symbol" aria-hidden="true">⚙</div><h3>Backup Troubleshooting</h3><p>Investigate backup failures, connectivity, infrastructure bottlenecks, performance, storage issues and recurring operational challenges across enterprise backup platforms and workloads.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">◈</div><h3>Immutable Backup &amp; Ransomware Resilience</h3><p>Review immutability settings, retention controls, protection gaps and recovery readiness to help strengthen resilience against unauthorised changes and ransomware.</p><p><a href="immutable-backup-ransomware-resilience.html">Explore immutable backup consulting →</a></p></article>
+<article class="card"><div class="symbol" aria-hidden="true">↻</div><h3>Backup Platform &amp; Infrastructure Migrations</h3><p>Plan and support backup platform transitions, infrastructure modernisation, storage and repository migrations, data movement, cloud adoption and consolidation. Review migration risks, dependencies, cutover planning and post-migration backup and restore validation.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">☁</div><h3>Cloud &amp; Hybrid Backup</h3><p>Guidance for on-premises, cloud and hybrid environments, including cloud infrastructure, virtual machines, physical servers, databases, file services and application workloads.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">✓</div><h3>Restore Testing &amp; BCP/DR Readiness</h3><p>Review restore-test evidence, recovery procedures, dependencies and continuity-test outcomes. Identify gaps and recommend validation steps for critical workloads.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">▤</div><h3>Remediation &amp; Documentation</h3><p>Develop clear runbooks and action plans covering findings, priorities, recommended fixes, ownership considerations and validation steps.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">⌁</div><h3>Backup Architecture &amp; Performance</h3><p>Review backup design, capacity, workload coverage, storage and infrastructure performance, data growth and opportunities for operational improvement.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">◷</div><h3>Ongoing Backup Advisory</h3><p>Agreed-scope periodic reviews, technical discussions, follow-up on findings and help prioritising backup and recovery improvements.</p></article>
 </div>
 </div>
 </section>
@@ -323,10 +280,7 @@ html{scroll-behavior:auto}
 <article class="card"><h3>Endpoints &amp; User Data</h3><p>Enterprise laptops, desktops, remote-user systems and business-critical endpoint data. Review endpoint protection coverage and recovery requirements.</p></article>
 <article class="card"><h3>Object &amp; Unstructured Storage</h3><p>Object storage, enterprise repositories and large-scale unstructured data. Review data protection, retention, versioning, immutability and recovery requirements.</p></article>
 </div>
-<div class="report-strip">
-<div><h3>Need a broader workload review?</h3><p>Explore our enterprise backup and recovery assessment approach.</p></div>
-<a class="btn primary" href="enterprise-backup-recovery.html">Explore Enterprise Consulting ↗</a>
-</div>
+<div class="report-strip"><div><h3>Need a broader workload review?</h3><p>Explore our enterprise backup and recovery assessment approach.</p></div><a class="btn primary" href="enterprise-backup-recovery.html">Explore Enterprise Consulting ↗</a></div>
 </div>
 </section>
 
@@ -447,6 +401,5 @@ html{scroll-behavior:auto}
 </span>
 </div>
 </footer>
-
 </body>
 </html>
