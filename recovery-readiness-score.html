@@ -1,0 +1,831 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Recovery Readiness Score | BackupSteward</title>
+  <meta name="description" content="Assess your organisation's recovery readiness. Evaluate RTO/RPO, recovery testing, dependencies, runbooks, clean recovery environments and disaster recovery capabilities.">
+  <link rel="canonical" href="https://backupsteward.com/recovery-readiness-score.html">
+
+  <meta property="og:title" content="Recovery Readiness Score | BackupSteward">
+  <meta property="og:description" content="Can your organisation recover when it matters? Take the Recovery Readiness Score assessment.">
+  <meta property="og:url" content="https://backupsteward.com/recovery-readiness-score.html">
+  <meta property="og:type" content="website">
+
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-214R25SYC8"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-214R25SYC8');
+  </script>
+
+  <style>
+    :root {
+      --burgundy: #701b3d;
+      --burgundy-dark: #50132c;
+      --rose: #f4dce5;
+      --rose-pink: #d87598;
+      --text: #39313a;
+      --muted: #716873;
+      --line: #eadfe5;
+      --light: #fff8fb;
+      --white: #ffffff;
+    }
+
+    * { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: #fff;
+      line-height: 1.6;
+    }
+
+    a { color: var(--burgundy); }
+
+    header {
+      border-bottom: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: auto;
+      padding: 17px 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      color: var(--burgundy);
+      font-size: 25px;
+      font-weight: 800;
+      text-decoration: none;
+      letter-spacing: -0.6px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 19px;
+      flex-wrap: wrap;
+      align-items: center;
+      font-size: 14px;
+    }
+
+    .nav-links a { text-decoration: none; }
+
+    .hero {
+      background: var(--light);
+      padding: 55px 20px 45px;
+      text-align: center;
+    }
+
+    .hero-inner, main {
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--burgundy);
+      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      font-size: 12px;
+    }
+
+    h1 {
+      color: var(--burgundy);
+      font-size: clamp(30px, 5vw, 43px);
+      line-height: 1.2;
+      margin: 12px 0;
+    }
+
+    .hero p {
+      max-width: 720px;
+      margin: 12px auto;
+      color: var(--muted);
+      font-size: 17px;
+    }
+
+    .hero-note {
+      margin: 23px auto 0;
+      display: inline-block;
+      background: var(--rose);
+      color: var(--burgundy-dark);
+      padding: 9px 16px;
+      border-radius: 30px;
+      font-size: 13px;
+      font-weight: 600;
+    }
+
+    main { padding: 35px 20px 65px; }
+
+    .intro {
+      background: var(--white);
+      border: 1px solid var(--line);
+      border-radius: 13px;
+      padding: 22px;
+      margin-bottom: 25px;
+    }
+
+    .intro h2, .section-title {
+      color: var(--burgundy);
+      margin-top: 0;
+    }
+
+    .details {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    label.field-label {
+      display: block;
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 6px;
+      color: var(--burgundy-dark);
+    }
+
+    input[type="text"], select {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #d9cbd2;
+      border-radius: 7px;
+      font-size: 14px;
+      background: white;
+      color: var(--text);
+    }
+
+    .progress-wrap {
+      margin: 25px 0;
+    }
+
+    .progress-label {
+      display: flex;
+      justify-content: space-between;
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 8px;
+    }
+
+    .progress-track {
+      height: 8px;
+      background: var(--rose);
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    .progress-bar {
+      height: 100%;
+      width: 0%;
+      background: var(--burgundy);
+      transition: width .2s ease;
+    }
+
+    .question {
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 21px;
+      margin-bottom: 16px;
+      background: white;
+    }
+
+    .question h3 {
+      color: var(--burgundy);
+      font-size: 17px;
+      margin: 0 0 5px;
+    }
+
+    .question .help {
+      color: var(--muted);
+      font-size: 13px;
+      margin: 0 0 14px;
+    }
+
+    .options {
+      display: grid;
+      gap: 9px;
+    }
+
+    .option {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      border: 1px solid #eee4e9;
+      border-radius: 8px;
+      padding: 11px 12px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background .15s ease, border-color .15s ease;
+    }
+
+    .option:hover {
+      background: var(--light);
+      border-color: var(--rose-pink);
+    }
+
+    .option:has(input:checked) {
+      background: var(--rose);
+      border-color: var(--rose-pink);
+    }
+
+    .option input {
+      margin-top: 4px;
+      accent-color: var(--burgundy);
+      flex-shrink: 0;
+    }
+
+    .actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin: 25px 0;
+    }
+
+    button {
+      border: 0;
+      border-radius: 7px;
+      padding: 13px 21px;
+      font-size: 14px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .primary {
+      background: var(--burgundy);
+      color: white;
+    }
+
+    .primary:hover { background: var(--burgundy-dark); }
+
+    .secondary {
+      background: var(--rose);
+      color: var(--burgundy);
+    }
+
+    .result {
+      display: none;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      padding: 25px;
+      margin-top: 35px;
+      background: var(--light);
+    }
+
+    .result h2 { color: var(--burgundy); }
+
+    .score-area {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+      flex-wrap: wrap;
+      margin: 20px 0;
+    }
+
+    .score-circle {
+      width: 145px;
+      height: 145px;
+      border: 9px solid var(--rose-pink);
+      border-radius: 50%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: white;
+      flex-shrink: 0;
+    }
+
+    .score-number {
+      color: var(--burgundy);
+      font-size: 43px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .score-outof {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .score-status {
+      color: var(--burgundy);
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .result-block {
+      background: white;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      padding: 17px;
+      margin-top: 16px;
+    }
+
+    .result-block h3 {
+      color: var(--burgundy);
+      margin: 0 0 10px;
+      font-size: 16px;
+    }
+
+    .result-block li { margin-bottom: 7px; }
+
+    .cta {
+      margin-top: 25px;
+      padding: 23px;
+      background: var(--burgundy);
+      color: white;
+      border-radius: 12px;
+    }
+
+    .cta h3 { margin-top: 0; }
+
+    .cta a {
+      color: white;
+      font-weight: 700;
+    }
+
+    .disclaimer {
+      color: var(--muted);
+      font-size: 12px;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 20px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    footer a { text-decoration: none; }
+
+    @media (max-width: 650px) {
+      .nav { justify-content: center; }
+      .nav-links { justify-content: center; gap: 12px; }
+      .details { grid-template-columns: 1fr; }
+      .hero { padding: 40px 17px 35px; }
+      main { padding: 25px 15px 45px; }
+      .question { padding: 17px; }
+      .score-area { justify-content: center; text-align: center; }
+    }
+
+    @media print {
+      header, .hero, .intro, #assessment, .actions, footer,
+      .no-print { display: none !important; }
+
+      body { background: white; color: #222; }
+      main { max-width: 100%; padding: 0; }
+      .result {
+        display: block !important;
+        background: white;
+        border: 0;
+        padding: 0;
+      }
+      .result-block { break-inside: avoid; }
+      .cta { background: white; color: #222; border: 1px solid #ccc; }
+      .cta a { color: var(--burgundy); }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <nav class="nav">
+    <a class="brand" href="https://backupsteward.com/">BackupSteward</a>
+    <div class="nav-links">
+      <a href="https://backupsteward.com/">Home</a>
+      <a href="https://backupsteward.com/#services">Services</a>
+      <a href="https://backupsteward.com/backup-health-check.html">Backup Health Check</a>
+      <a href="https://backupsteward.com/#contact">Contact</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <div class="eyebrow">Free interactive assessment</div>
+    <h1>Recovery Readiness Score</h1>
+    <p>Having backups is only half the story. When a major incident occurs, can your organisation restore critical services within the required time?</p>
+    <div class="hero-note">8 key areas · Instant score · Printable report</div>
+  </div>
+</section>
+
+<main>
+  <section class="intro">
+    <h2>Measure your recovery preparedness</h2>
+    <p>Evaluate the processes, people, infrastructure and recovery capabilities that determine whether your organisation can recover from a disruption.</p>
+    <p><strong>How it works:</strong> Answer eight questions based on your current environment. Each answer contributes to a readiness score out of 100. Lower scores indicate areas that need attention.</p>
+
+    <div class="details">
+      <div>
+        <label class="field-label" for="platform">Primary backup platform</label>
+        <select id="platform">
+          <option value="">Select platform</option>
+          <option>Commvault</option>
+          <option>Veeam</option>
+          <option>Veritas NetBackup</option>
+          <option>Dell EMC NetWorker</option>
+          <option>Rubrik</option>
+          <option>Cohesity</option>
+          <option>IBM Storage Protect</option>
+          <option>Other / Multiple</option>
+        </select>
+      </div>
+      <div>
+        <label class="field-label" for="environment">Environment</label>
+        <select id="environment">
+          <option value="">Select environment</option>
+          <option>On-premises</option>
+          <option>Cloud</option>
+          <option>Hybrid</option>
+          <option>Multiple data centres</option>
+        </select>
+      </div>
+      <div>
+        <label class="field-label" for="scope">Assessment scope</label>
+        <select id="scope">
+          <option value="">Select scope</option>
+          <option>Critical applications</option>
+          <option>Business-wide</option>
+          <option>Infrastructure and databases</option>
+          <option>Entire IT environment</option>
+        </select>
+      </div>
+    </div>
+  </section>
+
+  <section id="assessment">
+    <h2 class="section-title">Recovery readiness assessment</h2>
+    <div class="progress-wrap">
+      <div class="progress-label">
+        <span>Assessment progress</span>
+        <span id="progressText">0 of 8 answered</span>
+      </div>
+      <div class="progress-track"><div class="progress-bar" id="progressBar"></div></div>
+    </div>
+
+    <div id="questions"></div>
+
+    <div class="actions">
+      <button class="primary" id="calculateBtn" type="button">Calculate my readiness score</button>
+      <button class="secondary" id="resetBtn" type="button">Reset assessment</button>
+    </div>
+    <p id="validation" role="alert" style="color:#a21e45;font-size:14px;"></p>
+  </section>
+
+  <section class="result" id="result" aria-live="polite">
+    <h2>Your Recovery Readiness Report</h2>
+    <p id="reportDate"></p>
+
+    <div class="score-area">
+      <div class="score-circle">
+        <div class="score-number" id="score">0</div>
+        <div class="score-outof">OUT OF 100</div>
+      </div>
+      <div>
+        <div class="score-status" id="status"></div>
+        <p id="statusDescription"></p>
+        <p><strong>Platform:</strong> <span id="reportPlatform"></span><br>
+        <strong>Environment:</strong> <span id="reportEnvironment"></span><br>
+        <strong>Scope:</strong> <span id="reportScope"></span></p>
+      </div>
+    </div>
+
+    <div class="result-block">
+      <h3>Executive summary</h3>
+      <p id="executiveSummary"></p>
+    </div>
+
+    <div class="result-block">
+      <h3>Top 3 priority gaps</h3>
+      <ol id="topGaps"></ol>
+    </div>
+
+    <div class="result-block">
+      <h3>Assessment findings</h3>
+      <ul id="findings"></ul>
+    </div>
+
+    <div class="result-block">
+      <h3>Recommended action plan</h3>
+      <ol id="actionPlan"></ol>
+    </div>
+
+    <div class="cta">
+      <h3>Need to improve your recovery readiness?</h3>
+      <p>BackupSteward can help assess recovery processes, identify gaps and improve backup and recovery preparedness across your environment.</p>
+      <p><a href="https://backupsteward.com/enterprise-backup-recovery.html">Explore Enterprise Backup &amp; Recovery Services</a></p>
+      <p><a href="mailto:contact@backupsteward.com">Contact BackupSteward</a></p>
+    </div>
+
+    <p class="disclaimer">This is a preliminary self-assessment based on the answers provided. It is not a technical audit, recovery test, compliance certification or guarantee of recoverability. Actual readiness should be validated through documented and witnessed recovery testing.</p>
+
+    <div class="actions no-print">
+      <button class="primary" type="button" onclick="window.print()">Print / Save as PDF</button>
+      <button class="secondary" type="button" onclick="document.getElementById('assessment').scrollIntoView({behavior:'smooth'})">Review answers</button>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <p>© 2026 BackupSteward · Independent Backup &amp; Recovery Consulting</p>
+  <p><a href="https://backupsteward.com/">Home</a> · <a href="mailto:contact@backupsteward.com">Contact</a></p>
+</footer>
+
+<script>
+const questions = [
+  {
+    title: "1. Are RTO and RPO requirements defined and approved?",
+    help: "Recovery Time Objective (RTO) and Recovery Point Objective (RPO) should be documented for critical applications and aligned with business expectations.",
+    options: [
+      ["Defined, approved and reviewed regularly", 0],
+      ["Defined for most critical applications", 5],
+      ["Partially documented or not recently reviewed", 10],
+      ["Not defined or unknown", 15]
+    ],
+    gap: "RTO and RPO requirements are not consistently defined and approved.",
+    action: "Work with application owners and business teams to define, approve and periodically review RTO and RPO requirements."
+  },
+  {
+    title: "2. How frequently are recovery tests performed?",
+    help: "Consider actual restore and application recovery tests, not just successful backup jobs.",
+    options: [
+      ["Regularly tested, documented and validated against objectives", 0],
+      ["Tested periodically, but coverage is incomplete", 5],
+      ["Only occasional or ad-hoc restore tests", 10],
+      ["No formal recovery testing", 15]
+    ],
+    gap: "Recovery testing is insufficient or not formally documented.",
+    action: "Establish a risk-based recovery testing schedule and record evidence, results, timings and issues."
+  },
+  {
+    title: "3. Are application dependencies and recovery sequences documented?",
+    help: "Consider databases, authentication, DNS, network, storage, middleware and application dependencies.",
+    options: [
+      ["Dependencies and recovery order are documented and validated", 0],
+      ["Documented for most critical services", 5],
+      ["Partially documented or dependent on individual knowledge", 10],
+      ["Not documented or unknown", 15]
+    ],
+    gap: "Application dependencies and recovery order are not sufficiently documented.",
+    action: "Build application dependency maps and define recovery sequences with application and infrastructure owners."
+  },
+  {
+    title: "4. Are recovery runbooks available and up to date?",
+    help: "Runbooks should contain clear recovery steps, ownership, escalation contacts and validation procedures.",
+    options: [
+      ["Current, accessible, assigned and periodically tested", 0],
+      ["Available but some sections need updating", 5],
+      ["Incomplete or dependent on individual knowledge", 10],
+      ["No documented recovery runbooks", 15]
+    ],
+    gap: "Recovery runbooks are missing, incomplete or outdated.",
+    action: "Create and maintain recovery runbooks with clear roles, step-by-step procedures and validation checks."
+  },
+  {
+    title: "5. Is a clean or isolated recovery environment available?",
+    help: "Consider cyber recovery, isolated restore networks, clean-room environments and trusted recovery infrastructure.",
+    options: [
+      ["Available, protected and recovery-tested", 0],
+      ["Available but testing or isolation needs improvement", 5],
+      ["Limited capacity or informal arrangements", 10],
+      ["No identified clean or isolated recovery environment", 15]
+    ],
+    gap: "Clean or isolated recovery capability is not adequately established.",
+    action: "Assess clean-room or isolated recovery options and validate secure restoration of critical workloads."
+  },
+  {
+    title: "6. Are recovery roles, access and responsibilities clear?",
+    help: "Consider recovery team ownership, privileged access, emergency credentials and escalation paths.",
+    options: [
+      ["Roles and secure emergency access are documented and tested", 0],
+      ["Roles are clear but access or escalation needs improvement", 5],
+      ["Responsibilities are partly understood or person-dependent", 10],
+      ["No clear recovery ownership or access process", 15]
+    ],
+    gap: "Recovery ownership, responsibilities or emergency access arrangements are unclear.",
+    action: "Define recovery roles, escalation paths, approved emergency access and backup personnel."
+  },
+  {
+    title: "7. Is recovery capacity sufficient for critical workloads?",
+    help: "Consider compute, storage, network bandwidth, cloud quotas, licences and infrastructure availability.",
+    options: [
+      ["Capacity is validated against recovery requirements", 0],
+      ["Capacity is generally sufficient but not recently validated", 5],
+      ["Known constraints could delay recovery", 10],
+      ["Capacity is unknown or unavailable", 15]
+    ],
+    gap: "Recovery infrastructure capacity has not been adequately validated.",
+    action: "Validate compute, storage, network, cloud quotas and licensing against the recovery scope and required timelines."
+  },
+  {
+    title: "8. Are disaster recovery exercises conducted and lessons tracked?",
+    help: "Consider planned exercises, stakeholder participation, issue ownership and closure of corrective actions.",
+    options: [
+      ["Regular exercises with documented outcomes and tracked improvements", 0],
+      ["Exercises conducted but follow-up is inconsistent", 5],
+      ["Limited exercises with little formal tracking", 10],
+      ["No formal DR exercises", 15]
+    ],
+    gap: "DR exercises and continuous improvement activities are insufficient.",
+    action: "Introduce regular DR exercises, document outcomes, assign corrective actions and track them through closure."
+  }
+];
+
+const questionContainer = document.getElementById("questions");
+
+questions.forEach((q, index) => {
+  const card = document.createElement("div");
+  card.className = "question";
+  const heading = document.createElement("h3");
+  heading.textContent = q.title;
+  const help = document.createElement("p");
+  help.className = "help";
+  help.textContent = q.help;
+  const options = document.createElement("div");
+  options.className = "options";
+
+  q.options.forEach((option, optionIndex) => {
+    const label = document.createElement("label");
+    label.className = "option";
+    const radio = document.createElement("input");
+    radio.type = "radio";
+    radio.name = "q" + index;
+    radio.value = option[1];
+    radio.addEventListener("change", updateProgress);
+    const span = document.createElement("span");
+    span.textContent = option[0];
+    label.append(radio, span);
+    options.appendChild(label);
+  });
+
+  card.append(heading, help, options);
+  questionContainer.appendChild(card);
+});
+
+function updateProgress() {
+  const answered = questions.filter((q, i) =>
+    document.querySelector('input[name="q' + i + '"]:checked')
+  ).length;
+
+  document.getElementById("progressText").textContent =
+    answered + " of 8 answered";
+  document.getElementById("progressBar").style.width =
+    (answered / 8 * 100) + "%";
+}
+
+function getSelectedRisk(index) {
+  const selected = document.querySelector(
+    'input[name="q' + index + '"]:checked'
+  );
+  return selected ? Number(selected.value) : null;
+}
+
+function getRecommendation(index) {
+  const selected = getSelectedRisk(index);
+  if (selected === 0) {
+    return "Maintain the current control and continue periodic validation.";
+  }
+  return questions[index].action;
+}
+
+function calculateScore() {
+  const unanswered = questions
+    .map((q, i) => getSelectedRisk(i) === null ? i + 1 : null)
+    .filter(Boolean);
+
+  if (unanswered.length) {
+    document.getElementById("validation").textContent =
+      "Please answer all eight questions. Questions not answered: " +
+      unanswered.join(", ") + ".";
+    document.querySelectorAll(".question")[unanswered[0] - 1]
+      .scrollIntoView({behavior:"smooth", block:"center"});
+    return;
+  }
+
+  document.getElementById("validation").textContent = "";
+
+  const risks = questions.map((q, i) => getSelectedRisk(i));
+  const totalRisk = risks.reduce((sum, value) => sum + value, 0);
+  const score = Math.max(0, 100 - totalRisk);
+
+  let status, description;
+  if (score >= 85) {
+    status = "Strong readiness";
+    description = "Your responses indicate a generally mature recovery approach. Continue testing and validating recovery capabilities.";
+  } else if (score >= 70) {
+    status = "Generally prepared";
+    description = "Core recovery practices appear to be in place, but some areas need improvement.";
+  } else if (score >= 50) {
+    status = "Improvements needed";
+    description = "Several recovery gaps may affect your ability to restore critical services within required timelines.";
+  } else {
+    status = "Critical attention required";
+    description = "Your responses indicate significant recovery readiness gaps. Prioritise recovery planning and validation.";
+  }
+
+  document.getElementById("score").textContent = score;
+  document.getElementById("status").textContent = status;
+  document.getElementById("statusDescription").textContent = description;
+  document.getElementById("reportPlatform").textContent =
+    document.getElementById("platform").value || "Not specified";
+  document.getElementById("reportEnvironment").textContent =
+    document.getElementById("environment").value || "Not specified";
+  document.getElementById("reportScope").textContent =
+    document.getElementById("scope").value || "Not specified";
+  document.getElementById("reportDate").textContent =
+    "Assessment generated: " + new Date().toLocaleString();
+
+  document.getElementById("executiveSummary").textContent =
+    "The assessment produced a Recovery Readiness Score of " + score +
+    "/100. " + description +
+    " This result is based on the information supplied and should be validated through practical recovery exercises.";
+
+  const gaps = questions.map((q, i) => ({
+    title: q.title,
+    risk: risks[i],
+    gap: q.gap,
+    action: getRecommendation(i),
+    index: i
+  })).filter(item => item.risk > 0)
+    .sort((a, b) => b.risk - a.risk);
+
+  const topGaps = document.getElementById("topGaps");
+  topGaps.replaceChildren();
+
+  if (!gaps.length) {
+    const li = document.createElement("li");
+    li.textContent = "No gaps identified in the selected responses. Continue validating all controls through regular testing.";
+    topGaps.appendChild(li);
+  } else {
+    gaps.slice(0, 3).forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item.gap;
+      topGaps.appendChild(li);
+    });
+  }
+
+  const findings = document.getElementById("findings");
+  findings.replaceChildren();
+
+  questions.forEach((q, i) => {
+    const li = document.createElement("li");
+    li.textContent = q.title + " — " +
+      (risks[i] === 0 ? "Positive response: control reported in place." :
+      risks[i] <= 5 ? "Some improvement recommended." :
+      risks[i] <= 10 ? "Gap identified: improvement required." :
+      "Significant gap identified: priority attention required.");
+    findings.appendChild(li);
+  });
+
+  const actionPlan = document.getElementById("actionPlan");
+  actionPlan.replaceChildren();
+
+  const recommendations = gaps.length ? gaps : [];
+  if (!recommendations.length) {
+    const li = document.createElement("li");
+    li.textContent = "Maintain existing controls and schedule regular recovery validation exercises.";
+    actionPlan.appendChild(li);
+  } else {
+    recommendations.forEach(item => {
+      const li = document.createElement("li");
+      li.textContent = item.action;
+      actionPlan.appendChild(li);
+    });
+  }
+
+  const result = document.getElementById("result");
+  result.style.display = "block";
+  result.scrollIntoView({behavior:"smooth", block:"start"});
+
+  if (typeof gtag === "function") {
+    gtag("event", "recovery_readiness_assessment_completed", {
+      score: score,
+      readiness_status: status
+    });
+  }
+}
+
+document.getElementById("calculateBtn").addEventListener("click", calculateScore);
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+  document.querySelectorAll('input[type="radio"]').forEach(input => {
+    input.checked = false;
+  });
+  document.getElementById("result").style.display = "none";
+  document.getElementById("validation").textContent = "";
+  updateProgress();
+  window.scrollTo({top:0, behavior:"smooth"});
+});
+</script>
+</body>
+</html>
