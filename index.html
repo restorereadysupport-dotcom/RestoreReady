@@ -32,7 +32,12 @@ nav{display:block;padding:18px 0}
 .brand{font-size:23px;font-weight:800;color:var(--burgundy);text-decoration:none;line-height:1.2;white-space:nowrap;flex:0 0 auto}
 .brand span{color:var(--rose)}
 .brand small{display:block;font-size:12px;font-weight:600;letter-spacing:.2px;margin-top:5px;color:var(--burgundy-2)}
-.tech-logo{display:block;width:min(440px,48%);height:150px;object-fit:contain;object-position:right center}
+.tech-marquee{width:min(440px,48%);height:150px;overflow:hidden;position:relative;flex:0 1 440px}
+.tech-marquee-track{display:flex;width:200%;height:100%;animation:tech-scroll 24s linear infinite}
+.tech-logo-item{flex:0 0 50%;height:100%;padding-right:24px;display:flex;align-items:center;justify-content:center}
+.tech-logo{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
+@keyframes tech-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tech-marquee:hover .tech-marquee-track{animation-play-state:paused}
 .nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:17px;padding-top:13px;border-top:1px solid var(--line)}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
 .nav-links a:hover{color:var(--burgundy-2)}
@@ -115,7 +120,7 @@ footer a{color:var(--burgundy-2)}
 .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 section{padding:42px 0}
-.tech-logo{width:min(380px,48%);height:125px}
+.tech-marquee{width:min(380px,48%);height:125px}
 }
 @media(max-width:560px){
 .wrap{width:90%}
@@ -123,7 +128,7 @@ nav{padding:15px 0 12px}
 .nav-top{align-items:flex-start;flex-direction:column;gap:10px}
 .brand{font-size:22px}
 .brand small{font-size:12px}
-.tech-logo{width:min(100%,320px);height:auto;max-height:none;object-fit:contain;object-position:left center;margin-top:2px}
+.tech-marquee{width:min(100%,320px);height:110px;margin-top:2px}
 .nav-links{width:100%;gap:9px 12px;justify-content:flex-start;margin-top:12px;padding-top:10px}
 .nav-links a{font-size:13px}
 .nav-links .nav-health{padding:5px 9px}
@@ -163,6 +168,10 @@ footer{padding:20px 0}
 @media(prefers-reduced-motion:reduce){
 html{scroll-behavior:auto}
 .btn{transition:none}
+.tech-marquee-track{animation:none;transform:none}
+.tech-logo-item[aria-hidden="true"]{display:none}
+.tech-marquee-track{width:100%}
+.tech-logo-item{width:100%;flex-basis:100%;padding-right:0}
 }
 </style>
 </head>
@@ -171,7 +180,16 @@ html{scroll-behavior:auto}
 <nav class="wrap" aria-label="Main navigation">
 <div class="nav-top">
 <a class="brand" href="#top">Backup<span>Steward</span><small>Backup &amp; Recovery Consulting</small></a>
-<img class="tech-logo" src="backupsteward-tech-logos.png" alt="Backup platforms supported by BackupSteward: Dell EMC NetWorker, Commvault, Veeam, Veritas NetBackup, Rubrik, Cohesity, Acronis, IBM Tivoli, Dell EMC Avamar and major cloud platforms" loading="eager">
+<div class="tech-marquee" aria-label="Technology platforms supported">
+<div class="tech-marquee-track">
+<div class="tech-logo-item">
+<img class="tech-logo" src="backupsteward-tech-logos.png" alt="Backup platforms supported by BackupSteward" loading="eager">
+</div>
+<div class="tech-logo-item" aria-hidden="true">
+<img class="tech-logo" src="backupsteward-tech-logos.png" alt="" loading="eager">
+</div>
+</div>
+</div>
 </div>
 <div class="nav-links">
 <a href="#services">Services</a>
@@ -275,6 +293,7 @@ html{scroll-behavior:auto}
 <div class="report-strip"><div><h3>Need a broader workload review?</h3><p>Explore our enterprise backup and recovery assessment approach.</p></div><a class="btn primary" href="enterprise-backup-recovery.html">Explore Enterprise Consulting ↗</a></div>
 </div>
 </section>
+
 <section class="white" id="technologies">
 <div class="wrap">
 <h2>Backup Platforms &amp; Infrastructure Expertise</h2>
@@ -291,7 +310,6 @@ html{scroll-behavior:auto}
 </div>
 </div>
 </section>
-
 <section class="badge-section" aria-labelledby="badge-title">
 <div class="wrap">
 <div class="badge-heading">
@@ -303,17 +321,12 @@ html{scroll-behavior:auto}
 <div class="chip-row">
 <span class="tech-chip">Commvault</span><span class="tech-chip">Veeam</span><span class="tech-chip">Veritas NetBackup</span><span class="tech-chip">Dell EMC NetWorker</span><span class="tech-chip">Dell EMC Avamar</span><span class="tech-chip">Rubrik</span><span class="tech-chip">Cohesity</span><span class="tech-chip">IBM Storage Protect</span><span class="tech-chip">Acronis</span><span class="tech-chip">HP Data Protector (HPDP)</span>
 </div>
-
 <div class="badge-category">Cloud Platforms</div>
 <div class="chip-row">
 <span class="tech-chip">Microsoft Azure</span><span class="tech-chip">Amazon Web Services (AWS)</span><span class="tech-chip">Oracle Cloud Infrastructure (OCI)</span><span class="tech-chip">Google Cloud</span>
 </div>
-
 <div class="badge-category">Backup Storage Technologies</div>
-<div class="chip-row">
-<span class="tech-chip">Tape libraries</span><span class="tech-chip">Disk libraries</span>
-</div>
-
+<div class="chip-row"><span class="tech-chip">Tape libraries</span><span class="tech-chip">Disk libraries</span></div>
 <p class="badge-note">Technology references indicate areas covered by BackupSteward. They do not represent personal certification claims or endorsements by these vendors. All product names are trademarks of their respective owners.</p>
 </div>
 </section>
