@@ -28,17 +28,17 @@ a:focus-visible,button:focus-visible{outline:3px solid var(--rose);outline-offse
 .wrap{width:min(1100px,92%);margin-inline:auto}
 header{background:var(--bg)}
 nav{display:block;padding:18px 0}
-.nav-top{display:flex;flex-direction:column;justify-content:center;align-items:center;gap:8px;text-align:center}
+.nav-top{display:flex;justify-content:space-between;align-items:center;gap:28px}
 .brand{font-size:23px;font-weight:800;color:var(--burgundy);text-decoration:none;line-height:1.2;white-space:nowrap;flex:0 0 auto}
 .brand span{color:var(--rose)}
 .brand small{display:block;font-size:12px;font-weight:600;letter-spacing:.2px;margin-top:5px;color:var(--burgundy-2)}
-.tech-marquee{width:min(760px,100%);height:105px;overflow:hidden;position:relative;flex:0 1 auto;margin:0 auto}
-.tech-marquee-track{display:flex;width:200%;height:100%;animation:tech-scroll 24s linear infinite}
-.tech-logo-item{flex:0 0 50%;height:100%;padding:0 18px;display:flex;align-items:center;justify-content:center}
-.tech-logo{display:block;width:100%;height:100%;object-fit:contain;object-position:center}
-@keyframes tech-scroll{from{transform:translateX(0)}to{transform:translateX(-50%)}}
-.tech-marquee:hover .tech-marquee-track{animation-play-state:paused}
-.nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center;margin-top:8px;padding-top:13px;border-top:1px solid var(--line)}
+
+/* Individual technology logos */
+.tech-logo-strip{display:flex;align-items:center;gap:clamp(18px,3vw,34px);width:100%;margin-top:15px;padding:12px 2px 14px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#D9B8C3 transparent;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tech-logo-item{flex:0 0 auto;width:clamp(112px,15vw,165px);height:54px;display:flex;align-items:center;justify-content:center}
+.tech-logo-item img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
+
+.nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:17px;padding-top:13px;border-top:1px solid var(--line)}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
 .nav-links a:hover{color:var(--burgundy-2)}
 .nav-links .nav-health{background:var(--rose);color:#35101D;padding:7px 12px;border-radius:7px;font-weight:800}
@@ -120,16 +120,18 @@ footer a{color:var(--burgundy-2)}
 .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 section{padding:42px 0}
-.tech-marquee{width:min(700px,100%);height:95px}
+.tech-logo-strip{gap:22px}
+.tech-logo-item{width:132px;height:48px}
 }
 @media(max-width:560px){
 .wrap{width:90%}
 nav{padding:15px 0 12px}
-.nav-top{align-items:center;flex-direction:column;gap:7px;text-align:center}
+.nav-top{align-items:flex-start;flex-direction:column;gap:10px}
 .brand{font-size:22px}
 .brand small{font-size:12px}
-.tech-marquee{width:100%;height:82px;margin-top:0}
-.nav-links{width:100%;gap:9px 14px;justify-content:center;margin-top:8px;padding-top:10px}
+.tech-logo-strip{margin-top:12px;padding:10px 1px 12px;gap:18px}
+.tech-logo-item{width:116px;height:44px}
+.nav-links{width:100%;gap:9px 12px;justify-content:flex-start;margin-top:12px;padding-top:10px}
 .nav-links a{font-size:13px}
 .nav-links .nav-health{padding:5px 9px}
 .hero-banner{padding:14px 0}
@@ -168,10 +170,6 @@ footer{padding:20px 0}
 @media(prefers-reduced-motion:reduce){
 html{scroll-behavior:auto}
 .btn{transition:none}
-.tech-marquee-track{animation:none;transform:none}
-.tech-logo-item[aria-hidden="true"]{display:none}
-.tech-marquee-track{width:100%}
-.tech-logo-item{width:100%;flex-basis:100%;padding-right:0}
 }
 </style>
 </head>
@@ -180,13 +178,26 @@ html{scroll-behavior:auto}
 <nav class="wrap" aria-label="Main navigation">
 <div class="nav-top">
 <a class="brand" href="#top">Backup<span>Steward</span><small>Backup &amp; Recovery Consulting</small></a>
-<div class="tech-marquee" aria-label="Backup platforms supported by BackupSteward">
-<div class="tech-marquee-track">
-<div class="tech-logo-item"><img class="tech-logo" src="backupsteward-tech-logos.png" alt="Dell EMC NetWorker, Commvault, Veeam, Veritas NetBackup, Rubrik, Cohesity, Acronis, IBM Tivoli, Dell EMC Avamar and major cloud platforms" loading="eager"></div>
-<div class="tech-logo-item" aria-hidden="true"><img class="tech-logo" src="backupsteward-tech-logos.png" alt="" loading="eager"></div>
+</div>
+
+<div class="tech-logo-strip" aria-label="Supported backup platforms">
+<div class="tech-logo-item">
+<img src="backupsteward_logo_assets/01-commvault.png" alt="Commvault" loading="eager">
+</div>
+<div class="tech-logo-item">
+<img src="backupsteward_logo_assets/02-veritas-netbackup.jpg" alt="Veritas NetBackup" loading="eager">
+</div>
+<div class="tech-logo-item">
+<img src="backupsteward_logo_assets/03-veeam.png" alt="Veeam" loading="eager">
+</div>
+<div class="tech-logo-item">
+<img src="backupsteward_logo_assets/04-cohesity.png" alt="Cohesity" loading="eager">
+</div>
+<div class="tech-logo-item">
+<img src="backupsteward_logo_assets/05-rubrik.png" alt="Rubrik" loading="eager">
 </div>
 </div>
-</div>
+
 <div class="nav-links">
 <a href="#services">Services</a>
 <a href="#results">Results</a>
@@ -199,6 +210,7 @@ html{scroll-behavior:auto}
 </div>
 </nav>
 </header>
+
 <main id="top">
 
 <section class="hero-banner" aria-label="BackupSteward introduction">
@@ -213,11 +225,13 @@ html{scroll-behavior:auto}
 <div>
 <h1>Prove your backups can restore, before you need them</h1>
 <p class="intro">Independent backup and recovery consulting for enterprise IT teams. We assess backup health, fix failing jobs, validate restores and plan migrations across Commvault, Veritas NetBackup, Dell EMC NetWorker, Veeam, Rubrik and Cohesity.</p>
+
 <div class="pill-list" aria-label="Key facts">
 <span class="pill">15+ years in backup and recovery</span>
 <span class="pill">Vendor-independent</span>
 <span class="pill">Free health check and recovery score</span>
 </div>
+
 <div class="intro-cta">
 <a class="btn primary" href="mailto:contact@backupsteward.com?subject=BackupSteward%20Consulting%20Enquiry&amp;body=Hello%20BackupSteward%2C%0A%0ABackup%20platform%3A%0AWorkload%20or%20environment%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you.">Discuss Your Backup Challenges ↗</a>
 <a class="btn secondary" href="backup-health-check.html">Start Free Backup Health Check</a>
@@ -234,6 +248,7 @@ html{scroll-behavior:auto}
 </div>
 <a class="btn primary" href="backup-health-check.html">Start Free Backup Health Check ↗</a>
 </article>
+
 <article class="health-check">
 <div class="health-check-copy">
 <div class="eyebrow">Free recovery assessment</div>
@@ -245,15 +260,61 @@ html{scroll-behavior:auto}
 </div>
 
 <div class="cards">
-<article class="card"><div class="symbol" aria-hidden="true">⌕</div><h3>Enterprise Backup &amp; Workload Assessment</h3><p>Review backup architecture, policies, job outcomes, retention, workload coverage, storage health and restore evidence across databases, applications, servers, virtual environments and cloud workloads. Receive prioritised findings and practical remediation guidance.</p><p><a href="enterprise-backup-recovery.html">Explore enterprise backup consulting →</a></p></article>
-<article class="card"><div class="symbol" aria-hidden="true">⚙</div><h3>Backup Troubleshooting</h3><p>Investigate backup failures, connectivity, infrastructure bottlenecks, performance, storage issues and recurring operational challenges across enterprise backup platforms and workloads.</p></article>
-<article class="card"><div class="symbol" aria-hidden="true">◈</div><h3>Immutable Backup &amp; Ransomware Resilience</h3><p>Review immutability settings, retention controls, protection gaps and recovery readiness to help strengthen resilience against unauthorised changes and ransomware.</p><p><a href="immutable-backup-ransomware-resilience.html">Explore immutable backup consulting →</a></p></article>
-<article class="card"><div class="symbol" aria-hidden="true">↻</div><h3>Backup Platform &amp; Infrastructure Migrations</h3><p>Plan and support backup platform transitions, infrastructure modernisation, storage and repository migrations, data movement, cloud adoption and consolidation. Review migration risks, dependencies, cutover planning and post-migration backup and restore validation.</p></article>
-<article class="card"><div class="symbol" aria-hidden="true">☁</div><h3>Cloud &amp; Hybrid Backup</h3><p>Guidance for on-premises, cloud and hybrid environments, including cloud infrastructure, virtual machines, physical servers, databases, file services and application workloads.</p></article>
-<article class="card"><div class="symbol" aria-hidden="true">✓</div><h3>Restore Testing &amp; BCP/DR Readiness</h3><p>Review restore-test evidence, recovery procedures, dependencies and continuity-test outcomes. Identify gaps and recommend validation steps for critical workloads.</p></article>
-<article class="card"><div class="symbol" aria-hidden="true">▤</div><h3>Remediation &amp; Documentation</h3><p>Develop clear runbooks and action plans covering findings, priorities, recommended fixes, ownership considerations and validation steps.</p></article>
-<article class="card"><div class="symbol" aria-hidden="true">⌁</div><h3>Backup Architecture &amp; Performance</h3><p>Review backup design, capacity, workload coverage, storage and infrastructure performance, data growth and opportunities for operational improvement.</p></article>
-<article class="card"><div class="symbol" aria-hidden="true">◷</div><h3>Ongoing Backup Advisory</h3><p>Agreed-scope periodic reviews, technical discussions, follow-up on findings and help prioritising backup and recovery improvements.</p></article>
+<article class="card">
+<div class="symbol" aria-hidden="true">⌕</div>
+<h3>Enterprise Backup &amp; Workload Assessment</h3>
+<p>Review backup architecture, policies, job outcomes, retention, workload coverage, storage health and restore evidence across databases, applications, servers, virtual environments and cloud workloads. Receive prioritised findings and practical remediation guidance.</p>
+<p><a href="enterprise-backup-recovery.html">Explore enterprise backup consulting →</a></p>
+</article>
+
+<article class="card">
+<div class="symbol" aria-hidden="true">⚙</div>
+<h3>Backup Troubleshooting</h3>
+<p>Investigate backup failures, connectivity, infrastructure bottlenecks, performance, storage issues and recurring operational challenges across enterprise backup platforms and workloads.</p>
+</article>
+
+<article class="card">
+<div class="symbol" aria-hidden="true">◈</div>
+<h3>Immutable Backup &amp; Ransomware Resilience</h3>
+<p>Review immutability settings, retention controls, protection gaps and recovery readiness to help strengthen resilience against unauthorised changes and ransomware.</p>
+<p><a href="immutable-backup-ransomware-resilience.html">Explore immutable backup consulting →</a></p>
+</article>
+
+<article class="card">
+<div class="symbol" aria-hidden="true">↻</div>
+<h3>Backup Platform &amp; Infrastructure Migrations</h3>
+<p>Plan and support backup platform transitions, infrastructure modernisation, storage and repository migrations, data movement, cloud adoption and consolidation. Review migration risks, dependencies, cutover planning and post-migration backup and restore validation.</p>
+</article>
+
+<article class="card">
+<div class="symbol" aria-hidden="true">☁</div>
+<h3>Cloud &amp; Hybrid Backup</h3>
+<p>Guidance for on-premises, cloud and hybrid environments, including cloud infrastructure, virtual machines, physical servers, databases, file services and application workloads.</p>
+</article>
+
+<article class="card">
+<div class="symbol" aria-hidden="true">✓</div>
+<h3>Restore Testing &amp; BCP/DR Readiness</h3>
+<p>Review restore-test evidence, recovery procedures, dependencies and continuity-test outcomes. Identify gaps and recommend validation steps for critical workloads.</p>
+</article>
+
+<article class="card">
+<div class="symbol" aria-hidden="true">▤</div>
+<h3>Remediation &amp; Documentation</h3>
+<p>Develop clear runbooks and action plans covering findings, priorities, recommended fixes, ownership considerations and validation steps.</p>
+</article>
+
+<article class="card">
+<div class="symbol" aria-hidden="true">⌁</div>
+<h3>Backup Architecture &amp; Performance</h3>
+<p>Review backup design, capacity, workload coverage, storage and infrastructure performance, data growth and opportunities for operational improvement.</p>
+</article>
+
+<article class="card">
+<div class="symbol" aria-hidden="true">◷</div>
+<h3>Ongoing Backup Advisory</h3>
+<p>Agreed-scope periodic reviews, technical discussions, follow-up on findings and help prioritising backup and recovery improvements.</p>
+</article>
 </div>
 </div>
 </section>
@@ -262,46 +323,147 @@ html{scroll-behavior:auto}
 <div class="wrap">
 <h2>Results that matter in a recovery</h2>
 <p class="intro">What better backup operations have delivered for client environments.</p>
+
 <div class="cards results-grid">
-<article class="card"><div class="stat">30% → 99%</div><h3>Client SLA compliance</h3><p>Raised client backup SLA compliance from 30% to 99% by fixing failing jobs and coverage gaps.</p></article>
-<article class="card"><div class="symbol" aria-hidden="true">✓</div><h3>Restores proven in real time</h3><p>Real-time restore checks found and corrected problems, which helped clients recover during actual disasters.</p></article>
-<article class="card"><div class="symbol" aria-hidden="true">↻</div><h3>Timely software upgrades</h3><p>Upgrades planned on schedule to keep backup platforms patched and reduce security exposure.</p></article>
-<article class="card"><div class="symbol" aria-hidden="true">◈</div><h3>Right-sized budgets</h3><p>Implementations budgeted around your infrastructure and requirements, so you pay only for what you need.</p></article>
+<article class="card">
+<div class="stat">30% → 99%</div>
+<h3>Client SLA compliance</h3>
+<p>Raised client backup SLA compliance from 30% to 99% by fixing failing jobs and coverage gaps.</p>
+</article>
+
+<article class="card">
+<div class="symbol" aria-hidden="true">✓</div>
+<h3>Restores proven in real time</h3>
+<p>Real-time restore checks found and corrected problems, which helped clients recover during actual disasters.</p>
+</article>
+
+<article class="card">
+<div class="symbol" aria-hidden="true">↻</div>
+<h3>Timely software upgrades</h3>
+<p>Upgrades planned on schedule to keep backup platforms patched and reduce security exposure.</p>
+</article>
+
+<article class="card">
+<div class="symbol" aria-hidden="true">◈</div>
+<h3>Right-sized budgets</h3>
+<p>Implementations budgeted around your infrastructure and requirements, so you pay only for what you need.</p>
+</article>
 </div>
 </div>
 </section>
-
 <section class="white" id="workloads">
 <div class="wrap">
 <h2>Enterprise workloads we cover</h2>
 <p class="intro">We assess protection coverage, backup operations and recovery requirements across the technologies that support your business. Protection capabilities vary by backup product and environment.</p>
+
 <div class="cards">
-<article class="card"><h3>Databases</h3><p>Oracle Database, Microsoft SQL Server, SAP HANA, IBM Db2, PostgreSQL, MySQL and other enterprise database platforms. Review database protection, application consistency, transaction log handling and recovery requirements.</p></article>
-<article class="card"><h3>Enterprise Applications</h3><p>SAP applications, Microsoft Exchange, Microsoft 365, SharePoint and other business-critical applications. Review application-aware protection, dependencies and recovery procedures.</p></article>
-<article class="card"><h3>Virtualisation Platforms</h3><p>VMware vSphere, Microsoft Hyper-V and other virtualisation environments. Review VM protection, workload coverage, infrastructure dependencies and recovery options.</p></article>
-<article class="card"><h3>Physical Servers</h3><p>Windows Server, Linux servers, bare-metal systems and standalone workloads. Review system protection, file-system backups and bare-metal recovery readiness.</p></article>
-<article class="card"><h3>File Services &amp; NAS</h3><p>Enterprise file servers, NAS appliances, network shares, unstructured data and large-scale file environments. Review file protection, retention, capacity and recovery granularity.</p></article>
-<article class="card"><h3>Cloud Workloads</h3><p>Amazon Web Services, Microsoft Azure, Oracle Cloud Infrastructure and other cloud environments. Review cloud VM protection, storage, connectivity, data protection policies and recovery dependencies.</p></article>
-<article class="card"><h3>Containers &amp; Kubernetes</h3><p>Kubernetes clusters, containerised applications, persistent volumes and cloud-native environments. Review application data protection, configuration protection and recovery considerations.</p></article>
-<article class="card"><h3>Endpoints &amp; User Data</h3><p>Enterprise laptops, desktops, remote-user systems and business-critical endpoint data. Review endpoint protection coverage and recovery requirements.</p></article>
-<article class="card"><h3>Object &amp; Unstructured Storage</h3><p>Object storage, enterprise repositories and large-scale unstructured data. Review data protection, retention, versioning, immutability and recovery requirements.</p></article>
+<article class="card">
+<h3>Databases</h3>
+<p>Oracle Database, Microsoft SQL Server, SAP HANA, IBM Db2, PostgreSQL, MySQL and other enterprise database platforms. Review database protection, application consistency, transaction log handling and recovery requirements.</p>
+</article>
+
+<article class="card">
+<h3>Enterprise Applications</h3>
+<p>SAP applications, Microsoft Exchange, Microsoft 365, SharePoint and other business-critical applications. Review application-aware protection, dependencies and recovery procedures.</p>
+</article>
+
+<article class="card">
+<h3>Virtualisation Platforms</h3>
+<p>VMware vSphere, Microsoft Hyper-V and other virtualisation environments. Review VM protection, workload coverage, infrastructure dependencies and recovery options.</p>
+</article>
+
+<article class="card">
+<h3>Physical Servers</h3>
+<p>Windows Server, Linux servers, bare-metal systems and standalone workloads. Review system protection, file-system backups and bare-metal recovery readiness.</p>
+</article>
+
+<article class="card">
+<h3>File Services &amp; NAS</h3>
+<p>Enterprise file servers, NAS appliances, network shares, unstructured data and large-scale file environments. Review file protection, retention, capacity and recovery granularity.</p>
+</article>
+
+<article class="card">
+<h3>Cloud Workloads</h3>
+<p>Amazon Web Services, Microsoft Azure, Oracle Cloud Infrastructure and other cloud environments. Review cloud VM protection, storage, connectivity, data protection policies and recovery dependencies.</p>
+</article>
+
+<article class="card">
+<h3>Containers &amp; Kubernetes</h3>
+<p>Kubernetes clusters, containerised applications, persistent volumes and cloud-native environments. Review application data protection, configuration protection and recovery considerations.</p>
+</article>
+
+<article class="card">
+<h3>Endpoints &amp; User Data</h3>
+<p>Enterprise laptops, desktops, remote-user systems and business-critical endpoint data. Review endpoint protection coverage and recovery requirements.</p>
+</article>
+
+<article class="card">
+<h3>Object &amp; Unstructured Storage</h3>
+<p>Object storage, enterprise repositories and large-scale unstructured data. Review data protection, retention, versioning, immutability and recovery requirements.</p>
+</article>
 </div>
-<div class="report-strip"><div><h3>Need a broader workload review?</h3><p>Explore our enterprise backup and recovery assessment approach.</p></div><a class="btn primary" href="enterprise-backup-recovery.html">Explore Enterprise Consulting ↗</a></div>
+
+<div class="report-strip">
+<div>
+<h3>Need a broader workload review?</h3>
+<p>Explore our enterprise backup and recovery assessment approach.</p>
+</div>
+<a class="btn primary" href="enterprise-backup-recovery.html">Explore Enterprise Consulting ↗</a>
+</div>
 </div>
 </section>
+
 <section class="white" id="technologies">
 <div class="wrap">
 <h2>Backup Platforms &amp; Infrastructure Expertise</h2>
 <p class="intro">Independent backup and recovery guidance across enterprise backup software, virtualisation platforms, operating systems and cloud infrastructure. Every engagement is scoped to your platform and requirements.</p>
+
 <div class="cards">
-<article class="card"><h3>Commvault</h3><p>Backup and recovery assessments, job failure investigation, MediaAgent connectivity and performance, deduplication database management, infrastructure migrations, restore validation and operational health reviews.</p><p><a href="commvault-backup-consulting.html">Commvault Backup Consulting →</a></p></article>
-<article class="card"><h3>Veritas NetBackup</h3><p>Enterprise backup and recovery consulting covering backup policy reviews, job troubleshooting, storage and media management, workload protection and recovery-readiness assessments.</p><p><a href="veritas-netbackup-consulting.html">Veritas NetBackup Consulting →</a></p></article>
-<article class="card"><h3>Dell EMC NetWorker</h3><p>Backup environment assessments, workflow and job troubleshooting, storage node and device considerations, client protection coverage and recovery validation.</p><p><a href="dell-emc-networker-consulting.html">Dell EMC NetWorker Consulting →</a></p></article>
-<article class="card"><h3>Veeam Backup &amp; Replication</h3><p>Backup and recovery consulting covering job outcomes, VMware and Hyper-V workload protection, repository health, backup infrastructure, replication and restore readiness.</p><p><a href="veeam-backup-consulting.html">Veeam Backup Consulting →</a></p></article>
-<article class="card"><h3>Rubrik</h3><p>Data protection and recovery-readiness reviews covering workload coverage, SLA policy considerations, retention, platform health, cyber resilience and recovery validation.</p><p><a href="rubrik-backup-consulting.html">Rubrik Backup Consulting →</a></p></article>
-<article class="card"><h3>Cohesity</h3><p>Backup and recovery assessments covering workload protection, policy and retention reviews, platform health, data security considerations and restore readiness.</p><p><a href="cohesity-backup-consulting.html">Cohesity Backup Consulting →</a></p></article>
-<article class="card"><h3>Virtualisation, Cloud &amp; Infrastructure</h3><p>Backup environments involving VMware vSphere, Microsoft Hyper-V, Oracle Cloud Infrastructure, Windows Server, Linux systems, on-premises infrastructure and hybrid cloud.</p></article>
-<article class="card"><h3>Other Backup Technologies</h3><p>Additional platforms, including IBM Storage Protect, Acronis, Druva, HYCU and Arcserve, are covered based on your environment and engagement scope.</p></article>
+<article class="card">
+<h3>Commvault</h3>
+<p>Backup and recovery assessments, job failure investigation, MediaAgent connectivity and performance, deduplication database management, infrastructure migrations, restore validation and operational health reviews.</p>
+<p><a href="commvault-backup-consulting.html">Commvault Backup Consulting →</a></p>
+</article>
+
+<article class="card">
+<h3>Veritas NetBackup</h3>
+<p>Enterprise backup and recovery consulting covering backup policy reviews, job troubleshooting, storage and media management, workload protection and recovery-readiness assessments.</p>
+<p><a href="veritas-netbackup-consulting.html">Veritas NetBackup Consulting →</a></p>
+</article>
+
+<article class="card">
+<h3>Dell EMC NetWorker</h3>
+<p>Backup environment assessments, workflow and job troubleshooting, storage node and device considerations, client protection coverage and recovery validation.</p>
+<p><a href="dell-emc-networker-consulting.html">Dell EMC NetWorker Consulting →</a></p>
+</article>
+
+<article class="card">
+<h3>Veeam Backup &amp; Replication</h3>
+<p>Backup and recovery consulting covering job outcomes, VMware and Hyper-V workload protection, repository health, backup infrastructure, replication and restore readiness.</p>
+<p><a href="veeam-backup-consulting.html">Veeam Backup Consulting →</a></p>
+</article>
+
+<article class="card">
+<h3>Rubrik</h3>
+<p>Data protection and recovery-readiness reviews covering workload coverage, SLA policy considerations, retention, platform health, cyber resilience and recovery validation.</p>
+<p><a href="rubrik-backup-consulting.html">Rubrik Backup Consulting →</a></p>
+</article>
+
+<article class="card">
+<h3>Cohesity</h3>
+<p>Backup and recovery assessments covering workload protection, policy and retention reviews, platform health, data security considerations and restore readiness.</p>
+<p><a href="cohesity-backup-consulting.html">Cohesity Backup Consulting →</a></p>
+</article>
+
+<article class="card">
+<h3>Virtualisation, Cloud &amp; Infrastructure</h3>
+<p>Backup environments involving VMware vSphere, Microsoft Hyper-V, Oracle Cloud Infrastructure, Windows Server, Linux systems, on-premises infrastructure and hybrid cloud.</p>
+</article>
+
+<article class="card">
+<h3>Other Backup Technologies</h3>
+<p>Additional platforms, including IBM Storage Protect, Acronis, Druva, HYCU and Arcserve, are covered based on your environment and engagement scope.</p>
+</article>
 </div>
 </div>
 </section>
@@ -315,14 +477,32 @@ html{scroll-behavior:auto}
 
 <div class="badge-category">Backup &amp; Recovery Platforms</div>
 <div class="chip-row">
-<span class="tech-chip">Commvault</span><span class="tech-chip">Veeam</span><span class="tech-chip">Veritas NetBackup</span><span class="tech-chip">Dell EMC NetWorker</span><span class="tech-chip">Dell EMC Avamar</span><span class="tech-chip">Rubrik</span><span class="tech-chip">Cohesity</span><span class="tech-chip">IBM Storage Protect</span><span class="tech-chip">Acronis</span><span class="tech-chip">HP Data Protector (HPDP)</span>
+<span class="tech-chip">Commvault</span>
+<span class="tech-chip">Veeam</span>
+<span class="tech-chip">Veritas NetBackup</span>
+<span class="tech-chip">Dell EMC NetWorker</span>
+<span class="tech-chip">Dell EMC Avamar</span>
+<span class="tech-chip">Rubrik</span>
+<span class="tech-chip">Cohesity</span>
+<span class="tech-chip">IBM Storage Protect</span>
+<span class="tech-chip">Acronis</span>
+<span class="tech-chip">HP Data Protector (HPDP)</span>
 </div>
+
 <div class="badge-category">Cloud Platforms</div>
 <div class="chip-row">
-<span class="tech-chip">Microsoft Azure</span><span class="tech-chip">Amazon Web Services (AWS)</span><span class="tech-chip">Oracle Cloud Infrastructure (OCI)</span><span class="tech-chip">Google Cloud</span>
+<span class="tech-chip">Microsoft Azure</span>
+<span class="tech-chip">Amazon Web Services (AWS)</span>
+<span class="tech-chip">Oracle Cloud Infrastructure (OCI)</span>
+<span class="tech-chip">Google Cloud</span>
 </div>
+
 <div class="badge-category">Backup Storage Technologies</div>
-<div class="chip-row"><span class="tech-chip">Tape libraries</span><span class="tech-chip">Disk libraries</span></div>
+<div class="chip-row">
+<span class="tech-chip">Tape libraries</span>
+<span class="tech-chip">Disk libraries</span>
+</div>
+
 <p class="badge-note">Technology references indicate areas covered by BackupSteward. They do not represent personal certification claims or endorsements by these vendors. All product names are trademarks of their respective owners.</p>
 </div>
 </section>
@@ -331,11 +511,27 @@ html{scroll-behavior:auto}
 <div class="wrap">
 <h2>A clear, evidence-led process</h2>
 <p class="intro">Every engagement is agreed in advance and shaped around your objectives, available evidence, operational constraints and desired outcomes.</p>
+
 <div class="steps">
-<article class="step"><h3>1. Discover</h3><p>Discuss the backup platform, workloads, environment, challenge, objectives and expected outcome.</p></article>
-<article class="step"><h3>2. Agree scope</h3><p>Confirm deliverables, access requirements, assumptions, exclusions and timeline.</p></article>
-<article class="step"><h3>3. Assess</h3><p>Review agreed evidence, investigate the issue and prioritise findings by impact.</p></article>
-<article class="step"><h3>4. Recommend</h3><p>Provide practical next steps and validation guidance, with follow-up if agreed.</p></article>
+<article class="step">
+<h3>1. Discover</h3>
+<p>Discuss the backup platform, workloads, environment, challenge, objectives and expected outcome.</p>
+</article>
+
+<article class="step">
+<h3>2. Agree scope</h3>
+<p>Confirm deliverables, access requirements, assumptions, exclusions and timeline.</p>
+</article>
+
+<article class="step">
+<h3>3. Assess</h3>
+<p>Review agreed evidence, investigate the issue and prioritise findings by impact.</p>
+</article>
+
+<article class="step">
+<h3>4. Recommend</h3>
+<p>Provide practical next steps and validation guidance, with follow-up if agreed.</p>
+</article>
 </div>
 </div>
 </section>
@@ -349,6 +545,7 @@ html{scroll-behavior:auto}
 <p>Our approach is practical: review the available evidence, explain why an issue matters, and document what to do next. Engagements can be a one-time assessment, a defined-scope troubleshooting assignment or ongoing advisory support.</p>
 <p>With more than 15 years of experience in backup and recovery environments, the focus includes day-to-day operational health, recovery validation, infrastructure transitions and improvement planning.</p>
 </div>
+
 <div class="about-panel">
 <h2>Areas of technical focus</h2>
 <ul class="clean">
@@ -361,8 +558,27 @@ html{scroll-behavior:auto}
 <li>Cloud, hybrid and Kubernetes workload protection</li>
 <li>Runbooks, remediation plans and operational guidance</li>
 </ul>
+
 <div class="pill-list" aria-label="Backup workload coverage">
-<span class="pill">Commvault</span><span class="pill">Veritas NetBackup</span><span class="pill">Dell EMC NetWorker</span><span class="pill">Veeam</span><span class="pill">Rubrik</span><span class="pill">Cohesity</span><span class="pill">Oracle</span><span class="pill">SQL Server</span><span class="pill">SAP</span><span class="pill">Exchange</span><span class="pill">VMware</span><span class="pill">Hyper-V</span><span class="pill">Windows</span><span class="pill">Linux</span><span class="pill">NAS</span><span class="pill">Cloud</span><span class="pill">Kubernetes</span><span class="pill">Immutable Backups</span><span class="pill">Disaster Recovery</span>
+<span class="pill">Commvault</span>
+<span class="pill">Veritas NetBackup</span>
+<span class="pill">Dell EMC NetWorker</span>
+<span class="pill">Veeam</span>
+<span class="pill">Rubrik</span>
+<span class="pill">Cohesity</span>
+<span class="pill">Oracle</span>
+<span class="pill">SQL Server</span>
+<span class="pill">SAP</span>
+<span class="pill">Exchange</span>
+<span class="pill">VMware</span>
+<span class="pill">Hyper-V</span>
+<span class="pill">Windows</span>
+<span class="pill">Linux</span>
+<span class="pill">NAS</span>
+<span class="pill">Cloud</span>
+<span class="pill">Kubernetes</span>
+<span class="pill">Immutable Backups</span>
+<span class="pill">Disaster Recovery</span>
 </div>
 </div>
 </div>
@@ -372,14 +588,42 @@ html{scroll-behavior:auto}
 <div class="wrap">
 <h2>Frequently asked questions</h2>
 <p class="intro">A few details to help you decide whether BackupSteward is a fit for your requirements.</p>
+
 <div class="faq-list">
-<article class="faq"><h3>Which backup platforms do you cover?</h3><p>BackupSteward provides vendor-independent backup and recovery consulting across Commvault, Veritas NetBackup, Dell EMC NetWorker, Veeam, Rubrik and Cohesity. Other enterprise backup technologies are covered based on your environment and agreed scope.</p></article>
-<article class="faq"><h3>Which workloads can be assessed?</h3><p>Workload reviews include databases, enterprise applications, virtual and physical servers, file services, NAS, cloud workloads, containers, endpoints and object storage. Protection capabilities vary by backup product and environment.</p></article>
-<article class="faq"><h3>Can you help with backup migrations?</h3><p>Yes. Migration advisory covers backup platform transitions, infrastructure and storage changes, cloud adoption, consolidation, data movement, cutover planning and post-migration validation.</p></article>
-<article class="faq"><h3>Do you work remotely?</h3><p>Yes. Remote engagements are agreed in advance, including scope, access method and security requirements.</p></article>
-<article class="faq"><h3>Can you help with an existing backup issue?</h3><p>Yes. Share a high-level description of the symptoms, impact, backup platform and workload, and we will confirm the scope and the best next step.</p></article>
-<article class="faq"><h3>Can you help with immutable backups and recovery testing?</h3><p>Yes. These are delivered as defined-scope engagements with agreed access and deliverables.</p></article>
-<article class="faq"><h3>What will I receive?</h3><p>Deliverables depend on the agreed scope and may include findings, prioritised recommendations, troubleshooting notes, a remediation plan or recovery-validation checklist.</p></article>
+<article class="faq">
+<h3>Which backup platforms do you cover?</h3>
+<p>BackupSteward provides vendor-independent backup and recovery consulting across Commvault, Veritas NetBackup, Dell EMC NetWorker, Veeam, Rubrik and Cohesity. Other enterprise backup technologies are covered based on your environment and agreed scope.</p>
+</article>
+
+<article class="faq">
+<h3>Which workloads can be assessed?</h3>
+<p>Workload reviews include databases, enterprise applications, virtual and physical servers, file services, NAS, cloud workloads, containers, endpoints and object storage. Protection capabilities vary by backup product and environment.</p>
+</article>
+
+<article class="faq">
+<h3>Can you help with backup migrations?</h3>
+<p>Yes. Migration advisory covers backup platform transitions, infrastructure and storage changes, cloud adoption, consolidation, data movement, cutover planning and post-migration validation.</p>
+</article>
+
+<article class="faq">
+<h3>Do you work remotely?</h3>
+<p>Yes. Remote engagements are agreed in advance, including scope, access method and security requirements.</p>
+</article>
+
+<article class="faq">
+<h3>Can you help with an existing backup issue?</h3>
+<p>Yes. Share a high-level description of the symptoms, impact, backup platform and workload, and we will confirm the scope and the best next step.</p>
+</article>
+
+<article class="faq">
+<h3>Can you help with immutable backups and recovery testing?</h3>
+<p>Yes. These are delivered as defined-scope engagements with agreed access and deliverables.</p>
+</article>
+
+<article class="faq">
+<h3>What will I receive?</h3>
+<p>Deliverables depend on the agreed scope and may include findings, prioritised recommendations, troubleshooting notes, a remediation plan or recovery-validation checklist.</p>
+</article>
 </div>
 </div>
 </section>
@@ -413,5 +657,6 @@ html{scroll-behavior:auto}
 </span>
 </div>
 </footer>
+
 </body>
 </html>
