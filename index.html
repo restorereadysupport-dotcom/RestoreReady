@@ -69,6 +69,15 @@ h3{line-height:1.35}
 .results-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
 .stat{font-size:30px;font-weight:800;color:var(--burgundy-2);line-height:1.2}
 
+/* Anonymised case studies */
+.case-study-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
+.case-study{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 3px 12px #4A102208}
+.case-study h3{color:var(--burgundy);font-size:19px;line-height:1.35;margin:0 0 15px}
+.case-study-block{margin-top:13px}
+.case-study-label{display:block;color:var(--burgundy-2);font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
+.case-study-block p{color:var(--muted);font-size:14px;margin:0}
+.case-study-note{color:var(--muted);font-size:12px;margin:18px 0 0}
+
 /* Technology ecosystem */
 .badge-section{background:#fff;padding:34px 0 40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .badge-heading{text-align:center;margin-bottom:23px}
@@ -118,6 +127,7 @@ footer a{color:var(--burgundy-2)}
 @media(max-width:800px){
 .split{grid-template-columns:1fr;gap:24px}
 .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
+.case-study-grid{grid-template-columns:1fr}
 .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 section{padding:42px 0}
 .tech-logo-strip{gap:14px}
@@ -204,6 +214,7 @@ html{scroll-behavior:auto}
 <div class="nav-links">
 <a href="#services">Services</a>
 <a href="#results">Results</a>
+<a href="#case-studies">Case Studies</a>
 <a href="#workloads">Workloads</a>
 <a href="#technologies">Technologies</a>
 <a href="#approach">Our Process</a>
@@ -354,6 +365,78 @@ html{scroll-behavior:auto}
 </div>
 </div>
 </section>
+
+<!-- NEW SECTION: ANONYMISED CASE STUDIES -->
+<section id="case-studies">
+<div class="wrap">
+<h2>Selected Engagements &amp; Results</h2>
+<p class="intro">Examples of how focused backup and recovery consulting can improve protection, recovery confidence and cost efficiency.</p>
+
+<div class="case-study-grid">
+
+<article class="case-study">
+<h3>1. Raising Backup SLA Compliance from 30% to 99%</h3>
+
+<div class="case-study-block">
+<span class="case-study-label">Challenge</span>
+<p>Backup jobs were frequently missing their SLA targets, with only 30% compliance. This left the business without confidence that its critical data was consistently protected.</p>
+</div>
+
+<div class="case-study-block">
+<span class="case-study-label">Approach</span>
+<p>We reviewed backup job outcomes and policies, addressed recurring failure root causes, and closed backup coverage gaps across the environment.</p>
+</div>
+
+<div class="case-study-block">
+<span class="case-study-label">Outcome</span>
+<p>SLA compliance improved from 30% to 99%. Recurring failures reduced, firefighting effort decreased, and the team gained clearer visibility into overall backup health.</p>
+</div>
+</article>
+
+<article class="case-study">
+<h3>2. Proving Recovery Readiness Before Disaster Strikes</h3>
+
+<div class="case-study-block">
+<span class="case-study-label">Challenge</span>
+<p>Backup jobs reported successful completion, but actual restores had not been regularly validated. This created uncertainty about whether critical systems could be recovered during an outage.</p>
+</div>
+
+<div class="case-study-block">
+<span class="case-study-label">Approach</span>
+<p>We performed restore validation for critical systems, identified and corrected recovery issues, and maintained platform currency through planned software upgrades to reduce security exposure.</p>
+</div>
+
+<div class="case-study-block">
+<span class="case-study-label">Outcome</span>
+<p>When a disaster occurred, the client was able to recover using previously validated restore procedures, helping avoid the costs and disruption associated with extended downtime.</p>
+</div>
+</article>
+
+<article class="case-study">
+<h3>3. Reducing Backup Costs Without Compromising Protection</h3>
+
+<div class="case-study-block">
+<span class="case-study-label">Challenge</span>
+<p>The client faced rising backup infrastructure costs and had received a standard upgrade proposal that did not adequately reflect its actual environment or recovery requirements.</p>
+</div>
+
+<div class="case-study-block">
+<span class="case-study-label">Approach</span>
+<p>We assessed the existing infrastructure, capacity requirements, and recovery objectives. We then developed an implementation approach based on actual business needs rather than a generic upgrade package.</p>
+</div>
+
+<div class="case-study-block">
+<span class="case-study-label">Outcome</span>
+<p>The client received a more cost-effective implementation tailored to its environment, while maintaining the required recovery objectives and restore capabilities.</p>
+</div>
+</article>
+
+</div>
+
+<p class="case-study-note">Client details have been anonymised to protect confidentiality.</p>
+</div>
+</section>
+<!-- END NEW CASE STUDIES SECTION -->
 
 <section class="white" id="workloads">
 <div class="wrap">
