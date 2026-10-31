@@ -27,11 +27,13 @@ a{color:var(--burgundy-2)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
 .wrap{width:min(1100px,92%);margin-inline:auto}
 header{background:var(--bg)}
-nav{display:flex;justify-content:space-between;align-items:center;gap:18px;padding:18px 0;flex-wrap:wrap}
-.brand{font-size:23px;font-weight:800;color:var(--burgundy);text-decoration:none;line-height:1.2;white-space:nowrap}
+nav{display:block;padding:18px 0}
+.nav-top{display:flex;justify-content:space-between;align-items:center;gap:28px}
+.brand{font-size:23px;font-weight:800;color:var(--burgundy);text-decoration:none;line-height:1.2;white-space:nowrap;flex:0 0 auto}
 .brand span{color:var(--rose)}
 .brand small{display:block;font-size:12px;font-weight:600;letter-spacing:.2px;margin-top:5px;color:var(--burgundy-2)}
-.nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+.tech-logo{display:block;width:min(390px,48%);height:112px;object-fit:contain;object-position:right center}
+.nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:17px;padding-top:13px;border-top:1px solid var(--line)}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
 .nav-links a:hover{color:var(--burgundy-2)}
 .nav-links .nav-health{background:var(--rose);color:#35101D;padding:7px 12px;border-radius:7px;font-weight:800}
@@ -46,7 +48,7 @@ nav{display:flex;justify-content:space-between;align-items:center;gap:18px;paddi
 .secondary:hover{background:var(--rose-light)}
 section{padding:54px 0}
 .white{background:var(--white)}
-h1{color:var(--burgundy);font-size:clamp(28px,4.4vw,42px);line-height:1.2;margin:0 0 14px;text-wrap:balance}
+h1{color:var(--burgundy);font-size:clamp(28px,4.4vw,42px);line-height:1.2;margin:0 0 14px}
 h2{color:var(--burgundy);font-size:clamp(27px,3.8vw,36px);line-height:1.2;margin:0 0 14px}
 h3{line-height:1.35}
 .intro{color:var(--muted);max-width:800px;margin-top:0}
@@ -68,13 +70,8 @@ h3{line-height:1.35}
 .badge-heading h2{font-size:25px;margin-bottom:7px}
 .badge-heading p{color:var(--muted);font-size:14px;margin:0}
 .badge-category{color:var(--burgundy);font-size:13px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;margin:23px 0 12px}
-.badge-grid{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px}
-.tech-badge{min-height:112px;border:1px solid #E9DDE2;border-radius:12px;background:#FFFCFD;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:13px 8px;box-shadow:0 2px 8px #4A102208;transition:transform .18s ease,border-color .18s ease}
-.tech-badge:hover{transform:translateY(-2px);border-color:var(--rose)}
-.tech-badge img{display:block;width:62px;height:48px;object-fit:contain;margin:0 auto 9px}
-.tech-badge strong{font-size:13px;line-height:1.25;color:var(--burgundy)}
-.storage-illustration{font-size:37px;line-height:1;margin:0 auto 10px;height:48px;display:flex;align-items:center;justify-content:center}
-.logo-board{display:block;width:100%;max-width:620px;height:auto;margin:0 auto;border:1px solid var(--line);border-radius:12px;background:#fff}
+.chip-row{display:flex;flex-wrap:wrap;gap:10px}
+.tech-chip{border:1px solid #E9DDE2;border-radius:99px;background:#FFFCFD;color:var(--burgundy);font-size:14px;font-weight:700;padding:9px 16px;line-height:1.3}
 .badge-note{text-align:center;font-size:11px;color:var(--muted);margin:18px 0 0}
 
 /* Free assessment cards */
@@ -117,21 +114,23 @@ footer a{color:var(--burgundy-2)}
 .split{grid-template-columns:1fr;gap:24px}
 .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
-.badge-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 section{padding:42px 0}
+.tech-logo{width:min(350px,48%);height:100px}
 }
 @media(max-width:560px){
 .wrap{width:90%}
-nav{align-items:flex-start;padding:15px 0 12px;gap:12px}
+nav{padding:15px 0 12px}
+.nav-top{align-items:flex-start;flex-direction:column;gap:10px}
 .brand{font-size:22px}
 .brand small{font-size:12px}
-.nav-links{width:100%;gap:9px 12px;justify-content:flex-start;border-top:1px solid var(--line);padding-top:10px}
+.tech-logo{width:100%;height:auto;max-height:125px;object-fit:contain;object-position:left center;margin-top:2px}
+.nav-links{width:100%;gap:9px 12px;justify-content:flex-start;margin-top:12px;padding-top:10px}
 .nav-links a{font-size:13px}
 .nav-links .nav-health{padding:5px 9px}
 .hero-banner{padding:14px 0}
 .banner-image{border-radius:8px}
 section{padding:30px 0}
-h1{font-size:26px}
+h1{font-size:28px}
 h2{font-size:28px}
 .intro{font-size:15px}
 .cards,.steps,.faq-list{grid-template-columns:1fr}
@@ -144,12 +143,7 @@ h2{font-size:28px}
 .badge-section{padding:26px 0 30px}
 .badge-heading h2{font-size:22px}
 .badge-heading p{font-size:13px}
-.badge-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
-.tech-badge{min-height:102px;padding:10px 5px}
-.tech-badge img{width:52px;height:42px;margin-bottom:7px}
-.tech-badge strong{font-size:11px}
-.storage-illustration{font-size:33px;height:42px;margin-bottom:7px}
-.pill-list .pill{font-size:12px;padding:5px 9px}
+.tech-chip{font-size:13px;padding:8px 13px}
 .badge-category{font-size:12px;margin-top:19px}
 .assessment-tools{grid-template-columns:1fr;gap:14px}
 .health-check{padding:20px;gap:14px;min-height:0}
@@ -168,14 +162,17 @@ footer{padding:20px 0}
 }
 @media(prefers-reduced-motion:reduce){
 html{scroll-behavior:auto}
-.btn,.tech-badge{transition:none}
+.btn{transition:none}
 }
 </style>
 </head>
 <body>
 <header>
 <nav class="wrap" aria-label="Main navigation">
+<div class="nav-top">
 <a class="brand" href="#top">Backup<span>Steward</span><small>Backup &amp; Recovery Consulting</small></a>
+<img class="tech-logo" src="backupsteward-tech-logos.png" alt="Backup platforms supported by BackupSteward: Dell EMC NetWorker, Commvault, Veeam, Veritas NetBackup, Rubrik, Cohesity, Acronis, IBM Tivoli, Dell EMC Avamar and major cloud platforms" loading="eager">
+</div>
 <div class="nav-links">
 <a href="#services">Services</a>
 <a href="#results">Results</a>
@@ -188,7 +185,6 @@ html{scroll-behavior:auto}
 </div>
 </nav>
 </header>
-
 <main id="top">
 
 <section class="hero-banner" aria-label="BackupSteward introduction">
@@ -202,15 +198,15 @@ html{scroll-behavior:auto}
 <div class="section-top">
 <div>
 <h1>Prove your backups can restore, before you need them</h1>
-<p class="intro">Independent backup and recovery consulting for enterprise IT teams. We assess backup health, fix failing jobs and validate restores across Commvault, NetBackup, NetWorker, Veeam, Rubrik and Cohesity.</p>
-<div class="intro-cta">
-<a class="btn primary" href="mailto:contact@backupsteward.com?subject=BackupSteward%20Consulting%20Enquiry&amp;body=Hello%20BackupSteward%2C%0A%0ABackup%20platform%3A%0AWorkload%20or%20environment%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you.">Discuss Your Backup Challenges ↗</a>
-<a class="btn secondary" href="backup-health-check.html">Start Free Backup Health Check</a>
-</div>
+<p class="intro">Independent backup and recovery consulting for enterprise IT teams. We assess backup health, fix failing jobs, validate restores and plan migrations across Commvault, Veritas NetBackup, Dell EMC NetWorker, Veeam, Rubrik and Cohesity.</p>
 <div class="pill-list" aria-label="Key facts">
 <span class="pill">15+ years in backup and recovery</span>
 <span class="pill">Vendor-independent</span>
 <span class="pill">Free health check and recovery score</span>
+</div>
+<div class="intro-cta">
+<a class="btn primary" href="mailto:contact@backupsteward.com?subject=BackupSteward%20Consulting%20Enquiry&amp;body=Hello%20BackupSteward%2C%0A%0ABackup%20platform%3A%0AWorkload%20or%20environment%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you.">Discuss Your Backup Challenges ↗</a>
+<a class="btn secondary" href="backup-health-check.html">Start Free Backup Health Check</a>
 </div>
 </div>
 </div>
@@ -248,17 +244,6 @@ html{scroll-behavior:auto}
 </div>
 </section>
 
-<section class="badge-section" aria-labelledby="badge-title">
-<div class="wrap">
-<div class="badge-heading">
-<h2 id="badge-title">Backup &amp; Recovery Technology Ecosystem</h2>
-<p>Enterprise backup platforms and cloud providers we work with</p>
-</div>
-<img class="logo-board" src="backupsteward-tech-logos.png" width="1186" height="874" loading="lazy" alt="Backup and recovery technologies: Dell EMC Data Domain, Dell EMC Avamar, AWS, Microsoft Azure, Google Cloud, IBM Tivoli and Spectrum Protect, Rubrik, Cohesity, Dell EMC NetWorker, Commvault, Veeam Backup and Replication, Veritas NetBackup, Veritas Backup Exec and Acronis">
-<p class="badge-note">Technology references indicate areas covered by BackupSteward. They do not represent personal certification claims or endorsements by these vendors. All product names and logos are trademarks of their respective owners.</p>
-</div>
-</section>
-
 <section class="white" id="results">
 <div class="wrap">
 <h2>Results that matter in a recovery</h2>
@@ -290,7 +275,6 @@ html{scroll-behavior:auto}
 <div class="report-strip"><div><h3>Need a broader workload review?</h3><p>Explore our enterprise backup and recovery assessment approach.</p></div><a class="btn primary" href="enterprise-backup-recovery.html">Explore Enterprise Consulting ↗</a></div>
 </div>
 </section>
-
 <section class="white" id="technologies">
 <div class="wrap">
 <h2>Backup Platforms &amp; Infrastructure Expertise</h2>
@@ -305,6 +289,32 @@ html{scroll-behavior:auto}
 <article class="card"><h3>Virtualisation, Cloud &amp; Infrastructure</h3><p>Backup environments involving VMware vSphere, Microsoft Hyper-V, Oracle Cloud Infrastructure, Windows Server, Linux systems, on-premises infrastructure and hybrid cloud.</p></article>
 <article class="card"><h3>Other Backup Technologies</h3><p>Additional platforms, including IBM Storage Protect, Acronis, Druva, HYCU and Arcserve, are covered based on your environment and engagement scope.</p></article>
 </div>
+</div>
+</section>
+
+<section class="badge-section" aria-labelledby="badge-title">
+<div class="wrap">
+<div class="badge-heading">
+<h2 id="badge-title">Backup &amp; Recovery Technology Ecosystem</h2>
+<p>Enterprise backup platforms, cloud providers and backup storage technologies</p>
+</div>
+
+<div class="badge-category">Backup &amp; Recovery Platforms</div>
+<div class="chip-row">
+<span class="tech-chip">Commvault</span><span class="tech-chip">Veeam</span><span class="tech-chip">Veritas NetBackup</span><span class="tech-chip">Dell EMC NetWorker</span><span class="tech-chip">Dell EMC Avamar</span><span class="tech-chip">Rubrik</span><span class="tech-chip">Cohesity</span><span class="tech-chip">IBM Storage Protect</span><span class="tech-chip">Acronis</span><span class="tech-chip">HP Data Protector (HPDP)</span>
+</div>
+
+<div class="badge-category">Cloud Platforms</div>
+<div class="chip-row">
+<span class="tech-chip">Microsoft Azure</span><span class="tech-chip">Amazon Web Services (AWS)</span><span class="tech-chip">Oracle Cloud Infrastructure (OCI)</span><span class="tech-chip">Google Cloud</span>
+</div>
+
+<div class="badge-category">Backup Storage Technologies</div>
+<div class="chip-row">
+<span class="tech-chip">Tape libraries</span><span class="tech-chip">Disk libraries</span>
+</div>
+
+<p class="badge-note">Technology references indicate areas covered by BackupSteward. They do not represent personal certification claims or endorsements by these vendors. All product names are trademarks of their respective owners.</p>
 </div>
 </section>
 
