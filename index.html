@@ -34,8 +34,8 @@ nav{display:block;padding:18px 0}
 .brand small{display:block;font-size:12px;font-weight:600;letter-spacing:.2px;margin-top:5px;color:var(--burgundy-2)}
 
 /* Individual technology logos */
-.tech-logo-strip{display:flex;align-items:center;gap:clamp(18px,3vw,34px);width:100%;margin-top:15px;padding:12px 2px 14px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#D9B8C3 transparent;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.tech-logo-item{flex:0 0 auto;width:clamp(112px,15vw,165px);height:54px;display:flex;align-items:center;justify-content:center}
+.tech-logo-strip{display:flex;align-items:center;gap:14px;width:100%;margin-top:15px;padding:12px 2px 14px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#D9B8C3 transparent;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tech-logo-item{flex:0 0 auto;width:105px;height:44px;display:flex;align-items:center;justify-content:center}
 .tech-logo-item img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
 
 .nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:17px;padding-top:13px;border-top:1px solid var(--line)}
@@ -120,17 +120,18 @@ footer a{color:var(--burgundy-2)}
 .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
 .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 section{padding:42px 0}
-.tech-logo-strip{gap:22px}
-.tech-logo-item{width:132px;height:48px}
+.tech-logo-strip{gap:14px}
+.tech-logo-item{width:105px;height:44px}
 }
+
 @media(max-width:560px){
 .wrap{width:90%}
 nav{padding:15px 0 12px}
 .nav-top{align-items:flex-start;flex-direction:column;gap:10px}
 .brand{font-size:22px}
 .brand small{font-size:12px}
-.tech-logo-strip{margin-top:12px;padding:10px 1px 12px;gap:18px}
-.tech-logo-item{width:116px;height:44px}
+.tech-logo-strip{margin-top:12px;padding:10px 1px 12px;gap:14px}
+.tech-logo-item{width:105px;height:44px}
 .nav-links{width:100%;gap:9px 12px;justify-content:flex-start;margin-top:12px;padding-top:10px}
 .nav-links a{font-size:13px}
 .nav-links .nav-health{padding:5px 9px}
@@ -167,12 +168,14 @@ h2{font-size:28px}
 footer{padding:20px 0}
 .footer-inner{flex-direction:column;gap:8px}
 }
+
 @media(prefers-reduced-motion:reduce){
 html{scroll-behavior:auto}
 .btn{transition:none}
 }
 </style>
 </head>
+
 <body>
 <header>
 <nav class="wrap" aria-label="Main navigation">
@@ -351,6 +354,7 @@ html{scroll-behavior:auto}
 </div>
 </div>
 </section>
+
 <section class="white" id="workloads">
 <div class="wrap">
 <h2>Enterprise workloads we cover</h2>
