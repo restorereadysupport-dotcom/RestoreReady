@@ -87,6 +87,23 @@ h3{line-height:1.35}
 .tech-chip{border:1px solid #E9DDE2;border-radius:99px;background:#FFFCFD;color:var(--burgundy);font-size:14px;font-weight:700;padding:9px 16px;line-height:1.3}
 .badge-note{text-align:center;font-size:11px;color:var(--muted);margin:18px 0 0}
 
+/* Platform certifications */
+.certification-section{background:#fff;padding:38px 0 42px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.certification-heading{text-align:center;margin-bottom:25px}
+.certification-heading h2{font-size:27px;margin:0 0 8px}
+.certification-heading p{color:var(--muted);font-size:14px;margin:0 auto;max-width:700px}
+.certification-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.certification-card{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:145px;padding:20px 16px;background:#FFFCFD;border:1px solid #EBC5D1;border-radius:13px;text-decoration:none;box-shadow:0 3px 12px #4A102208;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
+.certification-card:hover{transform:translateY(-3px);border-color:var(--rose);box-shadow:0 6px 18px #4A102214}
+.certification-logo{display:flex;align-items:center;justify-content:center;width:100%;height:55px;margin-bottom:12px}
+.certification-logo img{display:block;max-width:190px;max-height:52px;width:auto;height:auto;object-fit:contain}
+.certification-label{display:inline-flex;align-items:center;gap:6px;background:var(--rose-light);color:var(--burgundy);border:1px solid #EBC5D1;border-radius:99px;padding:5px 12px;font-size:12px;font-weight:800;line-height:1.3}
+.certification-check{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:var(--burgundy-2);color:#fff;font-size:11px;line-height:1}
+.certification-link{display:block;text-align:center;color:var(--burgundy-2);font-size:13px;font-weight:700;margin-top:19px}
+.certification-link span{display:inline-block;transition:transform .15s ease}
+.certification-card:hover .certification-link span{transform:translateX(4px)}
+.certification-note{text-align:center;color:var(--muted);font-size:11px;margin:18px 0 0}
+
 /* Free assessment cards */
 .assessment-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:24px 0 10px}
 .health-check{padding:24px 26px;background:var(--rose-light);border:1px solid #EBC5D1;border-radius:14px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:16px;min-height:235px}
@@ -162,6 +179,17 @@ h2{font-size:28px}
 .badge-heading p{font-size:13px}
 .tech-chip{font-size:13px;padding:8px 13px}
 .badge-category{font-size:12px;margin-top:19px}
+.certification-section{padding:30px 0 32px}
+.certification-heading{margin-bottom:20px}
+.certification-heading h2{font-size:23px}
+.certification-heading p{font-size:13px}
+.certification-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.certification-card{min-height:130px;padding:14px 10px}
+.certification-logo{height:45px;margin-bottom:9px}
+.certification-logo img{max-width:135px;max-height:43px}
+.certification-label{font-size:11px;padding:5px 9px}
+.certification-link{font-size:12px;margin-top:13px}
+.certification-note{font-size:10px;margin-top:15px}
 .assessment-tools{grid-template-columns:1fr;gap:14px}
 .health-check{padding:20px;gap:14px;min-height:0}
 .health-check h3{font-size:21px}
@@ -181,6 +209,7 @@ footer{padding:20px 0}
 @media(prefers-reduced-motion:reduce){
 html{scroll-behavior:auto}
 .btn{transition:none}
+.certification-card{transition:none}
 }
 </style>
 </head>
@@ -501,6 +530,72 @@ html{scroll-behavior:auto}
 <p>Additional platforms, including IBM Storage Protect, Acronis, Druva, HYCU and Arcserve, are covered based on your environment and engagement scope.</p>
 </article>
 </div>
+</div>
+</section>
+
+<!-- PLATFORM CERTIFICATIONS -->
+<section class="certification-section" id="certifications" aria-labelledby="certification-title">
+<div class="wrap">
+
+<div class="certification-heading">
+<h2 id="certification-title">Platform Certifications &amp; Expertise</h2>
+<p>Certified backup and recovery professional with hands-on enterprise experience across six leading data protection platforms.</p>
+</div>
+
+<div class="certification-grid">
+
+<a class="certification-card" href="/commvault-backup-consulting" aria-label="Commvault certification and consulting expertise">
+<div class="certification-logo">
+<img src="01-commvault.png" alt="Commvault logo" loading="lazy">
+</div>
+<span class="certification-label"><span class="certification-check" aria-hidden="true">✓</span> Certified Professional</span>
+<span class="certification-link">Commvault Consulting <span aria-hidden="true">→</span></span>
+</a>
+
+<a class="certification-card" href="/veritas-netbackup-consulting" aria-label="Veritas NetBackup certification and consulting expertise">
+<div class="certification-logo">
+<img src="02-veritas-netbackup.jpg" alt="Veritas NetBackup logo" loading="lazy">
+</div>
+<span class="certification-label"><span class="certification-check" aria-hidden="true">✓</span> Certified Professional</span>
+<span class="certification-link">NetBackup Consulting <span aria-hidden="true">→</span></span>
+</a>
+
+<a class="certification-card" href="/dell-emc-networker-consulting" aria-label="Dell EMC NetWorker certification and consulting expertise">
+<div class="certification-logo">
+<img src="06-networker.jpeg" alt="Dell EMC NetWorker logo" loading="lazy">
+</div>
+<span class="certification-label"><span class="certification-check" aria-hidden="true">✓</span> Certified Professional</span>
+<span class="certification-link">NetWorker Consulting <span aria-hidden="true">→</span></span>
+</a>
+
+<a class="certification-card" href="/veeam-backup-consulting" aria-label="Veeam certification and consulting expertise">
+<div class="certification-logo">
+<img src="03-veeam.png" alt="Veeam logo" loading="lazy">
+</div>
+<span class="certification-label"><span class="certification-check" aria-hidden="true">✓</span> Certified Professional</span>
+<span class="certification-link">Veeam Consulting <span aria-hidden="true">→</span></span>
+</a>
+
+<a class="certification-card" href="/rubrik-backup-consulting" aria-label="Rubrik certification and consulting expertise">
+<div class="certification-logo">
+<img src="05-rubrik.png" alt="Rubrik logo" loading="lazy">
+</div>
+<span class="certification-label"><span class="certification-check" aria-hidden="true">✓</span> Certified Professional</span>
+<span class="certification-link">Rubrik Consulting <span aria-hidden="true">→</span></span>
+</a>
+
+<a class="certification-card" href="/cohesity-backup-consulting" aria-label="Cohesity certification and consulting expertise">
+<div class="certification-logo">
+<img src="04-cohesity.png" alt="Cohesity logo" loading="lazy">
+</div>
+<span class="certification-label"><span class="certification-check" aria-hidden="true">✓</span> Certified Professional</span>
+<span class="certification-link">Cohesity Consulting <span aria-hidden="true">→</span></span>
+</a>
+
+</div>
+
+<p class="certification-note">Platform certification details and consulting experience are provided on the respective platform pages.</p>
+
 </div>
 </section>
 
