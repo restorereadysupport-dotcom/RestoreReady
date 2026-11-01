@@ -119,20 +119,270 @@ main{padding-top:22px}
 .contact-box .consultation-secondary{text-align:center}
 }
 
+/* PDF / PRINT LAYOUT */
 @media print{
-@page{size:A4;margin:16mm}
-*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
-header,footer,.hero,.actions,.contact-box,.intro,.progress-wrap,#assessment{display:none!important}
-body{background:white;color:#33232A;font-size:11pt;line-height:1.45}
-.wrap{width:100%;max-width:none}
-main{padding:0}
-#results{display:block!important}
-.result-card{box-shadow:none;border:1px solid #D8CDD1;padding:18px;margin:0 0 12px;break-inside:avoid}
-.result-heading{font-size:17pt}
-.report-brand{font-size:12pt}
-.score-circle{width:95px;height:95px}
-.executive-grid{grid-template-columns:repeat(3,1fr)}
-.top-gap,.result-item{break-inside:avoid}
+@page{
+size:A4;
+margin:10mm 12mm;
+}
+
+*{
+-webkit-print-color-adjust:exact!important;
+print-color-adjust:exact!important;
+}
+
+html,body{
+background:#FFFFFF!important;
+color:#33232A;
+font-size:9pt;
+line-height:1.3;
+}
+
+header,footer,.hero,.actions,.contact-box,.intro,.progress-wrap,#assessment{
+display:none!important;
+}
+
+.wrap{
+width:100%;
+max-width:none;
+margin:0;
+}
+
+main{
+padding:0;
+}
+
+#results{
+display:block!important;
+}
+
+/* Compact report cards */
+.result-card{
+box-shadow:none;
+border:1px solid #D8CDD1;
+border-radius:10px;
+padding:11px 13px;
+margin:0 0 8px;
+}
+
+/* Page 1: Executive summary and score */
+#results > .report-cover{
+break-after:page;
+page-break-after:always;
+}
+
+.report-brand{
+font-size:10pt;
+letter-spacing:.7px;
+padding-bottom:6px;
+margin-bottom:9px;
+}
+
+.result-heading{
+font-size:13pt;
+margin:0 0 7px;
+}
+
+.report-cover>p{
+font-size:8pt;
+margin:4px 0;
+}
+
+.score-area{
+gap:13px;
+margin:8px 0;
+}
+
+.score-circle{
+width:78px;
+height:78px;
+border-width:5px;
+}
+
+.score-circle strong{
+font-size:27px;
+}
+
+.score-circle span{
+font-size:8px;
+}
+
+.score-area h2{
+font-size:16pt;
+margin:0 0 3px;
+}
+
+.score-area .muted{
+font-size:8pt;
+line-height:1.25;
+margin:3px 0;
+}
+
+.risk{
+font-size:8pt;
+padding:4px 8px;
+margin-top:2px;
+}
+
+.score-meter{
+height:6px;
+margin:6px 0 3px;
+}
+
+.executive-grid{
+grid-template-columns:repeat(3,minmax(0,1fr));
+gap:7px;
+margin-top:8px;
+}
+
+.executive-stat{
+padding:7px;
+}
+
+.executive-stat strong{
+font-size:12pt;
+}
+
+.executive-stat span{
+font-size:8pt;
+}
+
+.report-cover h3.result-heading{
+font-size:11pt;
+margin-top:12px!important;
+margin-bottom:5px;
+}
+
+.top-gap{
+padding:7px 9px;
+margin:5px 0;
+break-inside:avoid;
+page-break-inside:avoid;
+}
+
+.top-gap strong{
+font-size:9pt;
+}
+
+.top-gap .muted{
+font-size:8pt;
+line-height:1.25;
+}
+
+.priority-label{
+font-size:7.5pt;
+padding:3px 7px;
+margin:3px 0;
+}
+
+.report-footer{
+font-size:7.5pt;
+line-height:1.25;
+padding-top:6px;
+margin-top:9px;
+}
+
+/* Page 2: Assessment findings */
+#results > .result-card:nth-child(2){
+break-after:page;
+page-break-after:always;
+}
+
+#results > .result-card:nth-child(2) .result-heading{
+margin-bottom:6px;
+}
+
+.result-item{
+padding:7px 0;
+break-inside:avoid;
+page-break-inside:avoid;
+}
+
+.result-item strong{
+font-size:8.5pt;
+}
+
+.result-item .muted{
+font-size:8pt;
+line-height:1.25;
+margin:2px 0;
+}
+
+.result-item>div{
+font-size:8pt;
+line-height:1.25;
+}
+
+/* Page 3: Remediation plan and assessment summary */
+#results > .result-card:nth-child(3){
+break-inside:auto;
+page-break-inside:auto;
+margin-bottom:7px;
+}
+
+#results > .result-card:nth-child(3)>.muted{
+font-size:8pt;
+line-height:1.2;
+margin:4px 0 6px;
+}
+
+#recommendations .result-item{
+padding:5px 0;
+break-inside:avoid;
+page-break-inside:avoid;
+}
+
+#recommendations .result-item strong{
+font-size:8.5pt;
+}
+
+#recommendations .priority-label{
+margin:2px 0;
+}
+
+.recommendation{
+font-size:8pt;
+line-height:1.25;
+padding:6px 9px;
+margin-top:3px;
+border-left-width:3px;
+}
+
+#results > .result-card:nth-child(4){
+break-inside:avoid;
+page-break-inside:avoid;
+margin-top:0;
+padding:10px 13px;
+}
+
+#results > .result-card:nth-child(4) .result-heading{
+margin-bottom:5px;
+}
+
+#results > .result-card:nth-child(4)>.muted{
+font-size:8pt;
+line-height:1.25;
+margin:4px 0;
+}
+
+.notice{
+font-size:7.5pt;
+line-height:1.25;
+padding:8px 10px;
+margin-top:7px;
+}
+
+/* Prevent unnecessary splitting */
+.result-card,
+.executive-stat{
+orphans:3;
+widows:3;
+}
+
+/* Hide interactive controls in the printed report */
+button{
+display:none!important;
+}
 }
 </style>
 </head>
