@@ -96,6 +96,9 @@ button:hover{opacity:.9}
 .contact-box h2{margin-top:0}
 .contact-box p{color:#F5E9ED}
 .contact-box a{color:#F0A4BA;font-weight:bold}
+.contact-box .consultation-actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:18px}
+.contact-box .consultation-primary{display:inline-block;text-decoration:none;border-radius:8px;padding:13px 19px;font-size:14px;font-weight:bold;background:var(--rose);color:#35101D}
+.contact-box .consultation-secondary{display:inline-block;padding:13px 0;font-size:14px}
 footer{padding:23px 0;color:var(--muted);font-size:13px;text-align:center}
 footer a{color:var(--burgundy2)}
 
@@ -111,6 +114,9 @@ main{padding-top:22px}
 .score-area h2{font-size:21px}
 .executive-grid{grid-template-columns:1fr}
 .actions button{width:100%}
+.contact-box .consultation-actions{flex-direction:column;align-items:stretch}
+.contact-box .consultation-primary{text-align:center}
+.contact-box .consultation-secondary{text-align:center}
 }
 
 @media print{
@@ -339,10 +345,23 @@ main{padding:0}
 </div>
 
 <div class="contact-box">
-<h2>Need a deeper backup assessment?</h2>
-<p>BackupSteward provides independent backup and recovery consulting across enterprise platforms. Discuss your findings and potential improvement areas with us.</p>
-<p><a href="mailto:contact@backupsteward.com?subject=Backup%20Health%20Check%20Enquiry">contact@backupsteward.com</a></p>
-<a href="enterprise-backup-recovery.html">Explore Enterprise Backup &amp; Recovery Consulting →</a>
+<h2>Ready to strengthen your backup and recovery readiness?</h2>
+
+<p>Your assessment provides an initial view of potential gaps. A focused technical review can help validate these findings, identify underlying issues and prioritise practical improvements.</p>
+
+<p><strong>Want an expert to validate your findings?</strong></p>
+
+<p>Discuss your backup environment, assessment results and improvement priorities with BackupSteward.</p>
+
+<div class="consultation-actions">
+<a class="consultation-primary" href="mailto:contact@backupsteward.com?subject=Backup%20Health%20Check%20-%20Consultation%20Enquiry&amp;body=Hello%20BackupSteward%2C%0A%0AI%20have%20completed%20the%20Backup%20Health%20Check%20and%20would%20like%20to%20discuss%20a%20technical%20assessment.%0A%0ABackup%20platform%3A%0AEnvironment%3A%0AKey%20areas%20I%20would%20like%20to%20discuss%3A%0A%0AThank%20you.">Discuss Your Assessment ↗</a>
+
+<a class="consultation-secondary" href="/enterprise-backup-recovery">Explore Enterprise Backup &amp; Recovery Consulting →</a>
+</div>
+
+<p><strong>Email:</strong> <a href="mailto:contact@backupsteward.com">contact@backupsteward.com</a></p>
+
+<p style="font-size:12px">Independent backup and recovery consulting for enterprise IT teams.</p>
 </div>
 </section>
 </main>
