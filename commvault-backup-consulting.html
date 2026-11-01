@@ -54,6 +54,18 @@ li{margin:8px 0;color:var(--muted)}
 footer{padding:23px 0;color:var(--muted);font-size:13px}
 .footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 footer a{color:var(--burgundy-2)}
+
+/* BackupSteward Certified Expertise */
+.certification-section{background:var(--white);padding:27px 0;border-bottom:1px solid var(--line)}
+.certification-card{max-width:760px;margin:auto;background:#FAF7F8;border:1px solid #E8D5DC;border-radius:14px;padding:20px 24px;display:flex;align-items:center;gap:22px}
+.certification-logo{width:145px;min-width:145px;height:75px;background:#fff;border:1px solid var(--line);border-radius:10px;display:flex;align-items:center;justify-content:center;padding:10px}
+.certification-logo img{max-width:100%;max-height:100%;object-fit:contain}
+.certification-divider{width:1px;height:65px;background:var(--line)}
+.certification-content{flex:1}
+.certification-label{display:inline-block;background:var(--rose-light);color:var(--burgundy);font-size:11px;font-weight:800;letter-spacing:1.1px;padding:5px 10px;border-radius:20px;margin-bottom:6px}
+.certification-content h2{font-size:21px;margin:0 0 3px}
+.certification-content p{font-size:14px;color:var(--muted);margin:0}
+
 @media(max-width:800px){
 .grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 .split{grid-template-columns:1fr}
@@ -71,6 +83,11 @@ section{padding:34px 0}
 .card{padding:19px}
 .contact{padding:23px 19px}
 .contact .btn{width:100%;text-align:center}
+.certification-card{padding:16px;gap:13px;flex-wrap:wrap}
+.certification-logo{width:125px;min-width:125px;height:65px}
+.certification-divider{display:none}
+.certification-content{min-width:170px}
+.certification-content h2{font-size:19px}
 }
 </style>
 
@@ -105,6 +122,23 @@ gtag('config', 'G-214R25SYC8');
 <h1>Commvault Backup &amp; Recovery Consulting</h1>
 <p>Independent Commvault consulting to help IT teams improve backup operations, troubleshoot MediaAgent and deduplication issues, plan infrastructure migrations and strengthen enterprise recovery readiness.</p>
 <a class="btn primary" href="mailto:contact@backupsteward.com?subject=Commvault%20Consulting%20Enquiry">Discuss a Commvault Requirement ↗</a>
+</div>
+</section>
+
+<!-- BackupSteward Certified Expertise -->
+<section class="certification-section">
+<div class="wrap">
+<div class="certification-card">
+<div class="certification-logo">
+<img src="01-commvault.png" alt="Commvault platform logo">
+</div>
+<div class="certification-divider"></div>
+<div class="certification-content">
+<span class="certification-label">CERTIFIED EXPERTISE</span>
+<h2>Commvault Backup &amp; Recovery</h2>
+<p>Platform certification and practical enterprise backup experience.</p>
+</div>
+</div>
 </div>
 </section>
 
