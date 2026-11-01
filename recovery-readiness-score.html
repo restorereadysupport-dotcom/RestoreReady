@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Recovery Readiness Score | BackupSteward</title>
   <meta name="description" content="Assess your organisation's recovery readiness. Evaluate RTO/RPO, recovery testing, dependencies, runbooks, clean recovery environments and disaster recovery capabilities.">
-  <link rel="canonical" href="https://backupsteward.com/recovery-readiness-score.html">
+  <link rel="canonical" href="https://backupsteward.com/recovery-readiness-score">
 
   <meta property="og:title" content="Recovery Readiness Score | BackupSteward">
   <meta property="og:description" content="Can your organisation recover when it matters? Take the Recovery Readiness Score assessment.">
-  <meta property="og:url" content="https://backupsteward.com/recovery-readiness-score.html">
+  <meta property="og:url" content="https://backupsteward.com/recovery-readiness-score">
   <meta property="og:type" content="website">
 
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-214R25SYC8"></script>
@@ -396,38 +395,9 @@
 
     .cta h3 { margin-top: 0; }
 
-    .cta p { color: #F5E9ED; }
-
     .cta a {
       color: white;
       font-weight: 700;
-    }
-
-    .cta-actions {
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      align-items: center;
-      margin-top: 18px;
-    }
-
-    .cta-primary {
-      display: inline-block;
-      background: var(--rose-pink);
-      color: var(--burgundy-dark) !important;
-      text-decoration: none;
-      border-radius: 7px;
-      padding: 13px 19px;
-      font-size: 14px;
-      font-weight: 700;
-    }
-
-    .cta-primary:hover { background: var(--rose); }
-
-    .cta-secondary {
-      display: inline-block;
-      padding: 13px 0;
-      font-size: 14px;
     }
 
     .disclaimer {
@@ -454,36 +424,148 @@
       main { padding: 25px 15px 45px; }
       .question { padding: 17px; }
       .score-area { justify-content: center; text-align: center; }
-      .cta-actions { flex-direction: column; align-items: stretch; }
-      .cta-primary, .cta-secondary { text-align: center; }
     }
 
+    /* PRINT LAYOUT */
     @media print {
-      header, .hero, .intro, #assessment, .actions,
-      footer, .no-print { display: none !important; }
+      @page {
+        size: A4;
+        margin: 10mm 12mm;
+      }
 
-      body { background: white; color: #222; }
-      main { max-width: 100%; padding: 0; }
+      * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+      }
+
+      header, .hero, .intro, #assessment,
+      .actions, footer, .no-print {
+        display: none !important;
+      }
+
+      body {
+        background: white;
+        color: #222;
+        font-size: 9.5pt;
+        line-height: 1.35;
+      }
+
+      main {
+        max-width: 100%;
+        padding: 0;
+        margin: 0;
+      }
 
       .result {
         display: block !important;
         background: white;
         border: 0;
         padding: 0;
+        margin: 0;
       }
 
-      .result-block { break-inside: avoid; }
+      .result > h2 {
+        font-size: 17pt;
+        margin: 0 0 5px;
+      }
+
+      .result > p {
+        margin: 4px 0;
+      }
+
+      .score-area {
+        gap: 15px;
+        margin: 10px 0;
+        flex-wrap: nowrap;
+      }
+
+      .score-circle {
+        width: 90px;
+        height: 90px;
+        border-width: 6px;
+      }
+
+      .score-number {
+        font-size: 30px;
+      }
+
+      .score-status {
+        font-size: 17px;
+      }
+
+      .result-block {
+        padding: 11px 13px;
+        margin-top: 9px;
+        border: 1px solid #eadfe5;
+        break-inside: auto;
+        page-break-inside: auto;
+      }
+
+      .result-block h3 {
+        font-size: 12pt;
+        margin-bottom: 6px;
+      }
+
+      .result-block p {
+        margin: 5px 0;
+      }
+
+      .result-block li {
+        margin-bottom: 4px;
+      }
+
+      .maturity-item {
+        margin: 10px 0;
+        break-inside: avoid;
+        page-break-inside: avoid;
+      }
+
+      .maturity-heading {
+        font-size: 9pt;
+        margin-bottom: 4px;
+      }
+
+      .maturity-track {
+        height: 8px;
+      }
+
+      .maturity-description,
+      .maturity-note {
+        font-size: 8pt;
+      }
 
       .cta {
         background: white;
         color: #222;
         border: 1px solid #ccc;
+        padding: 12px 14px;
+        margin-top: 10px;
+        break-inside: avoid;
+        page-break-inside: avoid;
       }
 
-      .cta p { color: #333; }
-      .cta a { color: var(--burgundy) !important; }
+      .cta h3 {
+        margin: 0 0 5px;
+        font-size: 12pt;
+      }
 
-      .maturity-item { break-inside: avoid; }
+      .cta p {
+        margin: 5px 0;
+        font-size: 9pt;
+      }
+
+      .cta a {
+        color: var(--burgundy);
+      }
+
+      .disclaimer {
+        font-size: 8pt;
+        line-height: 1.3;
+        margin-top: 8px;
+        margin-bottom: 0;
+        break-before: avoid;
+        page-break-before: avoid;
+      }
     }
   </style>
 </head>
@@ -495,7 +577,7 @@
     <div class="nav-links">
       <a href="https://backupsteward.com/">Home</a>
       <a href="https://backupsteward.com/#services">Services</a>
-      <a href="https://backupsteward.com/backup-health-check.html">Backup Health Check</a>
+      <a href="https://backupsteward.com/backup-health-check">Backup Health Check</a>
       <a href="https://backupsteward.com/#contact">Contact</a>
     </div>
   </nav>
@@ -628,23 +710,10 @@
     </div>
 
     <div class="cta">
-      <h3>Ready to strengthen your recovery readiness?</h3>
-
-      <p>Your assessment provides an initial view of potential gaps. A focused technical review can help validate these findings, identify underlying issues and prioritise practical improvements.</p>
-
-      <p><strong>Want an expert to validate your findings?</strong></p>
-
-      <p>Discuss your recovery environment, assessment results and improvement priorities with BackupSteward.</p>
-
-      <div class="cta-actions">
-        <a class="cta-primary" href="mailto:contact@backupsteward.com?subject=Recovery%20Readiness%20-%20Consultation%20Enquiry&amp;body=Hello%20BackupSteward%2C%0A%0AI%20have%20completed%20the%20Recovery%20Readiness%20Score%20assessment%20and%20would%20like%20to%20discuss%20a%20technical%20assessment.%0A%0ABackup%20platform%3A%0AEnvironment%3A%0AAssessment%20scope%3A%0AKey%20areas%20I%20would%20like%20to%20discuss%3A%0A%0AThank%20you.">Discuss Your Assessment ↗</a>
-
-        <a class="cta-secondary" href="/enterprise-backup-recovery">Explore Enterprise Backup &amp; Recovery Consulting →</a>
-      </div>
-
-      <p><strong>Email:</strong> <a href="mailto:contact@backupsteward.com">contact@backupsteward.com</a></p>
-
-      <p style="font-size:12px">Independent backup and recovery consulting for enterprise IT teams.</p>
+      <h3>Need to improve your recovery readiness?</h3>
+      <p>BackupSteward can help assess recovery processes, identify gaps and improve backup and recovery preparedness across your environment.</p>
+      <p><a href="https://backupsteward.com/enterprise-backup-recovery">Explore Enterprise Backup &amp; Recovery Services</a></p>
+      <p><a href="mailto:contact@backupsteward.com">Contact BackupSteward</a></p>
     </div>
 
     <p class="disclaimer">
