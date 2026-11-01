@@ -396,9 +396,38 @@
 
     .cta h3 { margin-top: 0; }
 
+    .cta p { color: #F5E9ED; }
+
     .cta a {
       color: white;
       font-weight: 700;
+    }
+
+    .cta-actions {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+      margin-top: 18px;
+    }
+
+    .cta-primary {
+      display: inline-block;
+      background: var(--rose-pink);
+      color: var(--burgundy-dark) !important;
+      text-decoration: none;
+      border-radius: 7px;
+      padding: 13px 19px;
+      font-size: 14px;
+      font-weight: 700;
+    }
+
+    .cta-primary:hover { background: var(--rose); }
+
+    .cta-secondary {
+      display: inline-block;
+      padding: 13px 0;
+      font-size: 14px;
     }
 
     .disclaimer {
@@ -425,6 +454,8 @@
       main { padding: 25px 15px 45px; }
       .question { padding: 17px; }
       .score-area { justify-content: center; text-align: center; }
+      .cta-actions { flex-direction: column; align-items: stretch; }
+      .cta-primary, .cta-secondary { text-align: center; }
     }
 
     @media print {
@@ -449,7 +480,8 @@
         border: 1px solid #ccc;
       }
 
-      .cta a { color: var(--burgundy); }
+      .cta p { color: #333; }
+      .cta a { color: var(--burgundy) !important; }
 
       .maturity-item { break-inside: avoid; }
     }
@@ -596,10 +628,23 @@
     </div>
 
     <div class="cta">
-      <h3>Need to improve your recovery readiness?</h3>
-      <p>BackupSteward can help assess recovery processes, identify gaps and improve backup and recovery preparedness across your environment.</p>
-      <p><a href="https://backupsteward.com/enterprise-backup-recovery.html">Explore Enterprise Backup &amp; Recovery Services</a></p>
-      <p><a href="mailto:contact@backupsteward.com">Contact BackupSteward</a></p>
+      <h3>Ready to strengthen your recovery readiness?</h3>
+
+      <p>Your assessment provides an initial view of potential gaps. A focused technical review can help validate these findings, identify underlying issues and prioritise practical improvements.</p>
+
+      <p><strong>Want an expert to validate your findings?</strong></p>
+
+      <p>Discuss your recovery environment, assessment results and improvement priorities with BackupSteward.</p>
+
+      <div class="cta-actions">
+        <a class="cta-primary" href="mailto:contact@backupsteward.com?subject=Recovery%20Readiness%20-%20Consultation%20Enquiry&amp;body=Hello%20BackupSteward%2C%0A%0AI%20have%20completed%20the%20Recovery%20Readiness%20Score%20assessment%20and%20would%20like%20to%20discuss%20a%20technical%20assessment.%0A%0ABackup%20platform%3A%0AEnvironment%3A%0AAssessment%20scope%3A%0AKey%20areas%20I%20would%20like%20to%20discuss%3A%0A%0AThank%20you.">Discuss Your Assessment ↗</a>
+
+        <a class="cta-secondary" href="/enterprise-backup-recovery">Explore Enterprise Backup &amp; Recovery Consulting →</a>
+      </div>
+
+      <p><strong>Email:</strong> <a href="mailto:contact@backupsteward.com">contact@backupsteward.com</a></p>
+
+      <p style="font-size:12px">Independent backup and recovery consulting for enterprise IT teams.</p>
     </div>
 
     <p class="disclaimer">
