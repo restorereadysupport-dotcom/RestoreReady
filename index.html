@@ -43,14 +43,17 @@ nav{display:block;padding:18px 0}
 .nav-links a:hover{color:var(--burgundy-2)}
 .nav-links .nav-health{background:var(--rose);color:#35101D;padding:7px 12px;border-radius:7px;font-weight:800}
 .nav-links .nav-health:hover{background:#F0A4BA;color:#35101D}
+
 .hero-banner{background:var(--burgundy);padding:20px 0}
 .banner-image{display:block;width:100%;height:auto;border-radius:10px}
+
 .btn{display:inline-block;padding:12px 17px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;margin:8px 8px 0 0;transition:transform .15s ease,background .15s ease}
 .btn:hover{transform:translateY(-1px)}
 .primary{background:var(--rose);color:#35101D;border:1px solid var(--rose)}
 .primary:hover{background:#F0A4BA}
 .secondary{background:transparent;color:var(--burgundy);border:1px solid var(--burgundy-2)}
 .secondary:hover{background:var(--rose-light)}
+
 section{padding:54px 0}
 .white{background:var(--white)}
 h1{color:var(--burgundy);font-size:clamp(28px,4.4vw,42px);line-height:1.2;margin:0 0 14px}
@@ -59,6 +62,7 @@ h3{line-height:1.35}
 .intro{color:var(--muted);max-width:800px;margin-top:0}
 .intro-cta{margin-top:18px;margin-bottom:8px}
 .section-top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
+
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
 .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 3px 12px #4A102208}
 .card h3{color:var(--burgundy);font-size:18px;margin:8px 0}
@@ -109,6 +113,7 @@ h3{line-height:1.35}
 .report-strip{margin-top:28px;padding:22px 24px;background:var(--rose-light);border:1px solid #EBC5D1;border-radius:14px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
 .report-strip h3{margin:0 0 4px;color:var(--burgundy)}
 .report-strip p{margin:0;color:#55464B;font-size:14px}
+
 .steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:26px}
 .step{border-top:3px solid var(--rose);padding:18px;background:#FAF7F8;border-radius:0 0 10px 10px}
 .step h3{font-size:17px;color:var(--burgundy);margin:4px 0 8px}
@@ -126,10 +131,12 @@ ul.clean{padding-left:20px}
 ul.clean li{margin:8px 0}
 .pill-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
 .pill{background:var(--rose-light);border:1px solid #EBC5D1;color:var(--burgundy);padding:6px 10px;border-radius:99px;font-size:13px;font-weight:700}
+
 .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:24px}
 .faq{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px}
 .faq h3{color:var(--burgundy);font-size:17px;margin:0 0 8px}
 .faq p{color:var(--muted);font-size:14px;margin:0}
+
 .contact{background:var(--burgundy);color:var(--white);padding:32px;border-radius:16px}
 .contact h2{color:var(--white)}
 .contact p{color:#F5E9ED}
@@ -137,41 +144,58 @@ ul.clean li{margin:8px 0}
 .contact .btn.primary{color:#35101D}
 .contact-meta{font-size:14px}
 
-/* LinkedIn company page link */
-.linkedin-link{
-display:inline-flex;
-align-items:center;
-gap:9px;
-margin-top:12px;
-padding:10px 16px;
-border:1px solid #F0A4BA;
-border-radius:8px;
-color:#F0A4BA !important;
-text-decoration:none;
-font-size:14px;
-font-weight:700;
-transition:background .2s ease,color .2s ease;
-}
-.linkedin-link:hover{
-background:#F0A4BA;
-color:#35101D !important;
-}
-.linkedin-icon{
-display:inline-flex;
-align-items:center;
-justify-content:center;
-width:22px;
-height:22px;
-border:1px solid currentColor;
-border-radius:4px;
-font-size:14px;
-font-weight:800;
-line-height:1;
-}
+.linkedin-link{display:inline-flex;align-items:center;gap:9px;margin-top:12px;padding:10px 16px;border:1px solid #F0A4BA;border-radius:8px;color:#F0A4BA !important;text-decoration:none;font-size:14px;font-weight:700;transition:background .2s ease,color .2s ease}
+.linkedin-link:hover{background:#F0A4BA;color:#35101D !important}
+.linkedin-icon{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:1px solid currentColor;border-radius:4px;font-size:14px;font-weight:800;line-height:1}
 
 footer{padding:24px 0;color:var(--muted);font-size:13px}
 .footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 footer a{color:var(--burgundy-2)}
+
+/* NEW: BackupSteward credibility metrics */
+.trust-section{
+background:#fff;
+padding:30px 0;
+border-top:1px solid var(--line);
+border-bottom:1px solid var(--line);
+}
+.trust-grid{
+display:grid;
+grid-template-columns:repeat(4,minmax(0,1fr));
+gap:14px;
+}
+.trust-item{
+text-align:center;
+padding:20px 12px;
+background:#FFFCFD;
+border:1px solid #EBC5D1;
+border-radius:12px;
+display:flex;
+flex-direction:column;
+justify-content:center;
+min-height:125px;
+}
+.trust-value{
+display:block;
+color:var(--burgundy);
+font-size:clamp(23px,3vw,30px);
+font-weight:800;
+line-height:1.25;
+margin-bottom:7px;
+}
+.trust-label{
+display:block;
+color:var(--muted);
+font-size:13px;
+font-weight:700;
+line-height:1.4;
+}
+.trust-note{
+text-align:center;
+color:var(--muted);
+font-size:11px;
+margin:14px 0 0;
+}
 
 @media(max-width:800px){
 .split{grid-template-columns:1fr;gap:24px}
@@ -181,6 +205,7 @@ footer a{color:var(--burgundy-2)}
 section{padding:42px 0}
 .tech-logo-strip{gap:14px}
 .tech-logo-item{width:105px;height:44px}
+.trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
 @media(max-width:560px){
@@ -240,6 +265,11 @@ h2{font-size:28px}
 .linkedin-link{width:100%;justify-content:center}
 footer{padding:20px 0}
 .footer-inner{flex-direction:column;gap:8px}
+.trust-section{padding:22px 0}
+.trust-grid{gap:10px}
+.trust-item{padding:16px 9px;min-height:115px}
+.trust-value{font-size:24px}
+.trust-label{font-size:12px}
 }
 
 @media(prefers-reduced-motion:reduce){
@@ -285,6 +315,40 @@ html{scroll-behavior:auto}
 <section class="hero-banner" aria-label="BackupSteward introduction">
 <div class="wrap">
 <img src="backupsteward-banner.png" alt="BackupSteward — Backup and Recovery Consulting. Protect Data. Prove Recovery. Build Resilience." class="banner-image" fetchpriority="high">
+</div>
+</section>
+
+<!-- NEW: TRUST AND VALUE SECTION -->
+<section class="trust-section" aria-label="BackupSteward capabilities">
+<div class="wrap">
+<div class="trust-grid">
+
+<div class="trust-item">
+<span class="trust-value">24/7</span>
+<span class="trust-label">Backup &amp; Recovery Team Availability</span>
+</div>
+
+<div class="trust-item">
+<span class="trust-value">15+ Years</span>
+<span class="trust-label">Backup &amp; Recovery Experience</span>
+</div>
+
+<div class="trust-item">
+<span class="trust-value">99%</span>
+<span class="trust-label">Backup SLA Compliance Achieved</span>
+</div>
+
+<div class="trust-item">
+<span class="trust-value">Cost Optimisation</span>
+<span class="trust-label">Smarter Backup Infrastructure Spending</span>
+</div>
+
+</div>
+
+<p class="trust-note">
+99% SLA compliance reflects a specific client engagement result.
+24/7 availability is subject to agreed support scope and arrangements.
+</p>
 </div>
 </section>
 
