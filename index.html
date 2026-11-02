@@ -24,7 +24,6 @@ gtag('config', 'G-214R25SYC8');
 html{scroll-behavior:smooth;scroll-padding-top:20px}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.7;background:var(--bg);overflow-wrap:break-word}
 img{max-width:100%}
-a{color:var(--burgundy-2)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
 .wrap{width:min(1100px,92%);margin-inline:auto}
 header{background:var(--bg)}
@@ -33,6 +32,28 @@ nav{display:block;padding:18px 0}
 .brand{font-size:23px;font-weight:800;color:var(--burgundy);text-decoration:none;line-height:1.2;white-space:nowrap;flex:0 0 auto}
 .brand span{color:var(--rose)}
 .brand small{display:block;font-size:12px;font-weight:600;letter-spacing:.2px;margin-top:5px;color:var(--burgundy-2)}
+
+/* Mobile menu button: hidden on desktop */
+.mobile-menu-toggle{
+display:none;
+align-items:center;
+justify-content:center;
+width:46px;
+height:42px;
+padding:0;
+border:1px solid #EBC5D1;
+border-radius:9px;
+background:var(--rose-light);
+color:var(--burgundy);
+font-size:25px;
+line-height:1;
+cursor:pointer;
+}
+.mobile-menu-toggle:hover{background:#F0D6DF}
+.mobile-menu-toggle .menu-icon{display:block}
+.mobile-menu-toggle .close-icon{display:none}
+.mobile-menu-toggle[aria-expanded="true"] .menu-icon{display:none}
+.mobile-menu-toggle[aria-expanded="true"] .close-icon{display:block}
 
 .tech-logo-strip{display:flex;align-items:center;gap:14px;width:100%;margin-top:15px;padding:12px 2px 14px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#D9B8C3 transparent;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .tech-logo-item{flex:0 0 auto;width:105px;height:44px;display:flex;align-items:center;justify-content:center}
@@ -152,7 +173,7 @@ footer{padding:24px 0;color:var(--muted);font-size:13px}
 .footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 footer a{color:var(--burgundy-2)}
 
-/* NEW: BackupSteward credibility metrics */
+/* BackupSteward credibility metrics */
 .trust-section{
 background:#fff;
 padding:30px 0;
@@ -208,17 +229,59 @@ section{padding:42px 0}
 .trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
 }
 
+/* Mobile-only navigation */
 @media(max-width:560px){
 .wrap{width:90%}
 nav{padding:15px 0 12px}
-.nav-top{align-items:flex-start;flex-direction:column;gap:10px}
+
+/* Keep logo and hamburger on the same row */
+.nav-top{
+align-items:center;
+flex-direction:row;
+justify-content:space-between;
+gap:12px;
+}
 .brand{font-size:22px}
 .brand small{font-size:12px}
+.mobile-menu-toggle{display:inline-flex;flex:0 0 auto}
+
+/* Technology logos remain horizontally scrollable */
 .tech-logo-strip{margin-top:12px;padding:10px 1px 12px;gap:14px}
 .tech-logo-item{width:105px;height:44px}
-.nav-links{width:100%;gap:9px 12px;justify-content:flex-start;margin-top:12px;padding-top:10px}
-.nav-links a{font-size:13px}
-.nav-links .nav-health{padding:5px 9px}
+
+/* Menu is collapsed until the hamburger is tapped */
+.nav-links{
+display:none;
+width:100%;
+flex-direction:column;
+align-items:stretch;
+gap:0;
+margin-top:12px;
+padding:8px 0 0;
+border-top:1px solid var(--line);
+}
+.nav-links.is-open{display:flex}
+.nav-links a{
+display:block;
+width:100%;
+padding:10px 12px;
+font-size:15px;
+border-bottom:1px solid var(--line);
+}
+.nav-links a:hover{background:var(--rose-light)}
+.nav-links .nav-health{
+margin-top:9px;
+margin-bottom:5px;
+padding:11px 13px;
+border:0;
+border-radius:8px;
+text-align:center;
+}
+.nav-links a:last-child{
+border-bottom:0;
+}
+
+/* Existing mobile page styling */
 .hero-banner{padding:14px 0}
 .banner-image{border-radius:8px}
 section{padding:30px 0}
@@ -283,8 +346,19 @@ html{scroll-behavior:auto}
 <body>
 <header>
 <nav class="wrap" aria-label="Main navigation">
+
 <div class="nav-top">
 <a class="brand" href="/">Backup<span>Steward</span><small>Backup &amp; Recovery Consulting</small></a>
+
+<button
+class="mobile-menu-toggle"
+type="button"
+aria-label="Open navigation menu"
+aria-expanded="false"
+aria-controls="primary-navigation">
+<span class="menu-icon" aria-hidden="true">☰</span>
+<span class="close-icon" aria-hidden="true">×</span>
+</button>
 </div>
 
 <div class="tech-logo-strip" aria-label="Supported backup platforms">
@@ -296,7 +370,7 @@ html{scroll-behavior:auto}
 <div class="tech-logo-item"><img src="06-networker.jpeg" alt="Dell EMC NetWorker" loading="eager"></div>
 </div>
 
-<div class="nav-links">
+<div class="nav-links" id="primary-navigation">
 <a href="#services">Services</a>
 <a href="#case-studies">Case Studies</a>
 <a href="#technologies">Technologies</a>
@@ -318,7 +392,6 @@ html{scroll-behavior:auto}
 </div>
 </section>
 
-<!-- NEW: TRUST AND VALUE SECTION -->
 <section class="trust-section" aria-label="BackupSteward capabilities">
 <div class="wrap">
 <div class="trust-grid">
@@ -823,6 +896,53 @@ html{scroll-behavior:auto}
 </span>
 </div>
 </footer>
+
+<script>
+(function(){
+  const menuButton = document.querySelector('.mobile-menu-toggle');
+  const navigation = document.querySelector('#primary-navigation');
+
+  if(!menuButton || !navigation) return;
+
+  function closeMenu(){
+    menuButton.setAttribute('aria-expanded','false');
+    menuButton.setAttribute('aria-label','Open navigation menu');
+    navigation.classList.remove('is-open');
+  }
+
+  function openMenu(){
+    menuButton.setAttribute('aria-expanded','true');
+    menuButton.setAttribute('aria-label','Close navigation menu');
+    navigation.classList.add('is-open');
+  }
+
+  menuButton.addEventListener('click',function(){
+    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
+    if(isExpanded){
+      closeMenu();
+    }else{
+      openMenu();
+    }
+  });
+
+  navigation.querySelectorAll('a').forEach(function(link){
+    link.addEventListener('click',closeMenu);
+  });
+
+  document.addEventListener('keydown',function(event){
+    if(event.key === 'Escape'){
+      closeMenu();
+    }
+  });
+
+  /* If the viewport changes to desktop, reset the mobile menu state. */
+  window.addEventListener('resize',function(){
+    if(window.innerWidth > 560){
+      closeMenu();
+    }
+  });
+})();
+</script>
 
 </body>
 </html>
