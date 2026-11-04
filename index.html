@@ -1,10 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="description" content="Independent backup and recovery consulting and technical delivery for businesses of all sizes, MSPs and enterprise IT teams. Health checks, migrations, restore testing and ransomware resilience.">
+<meta name="description" content="Independent backup and recovery consulting: health checks, restore testing, migrations and ransomware resilience across Commvault, Veeam, NetBackup and more.">
 <meta name="theme-color" content="#4A1022">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="https://backupsteward.com/">
@@ -24,6 +23,7 @@ gtag('config', 'G-214R25SYC8');
 html{scroll-behavior:smooth;scroll-padding-top:20px}
 body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--ink);line-height:1.7;background:var(--bg);overflow-wrap:break-word}
 img{max-width:100%}
+a{color:var(--burgundy-2)}
 a:focus-visible,button:focus-visible{outline:3px solid var(--rose);outline-offset:3px}
 .wrap{width:min(1100px,92%);margin-inline:auto}
 header{background:var(--bg)}
@@ -32,49 +32,22 @@ nav{display:block;padding:18px 0}
 .brand{font-size:23px;font-weight:800;color:var(--burgundy);text-decoration:none;line-height:1.2;white-space:nowrap;flex:0 0 auto}
 .brand span{color:var(--rose)}
 .brand small{display:block;font-size:12px;font-weight:600;letter-spacing:.2px;margin-top:5px;color:var(--burgundy-2)}
-
-/* Mobile menu button: hidden on desktop */
-.mobile-menu-toggle{
-display:none;
-align-items:center;
-justify-content:center;
-width:46px;
-height:42px;
-padding:0;
-border:1px solid #EBC5D1;
-border-radius:9px;
-background:var(--rose-light);
-color:var(--burgundy);
-font-size:25px;
-line-height:1;
-cursor:pointer;
-}
-.mobile-menu-toggle:hover{background:#F0D6DF}
-.mobile-menu-toggle .menu-icon{display:block}
-.mobile-menu-toggle .close-icon{display:none}
-.mobile-menu-toggle[aria-expanded="true"] .menu-icon{display:none}
-.mobile-menu-toggle[aria-expanded="true"] .close-icon{display:block}
-
-.tech-logo-strip{display:flex;align-items:center;gap:14px;width:100%;margin-top:15px;padding:12px 2px 14px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#D9B8C3 transparent;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.tech-logo-item{flex:0 0 auto;width:105px;height:44px;display:flex;align-items:center;justify-content:center}
+.tech-logo-strip{display:flex;align-items:center;gap:clamp(18px,3vw,34px);width:100%;margin-top:15px;padding:12px 2px 14px;overflow-x:auto;overscroll-behavior-x:contain;scrollbar-width:thin;scrollbar-color:#D9B8C3 transparent;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.tech-logo-item{flex:0 0 auto;width:clamp(112px,15vw,165px);height:54px;display:flex;align-items:center;justify-content:center}
 .tech-logo-item img{display:block;max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain}
-
 .nav-links{display:flex;gap:16px;flex-wrap:wrap;align-items:center;margin-top:17px;padding-top:13px;border-top:1px solid var(--line)}
 .nav-links a{color:var(--muted);text-decoration:none;font-size:14px;font-weight:600}
 .nav-links a:hover{color:var(--burgundy-2)}
 .nav-links .nav-health{background:var(--rose);color:#35101D;padding:7px 12px;border-radius:7px;font-weight:800}
 .nav-links .nav-health:hover{background:#F0A4BA;color:#35101D}
-
 .hero-banner{background:var(--burgundy);padding:20px 0}
 .banner-image{display:block;width:100%;height:auto;border-radius:10px}
-
 .btn{display:inline-block;padding:12px 17px;border-radius:8px;text-decoration:none;font-weight:700;font-size:14px;margin:8px 8px 0 0;transition:transform .15s ease,background .15s ease}
 .btn:hover{transform:translateY(-1px)}
 .primary{background:var(--rose);color:#35101D;border:1px solid var(--rose)}
 .primary:hover{background:#F0A4BA}
 .secondary{background:transparent;color:var(--burgundy);border:1px solid var(--burgundy-2)}
 .secondary:hover{background:var(--rose-light)}
-
 section{padding:54px 0}
 .white{background:var(--white)}
 h1{color:var(--burgundy);font-size:clamp(28px,4.4vw,42px);line-height:1.2;margin:0 0 14px}
@@ -82,8 +55,15 @@ h2{color:var(--burgundy);font-size:clamp(27px,3.8vw,36px);line-height:1.2;margin
 h3{line-height:1.35}
 .intro{color:var(--muted);max-width:800px;margin-top:0}
 .intro-cta{margin-top:18px;margin-bottom:8px}
-.section-top{display:flex;justify-content:space-between;align-items:end;gap:20px;flex-wrap:wrap}
-
+.section-top{position:relative;isolation:isolate;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;min-height:340px;padding:clamp(28px,5vw,54px);margin-bottom:28px;overflow:hidden;border-radius:18px;background:#4A1022;box-shadow:0 12px 34px #4A10221c}
+.hero-video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;pointer-events:none}
+.section-top::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(90deg,rgba(48,7,22,.88) 0%,rgba(74,16,34,.72) 58%,rgba(74,16,34,.42) 100%)}
+.hero-copy{position:relative;z-index:2;max-width:820px}
+.section-top h1{color:#fff;max-width:780px;text-shadow:0 2px 12px #21071166}
+.section-top .intro{color:#F8EDEF;max-width:760px}
+.section-top .pill{background:rgba(255,255,255,.13);border-color:rgba(255,255,255,.32);color:#fff}
+.section-top .btn.secondary{color:#fff;border-color:#F8DDE6;background:rgba(255,255,255,.08)}
+.section-top .btn.secondary:hover{background:rgba(255,255,255,.18)}
 .cards{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
 .card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 3px 12px #4A102208}
 .card h3{color:var(--burgundy);font-size:18px;margin:8px 0}
@@ -91,15 +71,10 @@ h3{line-height:1.35}
 .card p+p{margin-top:12px}
 .card a{display:inline-block;margin-top:12px;font-size:14px;font-weight:700}
 .symbol{font-size:25px;color:var(--burgundy-2);line-height:1.2}
+.results-grid{grid-template-columns:repeat(4,minmax(0,1fr))}
+.stat{font-size:30px;font-weight:800;color:var(--burgundy-2);line-height:1.2}
 
-.case-study-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px;margin-top:28px}
-.case-study{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px;box-shadow:0 3px 12px #4A102208}
-.case-study h3{color:var(--burgundy);font-size:19px;line-height:1.35;margin:0 0 15px}
-.case-study-block{margin-top:13px}
-.case-study-label{display:block;color:var(--burgundy-2);font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;margin-bottom:4px}
-.case-study-block p{color:var(--muted);font-size:14px;margin:0}
-.case-study-note{color:var(--muted);font-size:12px;margin:18px 0 0}
-
+/* Technology ecosystem */
 .badge-section{background:#fff;padding:34px 0 40px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .badge-heading{text-align:center;margin-bottom:23px}
 .badge-heading h2{font-size:25px;margin-bottom:7px}
@@ -107,23 +82,9 @@ h3{line-height:1.35}
 .badge-category{color:var(--burgundy);font-size:13px;font-weight:800;letter-spacing:.7px;text-transform:uppercase;margin:23px 0 12px}
 .chip-row{display:flex;flex-wrap:wrap;gap:10px}
 .tech-chip{border:1px solid #E9DDE2;border-radius:99px;background:#FFFCFD;color:var(--burgundy);font-size:14px;font-weight:700;padding:9px 16px;line-height:1.3}
+.badge-note{text-align:center;font-size:11px;color:var(--muted);margin:18px 0 0}
 
-.certification-section{background:#fff;padding:38px 0 42px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
-.certification-heading{text-align:center;margin-bottom:25px}
-.certification-heading h2{font-size:27px;margin:0 0 8px}
-.certification-heading p{color:var(--muted);font-size:14px;margin:0 auto;max-width:700px}
-.certification-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
-.certification-card{position:relative;display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:145px;padding:20px 16px;background:#FFFCFD;border:1px solid #EBC5D1;border-radius:13px;text-decoration:none;box-shadow:0 3px 12px #4A102208;transition:transform .18s ease,border-color .18s ease,box-shadow .18s ease}
-.certification-card:hover{transform:translateY(-3px);border-color:var(--rose);box-shadow:0 6px 18px #4A102214}
-.certification-logo{display:flex;align-items:center;justify-content:center;width:100%;height:55px;margin-bottom:12px}
-.certification-logo img{display:block;max-width:190px;max-height:52px;width:auto;height:auto;object-fit:contain}
-.certification-label{display:inline-flex;align-items:center;gap:6px;background:var(--rose-light);color:var(--burgundy);border:1px solid #EBC5D1;border-radius:99px;padding:5px 12px;font-size:12px;font-weight:800;line-height:1.3}
-.certification-check{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:50%;background:var(--burgundy-2);color:#fff;font-size:11px;line-height:1}
-.certification-link{display:block;text-align:center;color:var(--burgundy-2);font-size:13px;font-weight:700;margin-top:19px}
-.certification-link span{display:inline-block;transition:transform .15s ease}
-.certification-card:hover .certification-link span{transform:translateX(4px)}
-.certification-note{text-align:center;color:var(--muted);font-size:11px;margin:18px 0 0}
-
+/* Free assessment cards */
 .assessment-tools{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:24px 0 10px}
 .health-check{padding:24px 26px;background:var(--rose-light);border:1px solid #EBC5D1;border-radius:14px;display:flex;flex-direction:column;justify-content:space-between;align-items:flex-start;gap:16px;min-height:235px}
 .health-check-copy{flex:1}
@@ -134,17 +95,10 @@ h3{line-height:1.35}
 .report-strip{margin-top:28px;padding:22px 24px;background:var(--rose-light);border:1px solid #EBC5D1;border-radius:14px;display:flex;justify-content:space-between;align-items:center;gap:18px;flex-wrap:wrap}
 .report-strip h3{margin:0 0 4px;color:var(--burgundy)}
 .report-strip p{margin:0;color:#55464B;font-size:14px}
-
-.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:15px;margin-top:26px}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:15px;margin-top:26px}
 .step{border-top:3px solid var(--rose);padding:18px;background:#FAF7F8;border-radius:0 0 10px 10px}
 .step h3{font-size:17px;color:var(--burgundy);margin:4px 0 8px}
 .step p{color:var(--muted);font-size:14px;margin:0}
-
-.partnership-panel{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:26px;margin-top:24px}
-.partnership-panel p{color:var(--muted)}
-.engagement-card{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:22px}
-.engagement-card h3{color:var(--burgundy);font-size:18px;margin:0 0 8px}
-.engagement-card p{color:var(--muted);font-size:14px;margin:0}
 .split{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
 .about-panel{background:var(--white);border:1px solid var(--line);border-radius:14px;padding:24px}
 .about-panel p{color:var(--muted)}
@@ -152,138 +106,43 @@ ul.clean{padding-left:20px}
 ul.clean li{margin:8px 0}
 .pill-list{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
 .pill{background:var(--rose-light);border:1px solid #EBC5D1;color:var(--burgundy);padding:6px 10px;border-radius:99px;font-size:13px;font-weight:700}
-
 .faq-list{display:grid;grid-template-columns:1fr 1fr;gap:15px;margin-top:24px}
 .faq{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:20px}
 .faq h3{color:var(--burgundy);font-size:17px;margin:0 0 8px}
 .faq p{color:var(--muted);font-size:14px;margin:0}
-
 .contact{background:var(--burgundy);color:var(--white);padding:32px;border-radius:16px}
 .contact h2{color:var(--white)}
 .contact p{color:#F5E9ED}
 .contact a:not(.btn){color:#F0A4BA;overflow-wrap:anywhere}
 .contact .btn.primary{color:#35101D}
 .contact-meta{font-size:14px}
-
-.linkedin-link{display:inline-flex;align-items:center;gap:9px;margin-top:12px;padding:10px 16px;border:1px solid #F0A4BA;border-radius:8px;color:#F0A4BA !important;text-decoration:none;font-size:14px;font-weight:700;transition:background .2s ease,color .2s ease}
-.linkedin-link:hover{background:#F0A4BA;color:#35101D !important}
-.linkedin-icon{display:inline-flex;align-items:center;justify-content:center;width:22px;height:22px;border:1px solid currentColor;border-radius:4px;font-size:14px;font-weight:800;line-height:1}
-
 footer{padding:24px 0;color:var(--muted);font-size:13px}
 .footer-inner{display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
 footer a{color:var(--burgundy-2)}
 
-/* BackupSteward credibility metrics */
-.trust-section{
-background:#fff;
-padding:30px 0;
-border-top:1px solid var(--line);
-border-bottom:1px solid var(--line);
-}
-.trust-grid{
-display:grid;
-grid-template-columns:repeat(4,minmax(0,1fr));
-gap:14px;
-}
-.trust-item{
-text-align:center;
-padding:20px 12px;
-background:#FFFCFD;
-border:1px solid #EBC5D1;
-border-radius:12px;
-display:flex;
-flex-direction:column;
-justify-content:center;
-min-height:125px;
-}
-.trust-value{
-display:block;
-color:var(--burgundy);
-font-size:clamp(23px,3vw,30px);
-font-weight:800;
-line-height:1.25;
-margin-bottom:7px;
-}
-.trust-label{
-display:block;
-color:var(--muted);
-font-size:13px;
-font-weight:700;
-line-height:1.4;
-}
-.trust-note{
-text-align:center;
-color:var(--muted);
-font-size:11px;
-margin:14px 0 0;
-}
-
 @media(max-width:800px){
 .split{grid-template-columns:1fr;gap:24px}
 .cards{grid-template-columns:repeat(2,minmax(0,1fr))}
-.case-study-grid{grid-template-columns:1fr}
 .steps{grid-template-columns:repeat(2,minmax(0,1fr))}
 section{padding:42px 0}
-.tech-logo-strip{gap:14px}
-.tech-logo-item{width:105px;height:44px}
-.trust-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.tech-logo-strip{gap:22px}.tech-logo-item{width:132px;height:48px}
 }
-
-/* Mobile-only navigation */
 @media(max-width:560px){
 .wrap{width:90%}
 nav{padding:15px 0 12px}
-
-/* Keep logo and hamburger on the same row */
-.nav-top{
-align-items:center;
-flex-direction:row;
-justify-content:space-between;
-gap:12px;
-}
+.nav-top{align-items:flex-start;flex-direction:column;gap:10px}
 .brand{font-size:22px}
 .brand small{font-size:12px}
-.mobile-menu-toggle{display:inline-flex;flex:0 0 auto}
-
-/* Technology logos remain horizontally scrollable */
-.tech-logo-strip{margin-top:12px;padding:10px 1px 12px;gap:14px}
-.tech-logo-item{width:105px;height:44px}
-
-/* Menu is collapsed until the hamburger is tapped */
-.nav-links{
-display:none;
-width:100%;
-flex-direction:column;
-align-items:stretch;
-gap:0;
-margin-top:12px;
-padding:8px 0 0;
-border-top:1px solid var(--line);
-}
-.nav-links.is-open{display:flex}
-.nav-links a{
-display:block;
-width:100%;
-padding:10px 12px;
-font-size:15px;
-border-bottom:1px solid var(--line);
-}
-.nav-links a:hover{background:var(--rose-light)}
-.nav-links .nav-health{
-margin-top:9px;
-margin-bottom:5px;
-padding:11px 13px;
-border:0;
-border-radius:8px;
-text-align:center;
-}
-.nav-links a:last-child{
-border-bottom:0;
-}
-
-/* Existing mobile page styling */
+.tech-logo-strip{margin-top:12px;padding:10px 1px 12px;gap:18px}.tech-logo-item{width:116px;height:44px}
+.nav-links{width:100%;gap:9px 12px;justify-content:flex-start;margin-top:12px;padding-top:10px}
+.nav-links a{font-size:13px}
+.nav-links .nav-health{padding:5px 9px}
 .hero-banner{padding:14px 0}
 .banner-image{border-radius:8px}
+.section-top{min-height:310px;padding:26px 20px;border-radius:14px;background:linear-gradient(135deg,#4A1022,#72223B)}
+.hero-video{display:block}
+.section-top::before{background:linear-gradient(90deg,rgba(48,7,22,.90),rgba(74,16,34,.66))}
+.section-top h1{font-size:28px}
 section{padding:30px 0}
 h1{font-size:28px}
 h2{font-size:28px}
@@ -300,17 +159,6 @@ h2{font-size:28px}
 .badge-heading p{font-size:13px}
 .tech-chip{font-size:13px;padding:8px 13px}
 .badge-category{font-size:12px;margin-top:19px}
-.certification-section{padding:30px 0 32px}
-.certification-heading{margin-bottom:20px}
-.certification-heading h2{font-size:23px}
-.certification-heading p{font-size:13px}
-.certification-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.certification-card{min-height:130px;padding:14px 10px}
-.certification-logo{height:45px;margin-bottom:9px}
-.certification-logo img{max-width:135px;max-height:43px}
-.certification-label{font-size:11px;padding:5px 9px}
-.certification-link{font-size:12px;margin-top:13px}
-.certification-note{font-size:10px;margin-top:15px}
 .assessment-tools{grid-template-columns:1fr;gap:14px}
 .health-check{padding:20px;gap:14px;min-height:0}
 .health-check h3{font-size:21px}
@@ -319,63 +167,39 @@ h2{font-size:28px}
 .report-strip .btn{width:100%;text-align:center;margin-right:0}
 .intro-cta .btn{width:100%;text-align:center;margin-right:0}
 .about-panel{padding:20px}
-.partnership-panel{padding:20px}
-.engagement-card{padding:20px}
 .faq-list{gap:12px}
 .faq{padding:18px}
 .contact{padding:24px 20px}
 .contact .btn{width:100%;text-align:center;margin-right:0}
-.linkedin-link{width:100%;justify-content:center}
 footer{padding:20px 0}
 .footer-inner{flex-direction:column;gap:8px}
-.trust-section{padding:22px 0}
-.trust-grid{gap:10px}
-.trust-item{padding:16px 9px;min-height:115px}
-.trust-value{font-size:24px}
-.trust-label{font-size:12px}
 }
-
 @media(prefers-reduced-motion:reduce){
 html{scroll-behavior:auto}
 .btn{transition:none}
-.certification-card{transition:none}
+.hero-video{display:none}
+.section-top{background:linear-gradient(135deg,#4A1022,#72223B)}
 }
 </style>
 </head>
-
 <body>
 <header>
 <nav class="wrap" aria-label="Main navigation">
-
 <div class="nav-top">
-<a class="brand" href="/">Backup<span>Steward</span><small>Backup &amp; Recovery Consulting</small></a>
-
-<button
-class="mobile-menu-toggle"
-type="button"
-aria-label="Open navigation menu"
-aria-expanded="false"
-aria-controls="primary-navigation">
-<span class="menu-icon" aria-hidden="true">☰</span>
-<span class="close-icon" aria-hidden="true">×</span>
-</button>
+<a class="brand" href="#top">Backup<span>Steward</span><small>Backup &amp; Recovery Consulting</small></a>
 </div>
-
 <div class="tech-logo-strip" aria-label="Supported backup platforms">
-<div class="tech-logo-item"><img src="01-commvault.png" alt="Commvault" loading="eager"></div>
-<div class="tech-logo-item"><img src="02-veritas-netbackup.jpg" alt="Veritas NetBackup" loading="eager"></div>
-<div class="tech-logo-item"><img src="03-veeam.png" alt="Veeam" loading="eager"></div>
-<div class="tech-logo-item"><img src="04-cohesity.png" alt="Cohesity" loading="eager"></div>
-<div class="tech-logo-item"><img src="05-rubrik.png" alt="Rubrik" loading="eager"></div>
-<div class="tech-logo-item"><img src="06-networker.jpeg" alt="Dell EMC NetWorker" loading="eager"></div>
+<div class="tech-logo-item"><img src="data:image/jpeg;base64,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" alt="Commvault" loading="eager"></div>
+<div class="tech-logo-item"><img src="data:image/jpeg;base64,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" alt="Veritas NetBackup" loading="eager"></div>
+<div class="tech-logo-item"><img src="data:image/jpeg;base64,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" alt="Veeam" loading="eager"></div>
+<div class="tech-logo-item"><img src="data:image/jpeg;base64,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" alt="Cohesity" loading="eager"></div>
+<div class="tech-logo-item"><img src="data:image/jpeg;base64,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" alt="Rubrik" loading="eager"></div>
 </div>
-
-<div class="nav-links" id="primary-navigation">
+<div class="nav-links">
 <a href="#services">Services</a>
-<a href="#case-studies">Case Studies</a>
+<a href="#results">Results</a>
+<a href="#workloads">Workloads</a>
 <a href="#technologies">Technologies</a>
-<a href="#partnerships">Partners</a>
-<a href="#engagements">Engagements</a>
 <a href="#approach">Our Process</a>
 <a href="#about">About</a>
 <a class="nav-health" href="#assessments">Free Assessments ↗</a>
@@ -392,55 +216,24 @@ aria-controls="primary-navigation">
 </div>
 </section>
 
-<section class="trust-section" aria-label="BackupSteward capabilities">
-<div class="wrap">
-<div class="trust-grid">
-
-<div class="trust-item">
-<span class="trust-value">24/7</span>
-<span class="trust-label">Backup &amp; Recovery Team Availability</span>
-</div>
-
-<div class="trust-item">
-<span class="trust-value">15+ Years</span>
-<span class="trust-label">Backup &amp; Recovery Experience</span>
-</div>
-
-<div class="trust-item">
-<span class="trust-value">99%</span>
-<span class="trust-label">Backup SLA Compliance Achieved</span>
-</div>
-
-<div class="trust-item">
-<span class="trust-value">Cost Optimisation</span>
-<span class="trust-label">Smarter Backup Infrastructure Spending</span>
-</div>
-
-</div>
-
-<p class="trust-note">
-99% SLA compliance reflects a specific client engagement result.
-24/7 availability is subject to agreed support scope and arrangements.
-</p>
-</div>
-</section>
-
 <section id="services">
 <div class="wrap">
 <div class="section-top">
-<div>
+<video class="hero-video" autoplay muted loop playsinline webkit-playsinline preload="metadata" poster="backupsteward-hero-poster.jpg" aria-hidden="true" disablepictureinpicture>
+<source src="backupsteward-hero-mobile.mp4" type="video/mp4" media="(max-width: 700px)">
+<source src="backupsteward-hero.mp4" type="video/mp4">
+</video>
+<div class="hero-copy">
 <h1>Prove your backups can restore, before you need them</h1>
-<p class="intro">BackupSteward provides independent backup and recovery consulting and technical delivery for businesses of all sizes, managed service providers and enterprise IT teams. From focused troubleshooting and backup health assessments to complex migrations, disaster recovery and ransomware resilience projects, we help organisations improve data protection and build confidence in recovery across Commvault, Veritas NetBackup, Dell EMC NetWorker, Veeam, Rubrik and Cohesity.</p>
-
+<p class="intro">Independent backup and recovery consulting for enterprise IT teams. We assess backup health, fix failing jobs, validate restores and plan migrations across Commvault, Veritas NetBackup, Dell EMC NetWorker, Veeam, Rubrik and Cohesity.</p>
 <div class="pill-list" aria-label="Key facts">
 <span class="pill">15+ years in backup and recovery</span>
 <span class="pill">Vendor-independent</span>
 <span class="pill">Free health check and recovery score</span>
 </div>
-
 <div class="intro-cta">
 <a class="btn primary" href="mailto:contact@backupsteward.com?subject=BackupSteward%20Consulting%20Enquiry&amp;body=Hello%20BackupSteward%2C%0A%0ABackup%20platform%3A%0AWorkload%20or%20environment%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you.">Discuss Your Backup Challenges ↗</a>
-<a class="btn secondary" href="/backup-health-check">Start Free Backup Health Check</a>
+<a class="btn secondary" href="backup-health-check.html">Start Free Backup Health Check</a>
 </div>
 </div>
 </div>
@@ -452,143 +245,42 @@ aria-controls="primary-navigation">
 <h3>How healthy is your backup environment?</h3>
 <p>Identify potential backup and recovery gaps with a short assessment. Answer a few questions and receive an initial report with prioritised findings and practical recommendations.</p>
 </div>
-<a class="btn primary" href="/backup-health-check">Start Free Backup Health Check ↗</a>
+<a class="btn primary" href="backup-health-check.html">Start Free Backup Health Check ↗</a>
 </article>
-
 <article class="health-check">
 <div class="health-check-copy">
 <div class="eyebrow">Free recovery assessment</div>
 <h3>Can your organisation recover when it matters?</h3>
 <p>Evaluate RTO/RPO, recovery testing, application dependencies, runbooks, clean recovery environments and disaster recovery preparedness. Receive a Recovery Readiness Score with maturity insights and priority actions.</p>
 </div>
-<a class="btn primary" href="/recovery-readiness-score">Get Your Recovery Readiness Score ↗</a>
+<a class="btn primary" href="recovery-readiness-score.html">Get Your Recovery Readiness Score ↗</a>
 </article>
-</div>
-
-<div class="report-strip">
-<div>
-<h3>See what a BackupSteward assessment delivers</h3>
-<p>View a sample assessment report showing how findings, risks and recommendations can be presented to an organisation. This is an illustrative example, separate from our interactive assessment tools.</p>
-</div>
-<a class="btn primary" href="/sample-assessment.html">View Sample Assessment Report ↗</a>
 </div>
 
 <div class="cards">
-<article class="card">
-<div class="symbol" aria-hidden="true">⌕</div>
-<h3>Enterprise Backup &amp; Workload Assessment</h3>
-<p>Review backup architecture, policies, job outcomes, retention, workload coverage, storage health and restore evidence across databases, applications, servers, virtual environments and cloud workloads. Receive prioritised findings and practical remediation guidance.</p>
-<p><a href="/enterprise-backup-recovery">Explore enterprise backup consulting →</a></p>
-</article>
-
-<article class="card">
-<div class="symbol" aria-hidden="true">⚙</div>
-<h3>Backup Troubleshooting</h3>
-<p>Investigate backup failures, connectivity, infrastructure bottlenecks, performance, storage issues and recurring operational challenges across enterprise backup platforms and workloads.</p>
-</article>
-
-<article class="card">
-<div class="symbol" aria-hidden="true">◈</div>
-<h3>Immutable Backup &amp; Ransomware Resilience</h3>
-<p>Review immutability settings, retention controls, protection gaps and recovery readiness to help strengthen resilience against unauthorised changes and ransomware.</p>
-<p><a href="/immutable-backup-ransomware-resilience">Explore immutable backup consulting →</a></p>
-</article>
-
-<article class="card">
-<div class="symbol" aria-hidden="true">↻</div>
-<h3>Backup Platform &amp; Infrastructure Migrations</h3>
-<p>Plan and support backup platform transitions, infrastructure modernisation, storage and repository migrations, data movement, cloud adoption and consolidation. Review migration risks, dependencies, cutover planning and post-migration backup and restore validation.</p>
-</article>
-
-<article class="card">
-<div class="symbol" aria-hidden="true">☁</div>
-<h3>Cloud &amp; Hybrid Backup</h3>
-<p>Guidance for on-premises, cloud and hybrid environments, including cloud infrastructure, virtual machines, physical servers, databases, file services and application workloads.</p>
-</article>
-
-<article class="card">
-<div class="symbol" aria-hidden="true">✓</div>
-<h3>Restore Testing &amp; BCP/DR Readiness</h3>
-<p>Review restore-test evidence, recovery procedures, dependencies and continuity-test outcomes. Identify gaps and recommend validation steps for critical workloads.</p>
-</article>
-
-<article class="card">
-<div class="symbol" aria-hidden="true">▤</div>
-<h3>Remediation &amp; Documentation</h3>
-<p>Develop clear runbooks and action plans covering findings, priorities, recommended fixes, ownership considerations and validation steps.</p>
-</article>
-
-<article class="card">
-<div class="symbol" aria-hidden="true">⌁</div>
-<h3>Backup Architecture &amp; Performance</h3>
-<p>Review backup design, capacity, workload coverage, storage and infrastructure performance, data growth and opportunities for operational improvement.</p>
-</article>
-
-<article class="card">
-<div class="symbol" aria-hidden="true">◷</div>
-<h3>Ongoing Backup Advisory</h3>
-<p>Agreed-scope periodic reviews, technical discussions, follow-up on findings and help prioritising backup and recovery improvements.</p>
-</article>
+<article class="card"><div class="symbol" aria-hidden="true">⌕</div><h3>Enterprise Backup &amp; Workload Assessment</h3><p>Review backup architecture, policies, job outcomes, retention, workload coverage, storage health and restore evidence across databases, applications, servers, virtual environments and cloud workloads. Receive prioritised findings and practical remediation guidance.</p><p><a href="enterprise-backup-recovery.html">Explore enterprise backup consulting →</a></p></article>
+<article class="card"><div class="symbol" aria-hidden="true">⚙</div><h3>Backup Troubleshooting</h3><p>Investigate backup failures, connectivity, infrastructure bottlenecks, performance, storage issues and recurring operational challenges across enterprise backup platforms and workloads.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">◈</div><h3>Immutable Backup &amp; Ransomware Resilience</h3><p>Review immutability settings, retention controls, protection gaps and recovery readiness to help strengthen resilience against unauthorised changes and ransomware.</p><p><a href="immutable-backup-ransomware-resilience.html">Explore immutable backup consulting →</a></p></article>
+<article class="card"><div class="symbol" aria-hidden="true">↻</div><h3>Backup Platform &amp; Infrastructure Migrations</h3><p>Plan and support backup platform transitions, infrastructure modernisation, storage and repository migrations, data movement, cloud adoption and consolidation. Review migration risks, dependencies, cutover planning and post-migration backup and restore validation.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">☁</div><h3>Cloud &amp; Hybrid Backup</h3><p>Guidance for on-premises, cloud and hybrid environments, including cloud infrastructure, virtual machines, physical servers, databases, file services and application workloads.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">✓</div><h3>Restore Testing &amp; BCP/DR Readiness</h3><p>Review restore-test evidence, recovery procedures, dependencies and continuity-test outcomes. Identify gaps and recommend validation steps for critical workloads.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">▤</div><h3>Remediation &amp; Documentation</h3><p>Develop clear runbooks and action plans covering findings, priorities, recommended fixes, ownership considerations and validation steps.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">⌁</div><h3>Backup Architecture &amp; Performance</h3><p>Review backup design, capacity, workload coverage, storage and infrastructure performance, data growth and opportunities for operational improvement.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">◷</div><h3>Ongoing Backup Advisory</h3><p>Agreed-scope periodic reviews, technical discussions, follow-up on findings and help prioritising backup and recovery improvements.</p></article>
 </div>
 </div>
 </section>
 
-<section id="case-studies">
+<section class="white" id="results">
 <div class="wrap">
-<h2>Selected Engagements &amp; Results</h2>
-<p class="intro">Examples of how focused backup and recovery consulting can improve protection, recovery confidence and cost efficiency.</p>
-
-<div class="case-study-grid">
-<article class="case-study">
-<h3>1. Raising Backup SLA Compliance from 30% to 99%</h3>
-<div class="case-study-block">
-<span class="case-study-label">Challenge</span>
-<p>Backup jobs were frequently missing their SLA targets, with only 30% compliance. This left the business without confidence that its critical data was consistently protected.</p>
+<h2>Results that matter in a recovery</h2>
+<p class="intro">What better backup operations have delivered for client environments.</p>
+<div class="cards results-grid">
+<article class="card"><div class="stat">30% → 99%</div><h3>Client SLA compliance</h3><p>Raised client backup SLA compliance from 30% to 99% by fixing failing jobs and coverage gaps.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">✓</div><h3>Restores proven in real time</h3><p>Real-time restore checks found and corrected problems, which helped clients recover during actual disasters.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">↻</div><h3>Timely software upgrades</h3><p>Upgrades planned on schedule to keep backup platforms patched and reduce security exposure.</p></article>
+<article class="card"><div class="symbol" aria-hidden="true">◈</div><h3>Right-sized budgets</h3><p>Implementations budgeted around your infrastructure and requirements, so you pay only for what you need.</p></article>
 </div>
-<div class="case-study-block">
-<span class="case-study-label">Approach</span>
-<p>We reviewed backup job outcomes and policies, addressed recurring failure root causes, and closed backup coverage gaps across the environment.</p>
-</div>
-<div class="case-study-block">
-<span class="case-study-label">Outcome</span>
-<p>SLA compliance improved from 30% to 99%. Recurring failures reduced, firefighting effort decreased, and the team gained clearer visibility into overall backup health.</p>
-</div>
-</article>
-
-<article class="case-study">
-<h3>2. Proving Recovery Readiness Before Disaster Strikes</h3>
-<div class="case-study-block">
-<span class="case-study-label">Challenge</span>
-<p>Backup jobs reported successful completion, but actual restores had not been regularly validated. This created uncertainty about whether critical systems could be recovered during an outage.</p>
-</div>
-<div class="case-study-block">
-<span class="case-study-label">Approach</span>
-<p>We performed restore validation for critical systems, identified and corrected recovery issues, and maintained platform currency through planned software upgrades to reduce security exposure.</p>
-</div>
-<div class="case-study-block">
-<span class="case-study-label">Outcome</span>
-<p>When a disaster occurred, the client was able to recover using previously validated restore procedures, helping avoid the costs and disruption associated with extended downtime.</p>
-</div>
-</article>
-
-<article class="case-study">
-<h3>3. Reducing Backup Costs Without Compromising Protection</h3>
-<div class="case-study-block">
-<span class="case-study-label">Challenge</span>
-<p>The client faced rising backup infrastructure costs and had received a standard upgrade proposal that did not adequately reflect its actual environment or recovery requirements.</p>
-</div>
-<div class="case-study-block">
-<span class="case-study-label">Approach</span>
-<p>We assessed the existing infrastructure, capacity requirements, and recovery objectives. We then developed an implementation approach based on actual business needs rather than a generic upgrade package.</p>
-</div>
-<div class="case-study-block">
-<span class="case-study-label">Outcome</span>
-<p>The client received a more cost-effective implementation tailored to its environment, while maintaining the required recovery objectives and restore capabilities.</p>
-</div>
-</article>
-</div>
-
-<p class="case-study-note">Client details have been anonymised to protect confidentiality.</p>
 </div>
 </section>
 
@@ -596,7 +288,6 @@ aria-controls="primary-navigation">
 <div class="wrap">
 <h2>Enterprise workloads we cover</h2>
 <p class="intro">We assess protection coverage, backup operations and recovery requirements across the technologies that support your business. Protection capabilities vary by backup product and environment.</p>
-
 <div class="cards">
 <article class="card"><h3>Databases</h3><p>Oracle Database, Microsoft SQL Server, SAP HANA, IBM Db2, PostgreSQL, MySQL and other enterprise database platforms. Review database protection, application consistency, transaction log handling and recovery requirements.</p></article>
 <article class="card"><h3>Enterprise Applications</h3><p>SAP applications, Microsoft Exchange, Microsoft 365, SharePoint and other business-critical applications. Review application-aware protection, dependencies and recovery procedures.</p></article>
@@ -608,14 +299,7 @@ aria-controls="primary-navigation">
 <article class="card"><h3>Endpoints &amp; User Data</h3><p>Enterprise laptops, desktops, remote-user systems and business-critical endpoint data. Review endpoint protection coverage and recovery requirements.</p></article>
 <article class="card"><h3>Object &amp; Unstructured Storage</h3><p>Object storage, enterprise repositories and large-scale unstructured data. Review data protection, retention, versioning, immutability and recovery requirements.</p></article>
 </div>
-
-<div class="report-strip">
-<div>
-<h3>Need a broader workload review?</h3>
-<p>Explore our enterprise backup and recovery assessment approach.</p>
-</div>
-<a class="btn primary" href="/enterprise-backup-recovery">Explore Enterprise Consulting ↗</a>
-</div>
+<div class="report-strip"><div><h3>Need a broader workload review?</h3><p>Explore our enterprise backup and recovery assessment approach.</p></div><a class="btn primary" href="enterprise-backup-recovery.html">Explore Enterprise Consulting ↗</a></div>
 </div>
 </section>
 
@@ -623,61 +307,16 @@ aria-controls="primary-navigation">
 <div class="wrap">
 <h2>Backup Platforms &amp; Infrastructure Expertise</h2>
 <p class="intro">Independent backup and recovery guidance across enterprise backup software, virtualisation platforms, operating systems and cloud infrastructure. Every engagement is scoped to your platform and requirements.</p>
-
 <div class="cards">
-<article class="card"><h3>Commvault</h3><p>Backup and recovery assessments, job failure investigation, MediaAgent connectivity and performance, deduplication database management, infrastructure migrations, restore validation and operational health reviews.</p><p><a href="/commvault-backup-consulting">Commvault Backup Consulting →</a></p></article>
-<article class="card"><h3>Veritas NetBackup</h3><p>Enterprise backup and recovery consulting covering backup policy reviews, job troubleshooting, storage and media management, workload protection and recovery-readiness assessments.</p><p><a href="/veritas-netbackup-consulting">Veritas NetBackup Consulting →</a></p></article>
-<article class="card"><h3>Dell EMC NetWorker</h3><p>Backup environment assessments, workflow and job troubleshooting, storage node and device considerations, client protection coverage and recovery validation.</p><p><a href="/dell-emc-networker-consulting">Dell EMC NetWorker Consulting →</a></p></article>
-<article class="card"><h3>Veeam Backup &amp; Replication</h3><p>Backup and recovery consulting covering job outcomes, VMware and Hyper-V workload protection, repository health, backup infrastructure, replication and restore readiness.</p><p><a href="/veeam-backup-consulting">Veeam Backup Consulting →</a></p></article>
-<article class="card"><h3>Rubrik</h3><p>Data protection and recovery-readiness reviews covering workload coverage, SLA policy considerations, retention, platform health, cyber resilience and recovery validation.</p><p><a href="/rubrik-backup-consulting">Rubrik Backup Consulting →</a></p></article>
-<article class="card"><h3>Cohesity</h3><p>Backup and recovery assessments covering workload protection, policy and retention reviews, platform health, data security considerations and restore readiness.</p><p><a href="/cohesity-backup-consulting">Cohesity Backup Consulting →</a></p></article>
+<article class="card"><h3>Commvault</h3><p>Backup and recovery assessments, job failure investigation, MediaAgent connectivity and performance, deduplication database management, infrastructure migrations, restore validation and operational health reviews.</p><p><a href="commvault-backup-consulting.html">Commvault Backup Consulting →</a></p></article>
+<article class="card"><h3>Veritas NetBackup</h3><p>Enterprise backup and recovery consulting covering backup policy reviews, job troubleshooting, storage and media management, workload protection and recovery-readiness assessments.</p><p><a href="veritas-netbackup-consulting.html">Veritas NetBackup Consulting →</a></p></article>
+<article class="card"><h3>Dell EMC NetWorker</h3><p>Backup environment assessments, workflow and job troubleshooting, storage node and device considerations, client protection coverage and recovery validation.</p><p><a href="dell-emc-networker-consulting.html">Dell EMC NetWorker Consulting →</a></p></article>
+<article class="card"><h3>Veeam Backup &amp; Replication</h3><p>Backup and recovery consulting covering job outcomes, VMware and Hyper-V workload protection, repository health, backup infrastructure, replication and restore readiness.</p><p><a href="veeam-backup-consulting.html">Veeam Backup Consulting →</a></p></article>
+<article class="card"><h3>Rubrik</h3><p>Data protection and recovery-readiness reviews covering workload coverage, SLA policy considerations, retention, platform health, cyber resilience and recovery validation.</p><p><a href="rubrik-backup-consulting.html">Rubrik Backup Consulting →</a></p></article>
+<article class="card"><h3>Cohesity</h3><p>Backup and recovery assessments covering workload protection, policy and retention reviews, platform health, data security considerations and restore readiness.</p><p><a href="cohesity-backup-consulting.html">Cohesity Backup Consulting →</a></p></article>
 <article class="card"><h3>Virtualisation, Cloud &amp; Infrastructure</h3><p>Backup environments involving VMware vSphere, Microsoft Hyper-V, Oracle Cloud Infrastructure, Windows Server, Linux systems, on-premises infrastructure and hybrid cloud.</p></article>
 <article class="card"><h3>Other Backup Technologies</h3><p>Additional platforms, including IBM Storage Protect, Acronis, Druva, HYCU and Arcserve, are covered based on your environment and engagement scope.</p></article>
 </div>
-</div>
-</section>
-
-<section class="certification-section" id="certifications" aria-labelledby="certification-title">
-<div class="wrap">
-<div class="certification-heading">
-<h2 id="certification-title">Platform Certifications &amp; Expertise</h2>
-<p>Certified backup and recovery professional with hands-on enterprise experience across six leading data protection platforms.</p>
-</div>
-
-<div class="certification-grid">
-<a class="certification-card" href="/commvault-backup-consulting" aria-label="Commvault certification and consulting expertise">
-<div class="certification-logo"><img src="01-commvault.png" alt="Commvault logo" loading="lazy"></div>
-<span class="certification-label"><span class="certification-check" aria-hidden="true">✓</span> Certified Professional</span>
-<span class="certification-link">Commvault Consulting <span aria-hidden="true">→</span></span>
-</a>
-<a class="certification-card" href="/veritas-netbackup-consulting" aria-label="Veritas NetBackup certification and consulting expertise">
-<div class="certification-logo"><img src="02-veritas-netbackup.jpg" alt="Veritas NetBackup logo" loading="lazy"></div>
-<span class="certification-label"><span class="certification-check" aria-hidden="true">✓</span> Certified Professional</span>
-<span class="certification-link">NetBackup Consulting <span aria-hidden="true">→</span></span>
-</a>
-<a class="certification-card" href="/dell-emc-networker-consulting" aria-label="Dell EMC NetWorker certification and consulting expertise">
-<div class="certification-logo"><img src="06-networker.jpeg" alt="Dell EMC NetWorker logo" loading="lazy"></div>
-<span class="certification-label"><span class="certification-check" aria-hidden="true">✓</span> Certified Professional</span>
-<span class="certification-link">NetWorker Consulting <span aria-hidden="true">→</span></span>
-</a>
-<a class="certification-card" href="/veeam-backup-consulting" aria-label="Veeam certification and consulting expertise">
-<div class="certification-logo"><img src="03-veeam.png" alt="Veeam logo" loading="lazy"></div>
-<span class="certification-label"><span class="certification-check" aria-hidden="true">✓</span> Certified Professional</span>
-<span class="certification-link">Veeam Consulting <span aria-hidden="true">→</span></span>
-</a>
-<a class="certification-card" href="/rubrik-backup-consulting" aria-label="Rubrik certification and consulting expertise">
-<div class="certification-logo"><img src="05-rubrik.png" alt="Rubrik logo" loading="lazy"></div>
-<span class="certification-label"><span class="certification-check" aria-hidden="true">✓</span> Certified Professional</span>
-<span class="certification-link">Rubrik Consulting <span aria-hidden="true">→</span></span>
-</a>
-<a class="certification-card" href="/cohesity-backup-consulting" aria-label="Cohesity certification and consulting expertise">
-<div class="certification-logo"><img src="04-cohesity.png" alt="Cohesity logo" loading="lazy"></div>
-<span class="certification-label"><span class="certification-check" aria-hidden="true">✓</span> Certified Professional</span>
-<span class="certification-link">Cohesity Consulting <span aria-hidden="true">→</span></span>
-</a>
-</div>
-
-<p class="certification-note">Platform certification details and consulting experience are provided on the respective platform pages.</p>
 </div>
 </section>
 
@@ -692,84 +331,13 @@ aria-controls="primary-navigation">
 <div class="chip-row">
 <span class="tech-chip">Commvault</span><span class="tech-chip">Veeam</span><span class="tech-chip">Veritas NetBackup</span><span class="tech-chip">Dell EMC NetWorker</span><span class="tech-chip">Dell EMC Avamar</span><span class="tech-chip">Rubrik</span><span class="tech-chip">Cohesity</span><span class="tech-chip">IBM Storage Protect</span><span class="tech-chip">Acronis</span><span class="tech-chip">HP Data Protector (HPDP)</span>
 </div>
-
 <div class="badge-category">Cloud Platforms</div>
 <div class="chip-row">
 <span class="tech-chip">Microsoft Azure</span><span class="tech-chip">Amazon Web Services (AWS)</span><span class="tech-chip">Oracle Cloud Infrastructure (OCI)</span><span class="tech-chip">Google Cloud</span>
 </div>
-
 <div class="badge-category">Backup Storage Technologies</div>
-<div class="chip-row">
-<span class="tech-chip">Tape libraries</span><span class="tech-chip">Disk libraries</span>
-</div>
-</div>
-</section>
-
-<section id="partnerships">
-<div class="wrap">
-<h2>Working with MSPs, System Integrators &amp; Technology Partners</h2>
-<p class="intro">BackupSteward works directly with organisations and alongside technology partners who need specialist backup and recovery expertise for customer engagements, infrastructure projects and ongoing service delivery.</p>
-
-<div class="partnership-panel">
-<div class="cards">
-<article class="engagement-card">
-<h3>Specialist Project Delivery</h3>
-<p>Technical support for backup assessments, troubleshooting, migrations, restore validation and recovery-readiness projects where additional specialist expertise is required.</p>
-</article>
-<article class="engagement-card">
-<h3>Subcontracting &amp; White-label Support</h3>
-<p>Agreed-scope delivery support for MSPs, system integrators and consulting firms, including work performed under the partner's delivery model where contractually agreed.</p>
-</article>
-<article class="engagement-card">
-<h3>Flexible Technical Capacity</h3>
-<p>Additional backup and recovery capability for project peaks, specialist requirements and defined work packages, subject to resource availability and agreed timelines.</p>
-</article>
-</div>
-<p>Partner engagements are scoped around the end-customer requirement, delivery responsibilities, access arrangements, confidentiality and commercial terms.</p>
-<a class="btn primary" href="mailto:contact@backupsteward.com?subject=BackupSteward%20Partnership%20Enquiry">Discuss a Partnership ↗</a>
-</div>
-</div>
-</section>
-
-<section class="white" id="engagements">
-<div class="wrap">
-<h2>Engagement Models</h2>
-<p class="intro">We work across different project sizes and business requirements. The engagement model is selected based on scope, complexity, deliverables and the level of support required.</p>
-
-<div class="cards">
-<article class="engagement-card">
-<h3>Hourly or Daily Technical Support</h3>
-<p>Focused troubleshooting, technical investigation, operational support and specialist assistance for clearly defined requirements.</p>
-</article>
-<article class="engagement-card">
-<h3>Fixed-scope Assessments</h3>
-<p>Structured backup health checks, architecture reviews and recovery-readiness assessments with agreed findings and recommendations.</p>
-</article>
-<article class="engagement-card">
-<h3>Project-based Delivery</h3>
-<p>Defined projects such as migrations, infrastructure changes, platform upgrades, restore validation and disaster recovery testing.</p>
-</article>
-<article class="engagement-card">
-<h3>Ongoing Advisory</h3>
-<p>Periodic technical reviews, guidance on remediation priorities and agreed follow-up support for backup and recovery improvements.</p>
-</article>
-<article class="engagement-card">
-<h3>Partner &amp; Subcontract Engagements</h3>
-<p>Specialist delivery for MSPs, system integrators and consulting partners under mutually agreed responsibilities and commercial terms.</p>
-</article>
-<article class="engagement-card">
-<h3>Remote &amp; International Delivery</h3>
-<p>Remote consulting and technical delivery for eligible engagements, subject to client security requirements, access approvals, time zones and contractual conditions.</p>
-</article>
-</div>
-
-<div class="report-strip">
-<div>
-<h3>Not sure which engagement model is suitable?</h3>
-<p>Share your requirement and we can discuss an appropriate scope and delivery approach.</p>
-</div>
-<a class="btn primary" href="mailto:contact@backupsteward.com?subject=BackupSteward%20Engagement%20Enquiry">Discuss Your Requirement ↗</a>
-</div>
+<div class="chip-row"><span class="tech-chip">Tape libraries</span><span class="tech-chip">Disk libraries</span></div>
+<p class="badge-note">Technology references indicate areas covered by BackupSteward. They do not represent personal certification claims or endorsements by these vendors. All product names are trademarks of their respective owners.</p>
 </div>
 </section>
 
@@ -777,32 +345,11 @@ aria-controls="primary-navigation">
 <div class="wrap">
 <h2>A clear, evidence-led process</h2>
 <p class="intro">Every engagement is agreed in advance and shaped around your objectives, available evidence, operational constraints and desired outcomes.</p>
-
 <div class="steps">
-<article class="step">
-<h3>1. Understand</h3>
-<p>Discuss the backup platform, workloads, environment, business challenge and expected outcome.</p>
-</article>
-<article class="step">
-<h3>2. Define Scope</h3>
-<p>Confirm deliverables, responsibilities, access requirements, assumptions, exclusions and timeline.</p>
-</article>
-<article class="step">
-<h3>3. Propose</h3>
-<p>Agree the delivery approach, commercials, milestones and acceptance criteria before work begins.</p>
-</article>
-<article class="step">
-<h3>4. Execute</h3>
-<p>Carry out the agreed assessment, investigation, implementation, migration or recovery-validation activities.</p>
-</article>
-<article class="step">
-<h3>5. Report &amp; Handover</h3>
-<p>Document findings, completed work, outstanding risks, recommendations and relevant operational handover information.</p>
-</article>
-<article class="step">
-<h3>6. Follow Up</h3>
-<p>Review outcomes, clarify recommendations and provide further support where included in the engagement.</p>
-</article>
+<article class="step"><h3>1. Discover</h3><p>Discuss the backup platform, workloads, environment, challenge, objectives and expected outcome.</p></article>
+<article class="step"><h3>2. Agree scope</h3><p>Confirm deliverables, access requirements, assumptions, exclusions and timeline.</p></article>
+<article class="step"><h3>3. Assess</h3><p>Review agreed evidence, investigate the issue and prioritise findings by impact.</p></article>
+<article class="step"><h3>4. Recommend</h3><p>Provide practical next steps and validation guidance, with follow-up if agreed.</p></article>
 </div>
 </div>
 </section>
@@ -812,11 +359,10 @@ aria-controls="primary-navigation">
 <div>
 <div style="color:var(--burgundy-2)">About BackupSteward</div>
 <h2>Experience focused on recovery outcomes</h2>
-<p>BackupSteward is an independent backup and recovery consulting business supporting organisations, IT teams and technology partners with specialist data protection and recovery services.</p>
-<p>We work with businesses of all sizes, managed service providers and enterprise IT teams. The engagement is shaped by the requirement: from a focused technical issue or health assessment to a complex migration, recovery project or ongoing advisory assignment.</p>
-<p>Our approach is practical: review the available evidence, explain why an issue matters, and document what to do next. With more than 15 years of experience in backup and recovery environments, the focus includes operational health, recovery validation, infrastructure transitions and improvement planning.</p>
+<p>BackupSteward is an independent backup and recovery consulting brand focused on helping IT teams understand risks, resolve technical challenges and make recovery plans more actionable.</p>
+<p>Our approach is practical: review the available evidence, explain why an issue matters, and document what to do next. Engagements can be a one-time assessment, a defined-scope troubleshooting assignment or ongoing advisory support.</p>
+<p>With more than 15 years of experience in backup and recovery environments, the focus includes day-to-day operational health, recovery validation, infrastructure transitions and improvement planning.</p>
 </div>
-
 <div class="about-panel">
 <h2>Areas of technical focus</h2>
 <ul class="clean">
@@ -829,7 +375,6 @@ aria-controls="primary-navigation">
 <li>Cloud, hybrid and Kubernetes workload protection</li>
 <li>Runbooks, remediation plans and operational guidance</li>
 </ul>
-
 <div class="pill-list" aria-label="Backup workload coverage">
 <span class="pill">Commvault</span><span class="pill">Veritas NetBackup</span><span class="pill">Dell EMC NetWorker</span><span class="pill">Veeam</span><span class="pill">Rubrik</span><span class="pill">Cohesity</span><span class="pill">Oracle</span><span class="pill">SQL Server</span><span class="pill">SAP</span><span class="pill">Exchange</span><span class="pill">VMware</span><span class="pill">Hyper-V</span><span class="pill">Windows</span><span class="pill">Linux</span><span class="pill">NAS</span><span class="pill">Cloud</span><span class="pill">Kubernetes</span><span class="pill">Immutable Backups</span><span class="pill">Disaster Recovery</span>
 </div>
@@ -841,7 +386,6 @@ aria-controls="primary-navigation">
 <div class="wrap">
 <h2>Frequently asked questions</h2>
 <p class="intro">A few details to help you decide whether BackupSteward is a fit for your requirements.</p>
-
 <div class="faq-list">
 <article class="faq"><h3>Which backup platforms do you cover?</h3><p>BackupSteward provides vendor-independent backup and recovery consulting across Commvault, Veritas NetBackup, Dell EMC NetWorker, Veeam, Rubrik and Cohesity. Other enterprise backup technologies are covered based on your environment and agreed scope.</p></article>
 <article class="faq"><h3>Which workloads can be assessed?</h3><p>Workload reviews include databases, enterprise applications, virtual and physical servers, file services, NAS, cloud workloads, containers, endpoints and object storage. Protection capabilities vary by backup product and environment.</p></article>
@@ -850,8 +394,6 @@ aria-controls="primary-navigation">
 <article class="faq"><h3>Can you help with an existing backup issue?</h3><p>Yes. Share a high-level description of the symptoms, impact, backup platform and workload, and we will confirm the scope and the best next step.</p></article>
 <article class="faq"><h3>Can you help with immutable backups and recovery testing?</h3><p>Yes. These are delivered as defined-scope engagements with agreed access and deliverables.</p></article>
 <article class="faq"><h3>What will I receive?</h3><p>Deliverables depend on the agreed scope and may include findings, prioritised recommendations, troubleshooting notes, a remediation plan or recovery-validation checklist.</p></article>
-<article class="faq"><h3>Do you work with MSPs and system integrators?</h3><p>Yes. We can discuss specialist project delivery, subcontracting and white-label arrangements subject to agreed scope, responsibilities, confidentiality and commercial terms.</p></article>
-<article class="faq"><h3>Do you work with small businesses as well as enterprises?</h3><p>Yes. The engagement model is based on the requirement and technical scope, not simply the size of the organisation.</p></article>
 </div>
 </div>
 </section>
@@ -862,15 +404,6 @@ aria-controls="primary-navigation">
 <h2>Have an enterprise backup or recovery challenge?</h2>
 <p>Tell us which backup platform and workload you use, what problem or goal you have, and the outcome you need. We will confirm whether a scoped assessment or advisory engagement is the right fit.</p>
 <p><strong>Email:</strong> <a href="mailto:contact@backupsteward.com">contact@backupsteward.com</a></p>
-
-<a class="linkedin-link"
-   href="https://www.linkedin.com/company/backupsteward/"
-   target="_blank"
-   rel="noopener noreferrer">
-   <span class="linkedin-icon" aria-hidden="true">in</span>
-   Follow BackupSteward on LinkedIn ↗
-</a>
-
 <a class="btn primary" href="mailto:contact@backupsteward.com?subject=BackupSteward%20Consulting%20Enquiry&amp;body=Hello%20BackupSteward%2C%0A%0ABackup%20platform%3A%0AWorkload%20or%20environment%3A%0AChallenge%20or%20goal%3A%0ADesired%20outcome%3A%0A%0AThank%20you.">Discuss Your Backup Challenges ↗</a>
 <p class="contact-meta">Please share only high-level information initially. Do not email credentials, passwords, tokens or sensitive production data.</p>
 </div>
@@ -882,67 +415,17 @@ aria-controls="primary-navigation">
 <div class="wrap footer-inner">
 <span>© 2026 BackupSteward Backup &amp; Recovery Consulting</span>
 <span>
-<a href="/enterprise-backup-recovery">Enterprise consulting</a> ·
-<a href="/sample-assessment.html">Sample assessment report</a> ·
-<a href="/immutable-backup-ransomware-resilience">Immutable backup consulting</a> ·
-<a href="/veritas-netbackup-consulting">NetBackup consulting</a> ·
-<a href="/dell-emc-networker-consulting">NetWorker consulting</a> ·
-<a href="/rubrik-backup-consulting">Rubrik consulting</a> ·
-<a href="/cohesity-backup-consulting">Cohesity consulting</a> ·
-<a href="/commvault-backup-consulting">Commvault consulting</a> ·
-<a href="/veeam-backup-consulting">Veeam consulting</a> ·
-<a href="https://www.linkedin.com/company/backupsteward/" target="_blank" rel="noopener noreferrer">LinkedIn Company Page ↗</a> ·
+<a href="enterprise-backup-recovery.html">Enterprise consulting</a> ·
+<a href="immutable-backup-ransomware-resilience.html">Immutable backup consulting</a> ·
+<a href="veritas-netbackup-consulting.html">NetBackup consulting</a> ·
+<a href="dell-emc-networker-consulting.html">NetWorker consulting</a> ·
+<a href="rubrik-backup-consulting.html">Rubrik consulting</a> ·
+<a href="cohesity-backup-consulting.html">Cohesity consulting</a> ·
+<a href="commvault-backup-consulting.html">Commvault consulting</a> ·
+<a href="veeam-backup-consulting.html">Veeam consulting</a> ·
 <a href="#top">Back to top ↑</a>
 </span>
 </div>
 </footer>
-
-<script>
-(function(){
-  const menuButton = document.querySelector('.mobile-menu-toggle');
-  const navigation = document.querySelector('#primary-navigation');
-
-  if(!menuButton || !navigation) return;
-
-  function closeMenu(){
-    menuButton.setAttribute('aria-expanded','false');
-    menuButton.setAttribute('aria-label','Open navigation menu');
-    navigation.classList.remove('is-open');
-  }
-
-  function openMenu(){
-    menuButton.setAttribute('aria-expanded','true');
-    menuButton.setAttribute('aria-label','Close navigation menu');
-    navigation.classList.add('is-open');
-  }
-
-  menuButton.addEventListener('click',function(){
-    const isExpanded = menuButton.getAttribute('aria-expanded') === 'true';
-    if(isExpanded){
-      closeMenu();
-    }else{
-      openMenu();
-    }
-  });
-
-  navigation.querySelectorAll('a').forEach(function(link){
-    link.addEventListener('click',closeMenu);
-  });
-
-  document.addEventListener('keydown',function(event){
-    if(event.key === 'Escape'){
-      closeMenu();
-    }
-  });
-
-  /* If the viewport changes to desktop, reset the mobile menu state. */
-  window.addEventListener('resize',function(){
-    if(window.innerWidth > 560){
-      closeMenu();
-    }
-  });
-})();
-</script>
-
 </body>
 </html>
